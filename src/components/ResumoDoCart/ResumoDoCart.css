@@ -1,0 +1,177 @@
+.ResumoDoCart--principal{
+    position: sticky;
+    margin-top: -63px;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    padding: 15px;
+    overflow: hidden;
+    background-image: radial-gradient(
+        rgba(0, 0, 0, 0.578) 1px,
+        #000000 1px
+        );
+        background-size: 4px 4px;
+        backdrop-filter: blur(5px);
+        font-size: 14px;
+        line-height: 14px;
+
+}
+.ResumoDoCart--seguandaria{
+    position: relative;
+    width: 50%;
+    height: 92vh;
+    background-color: #00152d;
+    border-radius: 10px;
+    padding: 20px;
+}
+.ResumoDoCart--seguandaria h1{
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+.modaloff{
+    display: none;
+    position: relative;
+}
+.CEP{
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    justify-content: space-between;
+    gap: 1px;
+    position: relative;
+    padding-right: 1px;
+}
+.CEP input{
+    border: none;
+}
+.CEP button{
+    width: 50px;
+    height: 52px;
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    bottom: 0;
+    padding: 15px;
+    background: #750310;
+    border-radius: 10px;
+    border: none;
+    padding: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.CEP button svg{
+    font-size: 30px;
+    padding: auto;
+}
+.btn_fechar_modal{
+    width: 50px;
+    height: 52px;
+    position: absolute;
+    z-index: 10;
+    padding: 5px;
+    background: #750310;
+    border-radius: 10px;
+    border: none;
+    padding: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Moneys{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+.Moneys label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 1px;
+    
+}
+.Moneys label svg{
+    z-index: 9;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin: 0;
+    color: #fff;
+}
+.Moneys input[type="radio"]{
+    appearance: none;
+    background: none;
+    position: relative;
+    width: 5rem;
+    height: 3rem;
+    z-index: 99;
+    transition: .7s all;
+}
+.Moneys input[type="radio"]:checked{
+    transition: .1s all ease;
+    background: linear-gradient(45deg, #560000 35%, #950101 75%, #750310 100% );
+    z-index: 1;
+    border: none;
+}
+.ResumoDoCart--pay{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    z-index: 99;
+    width: 50%;
+    height: 92vh;
+    background-color: #00152d;
+    border-radius: 10px;
+    padding: 15px;
+}
+@media screen  and (max-width: 512px){
+    .ResumoDoCart--seguandaria{
+        width: 100%;
+        height: 80vh;
+    }
+    .btn_fechar_modal{
+        width: 35px;
+        height: 35px;
+    }
+    .ResumoDoCart--pay{
+        width: 100%;
+        height: 80vh;
+        justify-content: center;
+    }
+    .ResumoDoCart--pay h1{
+        font-size: 1.3em;
+    }
+    .btn_fechar_modal{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        z-index: 10;
+        padding: 5px;
+        background: #750310;
+        border-radius: 10px;
+        border: none;
+        padding: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+        margin-left: 15px;
+        left: 0;
+        top: 0;
+    }
+}

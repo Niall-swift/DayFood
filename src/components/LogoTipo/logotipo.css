@@ -1,0 +1,28 @@
+.logo{
+    width: 160px;
+    height: auto;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.logo img{
+    border-radius: 50%;
+    object-fit: cover;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    left: 0;
+}
+.logo p{
+    width: 250px;
+    position: absolute;
+    text-indent: 95px;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

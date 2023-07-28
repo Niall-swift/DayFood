@@ -1,0 +1,41 @@
+.contenter{
+    width: 100%;
+    height: 100vh;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contenter h1{
+    text-align: center;
+    font-weight: 500;
+    font-size: 35px;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    white-space: wrap;
+}
+.contenter h3{
+    text-align: center;
+    font-weight: 100;
+}
+.contenter img{
+    margin-top: 2em;
+    width: 100%;
+    height: 50%;
+}
+
+@media screen and (max-width: 512px) {
+    .contenter{
+        width: 100%;
+        height: 85vh;
+        padding: 20px;
+    }
+    .contenter img{
+        width: 100%;
+        height: 100%;
+    }
+    .contenter h1{
+        margin-bottom: 1em;
+    }
+}

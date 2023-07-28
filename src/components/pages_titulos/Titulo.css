@@ -1,0 +1,21 @@
+.Titulo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+    border-radius: 10px;
+    background: #011b2f;
+    padding: 0.8rem;
+    position: relative;
+    width: 300px;
+    top: 7px;
+}
+
+.Titulo span{
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #ffffffdd;
+
+}

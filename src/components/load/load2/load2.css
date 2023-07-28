@@ -1,0 +1,49 @@
+    .dots {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        color: #b30000;
+        box-shadow: 33.4px -33.4px 0 0px, 66.9px -33.4px 0 0px, 100.3px -33.4px 0 0px,
+            33.4px 0     0 8.8px, 66.9px 0     0 8.8px, 100.3px 0     0 8.8px,
+            33.4px 33.4px  0 0px, 66.9px 33.4px  0 0px, 100.3px 33.4px  0 0px;
+        transform: translateX(-66.9px);
+        animation: dots-i2eob1hg 2s infinite linear;
+    }
+    
+    @keyframes dots-i2eob1hg {
+        12.5% {
+        box-shadow: 33.4px -33.4px 0 0px, 66.9px -33.4px 0 0px, 100.3px -33.4px 0 8.8px,
+            33.4px 0     0 8.8px, 66.9px 0     0 0px, 100.3px 0     0 8.8px,
+            33.4px 33.4px  0 0px, 66.9px 33.4px  0 0px, 100.3px 33.4px  0 0px;
+        }
+    
+        25% {
+        box-shadow: 33.4px -33.4px 0 8.8px, 66.9px -33.4px 0 0px, 100.3px -33.4px 0 8.8px,
+            33.4px 0     0 0px, 66.9px 0     0 0px, 100.3px 0     0 0px,
+            33.4px 33.4px  0 0px, 66.9px 33.4px  0 8.8px, 100.3px 33.4px  0 0px;
+        }
+    
+        50% {
+        box-shadow: 33.4px -33.4px 0 8.8px, 66.9px -33.4px 0 8.8px, 100.3px -33.4px 0 0px,
+            33.4px 0     0 0px, 66.9px 0     0 0px, 100.3px 0     0 0px,
+            33.4px 33.4px  0 0px, 66.9px 33.4px  0 0px, 100.3px 33.4px  0 8.8px;
+        }
+    
+        62.5% {
+        box-shadow: 33.4px -33.4px 0 0px, 66.9px -33.4px 0 0px, 100.3px -33.4px 0 0px,
+            33.4px 0     0 8.8px, 66.9px 0     0 0px, 100.3px 0     0 0px,
+            33.4px 33.4px  0 0px, 66.9px 33.4px  0 8.8px, 100.3px 33.4px  0 8.8px;
+        }
+    
+        75% {
+        box-shadow: 33.4px -33.4px 0 0px, 66.9px -33.4px 0 8.8px, 100.3px -33.4px 0 0px,
+            33.4px 0     0 0px, 66.9px 0     0 0px, 100.3px 0     0 8.8px,
+            33.4px 33.4px  0 0px, 66.9px 33.4px  0 0px, 100.3px 33.4px  0 8.8px;
+        }
+    
+        87.5% {
+        box-shadow: 33.4px -33.4px 0 0px, 66.9px -33.4px 0 8.8px, 100.3px -33.4px 0 0px,
+            33.4px 0     0 0px, 66.9px 0     0 8.8px, 100.3px 0     0 0px,
+            33.4px 33.4px  0 8.8px, 66.9px 33.4px  0 0px, 100.3px 33.4px  0 0px;
+        }
+    }

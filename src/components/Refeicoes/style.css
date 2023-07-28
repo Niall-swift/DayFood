@@ -1,0 +1,187 @@
+.refeicoes{
+    width: 80%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding: 1px;
+    margin-bottom: 1em;
+}
+.refeicoes::-webkit-scrollbar{
+    display: none;
+}
+.Contenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-content: space-around;
+}
+.Card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 18rem;
+    max-width: 18rem;
+    height: 24rem;
+    border-radius: 20px;
+    margin: 2em;
+    background: #00070A;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.246);
+    
+}
+.Card:last-child{
+    margin-right: 0.5em;
+}
+
+
+.favorites{
+    padding: 15px;
+    top: 0;
+    right: 0;
+    border: none;
+    background: transparent;
+    position: absolute;
+}
+.Card img{
+    border-radius: 50%;
+    object-fit: cover;
+    width: 170px;
+    height: 170px;
+    margin-bottom: 1em;
+}
+.Card .tituloRef{
+    width: 300px;
+    margin-bottom: 1em;
+    font-size: 20px;
+    color: #c9c9c9;
+    border: none;
+    background: transparent;
+    white-space: pre-line;
+}
+.Card p{
+    max-width: 290px;
+    white-space: pre-wrap;
+    color: #6e6e6e;
+    font-size: 15px;
+    padding: auto;
+    margin-bottom: 1em;
+}
+.Card strong{
+    font-size: 25px;
+    color: #ffffff;
+    margin-bottom: 2em;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+.Card div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    padding: 15px 0px 15px 0px;
+    position: absolute;
+}
+.Card div span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 0.2em;
+    font-size: 30px;
+    color: #c9c9c9;
+}
+
+.Card div span:nth-child(2){
+    margin-left: 0.5em;
+    margin-right: 0.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.Card div button{
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background: #750310;
+    margin-left: 1em;
+    width: 100px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 512px) {
+    .refeicoes{
+        width: 80%;
+        overflow-x: scroll;
+        overflow-y: none;
+        scroll-snap-type: x mandatory;
+        scroll-snap-align: center;
+        scroll-behavior: smooth;
+        white-space: nowrap;
+        height: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        padding: 1px;
+        margin-bottom: 1em;
+        flex-wrap: nowrap;
+    }
+    .Contenter{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 15px auto 6px;
+        justify-content: flex-start;
+        position: relative;
+        
+    }
+
+    .Card p{
+        display: none;
+    }
+    .Card{
+        margin: 1em;
+    }
+    .Card:first-child{
+        margin-left: 1.3em;
+    }
+    .Card:last-child{
+        margin-right: 1em;
+    }
+}
+.btn_reiht{
+    position: absolute;
+    width: 45px;
+    height: 45vh;
+    right: 0;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: none;
+    background: #000000;
+    background: -webkit-linear-gradient(270deg, #000000 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(270deg, #00000080 0%, rgba(0, 0, 0, 0) 100%);
+    }
+.btn_left{
+    position: absolute;
+    width: 45px;
+    height: 45vh;
+    left: 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: none;
+    background: #000000;
+    background: -webkit-linear-gradient(90deg, #000000 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(90deg, #00000080 0%, rgba(0, 0, 0, 0) 100%);
+}

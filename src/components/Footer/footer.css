@@ -1,0 +1,43 @@
+footer{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-image: radial-gradient(
+    rgba(0, 0, 0, 0) 1px,
+    #000204 5px
+    );
+    background-size: 4px 4px;
+    backdrop-filter: blur(15px);
+    font-size: 14px;
+    line-height: 14px;
+}
+footer::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #111111;
+    opacity: 0.2;
+}
+.foter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    height: 70%;
+    max-width: 600px;
+}
+.foter h3{
+    font-weight: 200;
+    font-size: 1.2em;
+}
+
+@media screen and (max-width: 414px) {
+    .foter h3{
+        font-weight: 200;
+        font-size: 13px;
+    }
+}
