@@ -52,7 +52,7 @@ export default function Header({menuIsVisible,setMenuIsVisible}){
                     <>
                     <Link to='/pedidos'><button><TbReceipt2/>pedidos</button></Link>
                     <Link to='/perfil'><button><BiUserCircle/>perfil</button></Link>
-                    <Link to='/*'><button><MdAutoGraph/>Vendas</button></Link>
+                    <Link to='/vendas'><button><MdAutoGraph/>Vendas</button></Link>
                     <button onClick={exit}><IoLogOut/>sair</button>
                     </>
                 ) : (

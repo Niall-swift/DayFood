@@ -7,6 +7,7 @@
     align-items: center;
     position: relative;
     padding: 12px 12px;
+    background: url(../../assets/backfood.jpg)center/cover;
 }
 .iniciar{
     background: rgba(0, 0, 0, 0.522);
