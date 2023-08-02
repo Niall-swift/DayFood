@@ -1,5 +1,5 @@
 //// icons
-import { MdFavoriteBorder , MdOutlineFoodBank} from 'react-icons/md';
+import { MdFavoriteBorder} from 'react-icons/md';
 import {IoMdAddCircle, IoMdRemoveCircle} from 'react-icons/io'
 import { FiEdit } from 'react-icons/fi';
 //////
@@ -12,13 +12,12 @@ import {fadeInUp, transition} from '../../utils/Animations'
 
 
 
-import Lista from '../cart';
 import {ContextGlobal} from '../../contexts/auth'
 
 
 import Swal from 'sweetalert2'
 import formatCurrency from '../../utils/formatCurrency';
-import {toast} from 'react-toastify'
+
 
 //// import firebase
 import {db} from '../../pages/firebase'
@@ -28,7 +27,7 @@ import Ribbon from '../Ribbon';
 
 export default function CardDoProduto({data}){
     const {onCart ,setOnCart, user, favoritos} = useContext(ContextGlobal)
-    const [status, setStatus] = useState ('disponivel')
+    const [setStatus] = useState ('disponivel')
     const [quantidade, setQuatidade] = useState(1)
     const {id, nome, imagem, preco, descricao, categoria, Disponibilidade} = data;
 
