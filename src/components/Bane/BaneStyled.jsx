@@ -72,6 +72,7 @@ export const Cadapio = styled.div`
         justify-content: center;
         align-items: center;
         flex-direction: row;
+        height: 60px;
         width: 200px;
         color:  var(--color-black);
         background: #fff;
@@ -88,15 +89,27 @@ export const Cadapio = styled.div`
             border-radius: 10px;
             background: var(--color-primary);
         }
+        :hover{
+            background: var(--color-primary);
+        }
     }
+    
 
     @media screen and (max-width: 512px) {
         a:nth-child(2){
         white-space: nowrap;
         font-size: 18px;
-        width: 240px;
-        padding: 13px 23px;
+        width: 220px;
+        padding: 15px;
+        svg{
+            font-size: 35px;
+            color: #fff;
+            padding: 5px;
+            margin-right: 10px;
+            border-radius: 10px;
+            background: var(--color-primary);
+        }
         
-    }   
+    }
     }
 `
