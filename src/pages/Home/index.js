@@ -1,16 +1,14 @@
 import Header from "../../components/Hearder"
 import Refeicoes from "../../components/Refeicoes"
-import Sobremesa from "../../components/Sobremesas"
 import {ContextGlobal} from '../../contexts/auth'
 import { useContext, useEffect, useState } from "react"
 import Cart from "../../components/cart"
 import Footer from "../../components/Footer"
 import { PageTransition } from "../../components/PageAnimation"
-import Bebidas from "../../components/Bebidas"
 import ResumoDoCart from "../../components/ResumoDoCart"
 import MenuMobile from "../../components/Hearder/menuMobile"
 import Bane from "../../components/Bane"
-
+import Categoria from '../../components/Categoria'
 
 
 
@@ -31,9 +29,8 @@ export default function Home(){
         <PageTransition/>
         <Cart/>
         <ResumoDoCart/>
+        <Categoria/>
         <Refeicoes/>
-        <Sobremesa/>
-        <Bebidas/>
         <Footer/>
         </div>
     )

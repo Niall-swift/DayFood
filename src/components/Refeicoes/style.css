@@ -1,15 +1,17 @@
 .refeicoes{
-    width: 80%;
+    width: 100%;
     overflow-x: auto;
     scroll-behavior: smooth;
-    height: 100%;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     justify-content: flex-start;
     flex-direction: row;
+    flex-wrap: wrap;
     padding: 1px;
     margin-bottom: 1em;
+    background: url(../../assets/bg-icons-1.png)center/cover;
 }
 .refeicoes::-webkit-scrollbar{
     display: none;
@@ -28,17 +30,18 @@
     align-items: center;
     flex-direction: column;
     width: 18rem;
-    max-width: 18rem;
     height: 24rem;
     border-radius: 20px;
-    margin: 2em;
-    background: #00070A;
+    margin: 1em;
+    background: #fff;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1)!important;
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.246);
     
 }
-.Card:last-child{
-    margin-right: 0.5em;
+.Card:hover{
+    background: var(--color-primary);
+    transition: .7s;
 }
 
 
@@ -59,9 +62,10 @@
 }
 .Card .tituloRef{
     width: 300px;
+    text-align: center;
     margin-bottom: 1em;
     font-size: 20px;
-    color: #c9c9c9;
+    color: var(--color-black)!important;
     border: none;
     background: transparent;
     white-space: pre-line;
@@ -82,12 +86,18 @@
     font-weight: 900;
 }
 .Card div{
+    opacity: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     bottom: 0;
     padding: 15px 0px 15px 0px;
     position: absolute;
+    transition: .7s;
+}
+.Card:hover > div{
+    opacity: 1;
+    transition: .7s;
 }
 .Card div span{
     display: flex;
@@ -96,7 +106,7 @@
     cursor: pointer;
     margin-left: 0.2em;
     font-size: 30px;
-    color: #c9c9c9;
+    color: var(--color-black)!important;
 }
 
 .Card div span:nth-child(2){
@@ -107,11 +117,11 @@
 }
 .Card div button{
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
-    background: #750310;
+    background: var(--color-black)!important;
     margin-left: 1em;
-    width: 100px;
+    width: 50px;
     color: #fff;
     font-weight: bold;
     font-size: 1rem;
@@ -119,25 +129,19 @@
 
 @media screen and (max-width: 512px) {
     .refeicoes{
-        width: 80%;
-        overflow-x: scroll;
-        overflow-y: none;
-        scroll-snap-type: x mandatory;
-        scroll-snap-align: center;
-        scroll-behavior: smooth;
+        width: 100%;
         white-space: nowrap;
-        height: 70%;
+        height: 65vh;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        flex-direction: row;
+        flex-direction: column;
         padding: 1px;
         margin-bottom: 1em;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
     }
     .Contenter{
         width: 100%;
-        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -147,41 +151,71 @@
         position: relative;
         
     }
-
+    .Card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 130px;
+    width: 90%;
+    padding-left: 10px;
+    justify-content: center;
+    align-items: start;
+    
+    }
+    .Card img{
+        
+        width: 85px;
+        height: 85px;
+        border-radius: 11%;
+        margin-top: 20px;
+    }
+    .Card strong{
+        font-size: 25px;
+        position: absolute;
+        bottom: -35px;
+        text-transform: uppercase;
+        font-weight: 900;
+        color: var(--color-primary);
+        transition: .7s;
+    }
+    .Card:hover > strong{
+        bottom: 5px;
+        color:  var(--color-black);
+        transition: .7s;
+    }
     .Card p{
         display: none;
     }
-    .Card{
-        margin: 1em;
+    .Card div{
+        display: none;
+        justify-content: center;
+        align-items: center;
+        bottom: 0;
+        right: 0;
+        padding: 5px 70px 5px 0px;
+        position: absolute;
+        transition: .7s;
     }
-    .Card:first-child{
-        margin-left: 1.3em;
+    .Card:hover > div{
+        display: flex;
+        transition: .7s;
     }
-    .Card:last-child{
-        margin-right: 1em;
+    .Card .tituloRef{
+        color: var(--color-black);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        height: 40px;
+        text-align: center;
+        margin-right: 5rem;
+        margin-top: 15px;
+        margin-bottom: 0px;
+        transition: .7s;
     }
-}
-.btn_reiht{
-    position: absolute;
-    width: 45px;
-    height: 45vh;
-    right: 0;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border: none;
-    background: #000000;
-    background: -webkit-linear-gradient(270deg, #000000 0%, rgba(255, 255, 255, 0) 100%);
-    background: linear-gradient(270deg, #00000080 0%, rgba(0, 0, 0, 0) 100%);
+    .Card:hover > .tituloRef{
+        opacity: 0;
+        transition: .7s;
     }
-.btn_left{
-    position: absolute;
-    width: 45px;
-    height: 45vh;
-    left: 0;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border: none;
-    background: #000000;
-    background: -webkit-linear-gradient(90deg, #000000 0%, rgba(255, 255, 255, 0) 100%);
-    background: linear-gradient(90deg, #00000080 0%, rgba(0, 0, 0, 0) 100%);
+    
 }

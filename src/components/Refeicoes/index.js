@@ -19,7 +19,7 @@ export default function Refeicoes(){
 
 
 
-    const {busca} = useContext(ContextGlobal)
+    const {categoria} = useContext(ContextGlobal)
     const [prods, SetProds] = useState ([])
     const [load, setLoad] = useState(true)
     const scroll = useRef(null)
@@ -32,7 +32,7 @@ export default function Refeicoes(){
 
 useEffect(()=>{
     async function listar(){
-        const lista = collection(db, "Refeição")
+        const lista = collection(db, `${categoria}`)
         await getDocs(lista)
         .then((snapshot)=>{
             let lista = [];
@@ -54,7 +54,7 @@ useEffect(()=>{
         })
     }
     listar();
-},[])
+},[categoria])
 
 const reihtScroll = (e) =>{
     e.preventDefault();
@@ -71,18 +71,11 @@ const leftScroll = (e) =>{
     return(
         (load ? <Load2/> :
         <div className='Contenter'>
-
-
-        <Titulo titulos="Refeições">
-            <LuSalad color='#fff' size={30} />       
-        </Titulo>
         
         <section className="refeicoes" ref={scroll}>
             {
                 prods.map((item, index) => <CardDoProduto key={index} data={item}/>)
             }
-            <button className='btn_reiht' onClick={reihtScroll}> <FiArrowRightCircle size={40}/> </button>
-            <button className='btn_left' onClick={leftScroll}> <FiArrowLeftCircle size={40}/> </button>
         </section> 
     </div>
         )

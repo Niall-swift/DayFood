@@ -8,13 +8,13 @@ import { useContext } from "react";
 ////////////////////////
 
 export default function Categoria(){
-    const {SetCategoria} = useContext(ContextGlobal);
+    const {setCategoria} = useContext(ContextGlobal);
 
     return(
         <Content>
-            <Button onClick={() => SetCategoria("Refeição")}> <LuSalad/> Refeições </Button>
-            <Button onClick={() => SetCategoria("Berbida")}> <LuWine/> Berbidas</Button>
-            <Button onClick={() => SetCategoria("Sobremesa")}> <LuIceCream2/> Sobremesas</Button>
+            <Button onClick={() => setCategoria("Refeição")}> <LuSalad/> Refeições </Button>
+            <Button onClick={() => setCategoria("Berbida")}> <LuWine/> Berbidas</Button>
+            <Button onClick={() => setCategoria("Sobremesa")}> <LuIceCream2/> Sobremesas</Button>
         </Content>
     )
 }

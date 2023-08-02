@@ -19,7 +19,7 @@ function AutorizarClientes( { children } ){
     const [offcart, setOffcart] = useState (false)
     const [fav, setFav] = useState([])
     const [favItem, setFavItem] = useState([])
-    const [busca, setBusca] = useState ('')
+    const [categoria, setCategoria] = useState ('Refeição')
     const [modal, setModal] = useState(false)
     const [whatsappPic, setWhatsappPic] = useState(null)
     
@@ -186,8 +186,8 @@ function AutorizarClientes( { children } ){
             setFav,
             favItem,
             setFavItem,
-            busca,
-            setBusca,
+            categoria,
+            setCategoria,
             modal,
             setModal,
             whatsappPic,

@@ -1,6 +1,7 @@
 //// icons
 import { MdFavoriteBorder} from 'react-icons/md';
-import {IoMdAddCircle, IoMdRemoveCircle} from 'react-icons/io'
+import {IoMdAddCircle, IoMdRemoveCircle,} from 'react-icons/io'
+import {IoBag} from 'react-icons/io5'
 import { FiEdit } from 'react-icons/fi';
 //////
 /// import reacts
@@ -202,9 +203,8 @@ export default function CardDoProduto({data}){
                     transition={{ ...transition, duration: 1.45, delay: 0.7 }}
                 src={imagem} alt='img' />
 
-                <button className='tituloRef' >
-                    <h3>{nome}</h3>
-                </button>
+                
+                <h3 className='tituloRef'>{nome}</h3>
 
                 <p>{descricao}</p>
                 <strong>R$ {formatCurrency(preco, "BRL").replace(".", ",")}</strong>
@@ -222,7 +222,7 @@ export default function CardDoProduto({data}){
                     <span> {quantidade<10 ? `0${quantidade}` : quantidade}</span>
                     <span onClick={mais}><IoMdAddCircle/></span>
 
-                    <button type='button' onClick={()=> add({quantidades:quantidade, nome:nome, imagem:imagem, preco:preco, id:id})}>Incluir</button>
+                    <button type='button' onClick={()=> add({quantidades:quantidade, nome:nome, imagem:imagem, preco:preco, id:id})}> <IoBag size={25}/> </button>
                     </>
                     }
                 </div>
