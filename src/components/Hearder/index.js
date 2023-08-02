@@ -4,7 +4,7 @@ import {motion} from 'framer-motion'
 import {fadeInDown} from '../../utils/Animations'
 import {ContextGlobal} from '../../contexts/auth'
 import CartButton from '../CartButton';
-import SearchBar from '../SearchBar';
+
 import avataof from '../../assets/undraw_pic_profile_re_7g2h.svg'
 /// icones
 import {CgNotes} from 'react-icons/cg'
