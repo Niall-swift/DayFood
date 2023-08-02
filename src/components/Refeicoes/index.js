@@ -4,6 +4,8 @@ import { useContext, useEffect, useState, useRef } from 'react';
 import {FiArrowRightCircle, FiArrowLeftCircle} from 'react-icons/fi';
 import {LuSalad} from  'react-icons/lu'
 import Titulo from '../pages_titulos';
+import {motion} from 'framer-motion'
+import {fadeInUp, transition} from '../../utils/Animations'
 import {db} from '../../pages/firebase'
 import { collection, getDocs } from 'firebase/firestore';
 import CardDoProduto from '../CardDoProduto';
@@ -70,14 +72,14 @@ const leftScroll = (e) =>{
     
     return(
         (load ? <Load2/> :
-        <div className='Contenter'>
+        <motion.div {...fadeInUp} className='Contenter'>
         
         <section className="refeicoes" ref={scroll}>
             {
                 prods.map((item, index) => <CardDoProduto key={index} data={item}/>)
             }
         </section> 
-    </div>
+    </motion.div>
         )
     )
 }

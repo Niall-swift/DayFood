@@ -27,6 +27,7 @@ export default function Home(){
         />
         
         <PageTransition/>
+        <Bane/>
         <Cart/>
         <ResumoDoCart/>
         <Categoria/>
