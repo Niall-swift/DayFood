@@ -2,15 +2,18 @@ import styled from "styled-components";
 import bg from '../../assets/bg-icons-2.png'
 
 export const Content = styled.section`
+    background: url(${bg})center/cover;
     width: 100%;
-    height: 60vh;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 `
 
 
 
 
 export const Titulo = styled.div`
-    background: url(${bg})center/cover;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 60px;
@@ -59,7 +62,7 @@ export const Cadapio = styled.div`
     align-items: center;
     background: var(--color-primary);
     width: 130px;
-    height: 60px;
+    height: 50px;
     padding: 5px;
     border-radius: 15px;
     color: #fff;
@@ -72,8 +75,8 @@ export const Cadapio = styled.div`
         justify-content: center;
         align-items: center;
         flex-direction: row;
-        height: 60px;
-        width: 200px;
+        height: 50px;
+        width: 220px;
         color:  var(--color-black);
         background: #fff;
         box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
@@ -91,6 +94,7 @@ export const Cadapio = styled.div`
         }
         :hover{
             background: var(--color-primary);
+            transition: .7s;
         }
     }
     
@@ -99,7 +103,7 @@ export const Cadapio = styled.div`
         a:nth-child(2){
         white-space: nowrap;
         font-size: 18px;
-        width: 220px;
+        width: 230px;
         padding: 15px;
         svg{
             font-size: 35px;
@@ -110,6 +114,38 @@ export const Cadapio = styled.div`
             background: var(--color-primary);
         }
         
+    }
+    }
+`
+
+export const Contatos = styled.div`
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    a{
+        display: flex;
+        align-items: center;
+        background: var(--color-white);
+        padding: 10px;
+        border-radius: 10px;
+        margin-left: 1rem;
+        margin-right: 2rem;
+        box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+
+        svg{
+            font-size: 25px;
+            color: var(--color-black);
+            transition: .3s;
+        }
+        :hover{
+        background:  var(--color-primary);
+        transition: .7s;
+        svg{
+            color: var(--color-white);
+        }
     }
     }
 `

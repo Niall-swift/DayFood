@@ -3,7 +3,7 @@
     height: 100vh;
     display: flex;
     backdrop-filter: blur(2em);
-    background-color: #00000073;
+    background-color: #00000000;
     margin-bottom: 10rem;
     flex-direction: column;
     justify-content: center;

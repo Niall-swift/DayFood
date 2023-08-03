@@ -25,10 +25,9 @@ export default function Home(){
         menuIsVisible={menuIsVisible}
         setMenuIsVisible={setMenuIsVisible}
         />
-        
+        <Cart/>
         <PageTransition/>
         <Bane/>
-        <Cart/>
         <ResumoDoCart/>
         <Categoria/>
         <Refeicoes/>

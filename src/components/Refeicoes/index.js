@@ -13,7 +13,7 @@ import CardDoProduto from '../CardDoProduto';
 
 
 import Load from '../load';
-import Load2 from '../load/load2';
+
 
 
 
@@ -56,6 +56,7 @@ useEffect(()=>{
         })
     }
     listar();
+    setLoad(true)
 },[categoria])
 
 const reihtScroll = (e) =>{
@@ -71,15 +72,15 @@ const leftScroll = (e) =>{
 }
     
     return(
-        (load ? <Load2/> :
-        <motion.div {...fadeInUp} className='Contenter'>
+        (load ? <Load/> :
+        <div className='Contenter' id='Cadapio'>
         
-        <section className="refeicoes" ref={scroll}>
+        <motion.section {...fadeInUp} className="refeicoes" ref={scroll}>
             {
                 prods.map((item, index) => <CardDoProduto key={index} data={item}/>)
             }
-        </section> 
-    </motion.div>
+        </motion.section> 
+    </div>
         )
     )
 }
