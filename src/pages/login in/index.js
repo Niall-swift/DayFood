@@ -42,7 +42,7 @@ export default function Login(){
             <>
             <motion.div 
             {...fadeInUp}
-                transition={{ ...fadeInUp.transition, delay: 0.5 }}
+                transition={{ ...fadeInUp.transition, delay: 0.5}}
             className='conteiner-principal'>
                     <div className='iniciar'>
                         <div className="iniciar-area">

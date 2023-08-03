@@ -1,21 +1,29 @@
 .Titulo{
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 40px;
-    border-radius: 10px;
-    background: #011b2f;
-    padding: 0.8rem;
-    position: relative;
-    width: 300px;
-    top: 7px;
+    flex-direction: column;
+    margin-top: 1rem;
 }
 
-.Titulo span{
-    margin-left: 1rem;
-    font-size: 1.5rem;
+.Titulo h4{
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 16px;
     text-transform: uppercase;
-    color: #ffffffdd;
+    letter-spacing: 5px;
 
+}
+.Titulo h1{
+        text-align: center;
+        color: var(--color-black);
+        font-size: 40px;
+        margin-top: 5px;
+        margin-bottom: 30px;
+}
+
+@media screen and (max-width: 512px){
+    .Titulo{
+        margin-top: 100%;
+    }
 }

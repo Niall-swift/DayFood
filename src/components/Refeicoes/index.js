@@ -73,7 +73,7 @@ const leftScroll = (e) =>{
     
     return(
         (load ? <Load/> :
-        <div className='Contenter' id='Cadapio'>
+        <div className='Contenter'>
         
         <motion.section {...fadeInUp} className="refeicoes" ref={scroll}>
             {

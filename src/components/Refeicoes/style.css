@@ -1,7 +1,5 @@
 .refeicoes{
     width: 100%;
-    overflow-x: auto;
-    scroll-behavior: smooth;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -129,16 +127,18 @@
 
 @media screen and (max-width: 512px) {
     .refeicoes{
+        margin-right: 0;
         width: 100%;
+        overflow-y: scroll;
         white-space: nowrap;
-        height: 65vh;
+        height: 80vh;
         display: flex;
         align-items: center;
         justify-content: flex-start;
         flex-direction: column;
         padding: 1px;
         margin-bottom: 1em;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
     .Contenter{
         width: 100%;

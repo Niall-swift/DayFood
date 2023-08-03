@@ -9,6 +9,9 @@ import ResumoDoCart from "../../components/ResumoDoCart"
 import MenuMobile from "../../components/Hearder/menuMobile"
 import Bane from "../../components/Bane"
 import Categoria from '../../components/Categoria'
+import ButtonCartFixo from "../../components/ButtonFixoDoCart"
+import Servicos from "../../components/BaneServicos"
+import Titulo from "../../components/pages_titulos"
 
 
 
@@ -16,7 +19,7 @@ export default function Home(){
     const [menuIsVisible, setMenuIsVisible] = useState(false);
 
     return(
-        <div>
+        <>
         <MenuMobile
             menuIsVisible={menuIsVisible}
             setMenuIsVisible={setMenuIsVisible}
@@ -28,10 +31,13 @@ export default function Home(){
         <Cart/>
         <PageTransition/>
         <Bane/>
+        <Servicos/>
         <ResumoDoCart/>
+        <Titulo/>
         <Categoria/>
         <Refeicoes/>
+        <ButtonCartFixo/>
         <Footer/>
-        </div>
+        </>
     )
 }

@@ -2,11 +2,12 @@
 
 import './Titulo.css'
 
-export default function Titulo({children, titulos}){
+export default function Titulo(){
     return(
-        <div className='Titulo'>
-            {children}
-            <span>{titulos}</span>
+        <div className='Titulo' id='Cadapio'>
+            <h4>CARDÁPIO</h4>
+
+            <h1>Conheça o nosso cardápio</h1>
         </div>
     )
 }

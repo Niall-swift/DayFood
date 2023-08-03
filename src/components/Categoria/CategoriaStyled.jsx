@@ -4,10 +4,12 @@ import styled from "styled-components";
 export const Content = styled.section`
     width: 100%;
     height: 15vh;
+    margin-bottom: 60px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    overflow-x:scroll;
+    flex-wrap: wrap;
+    overflow-x: scroll;
 
 
 

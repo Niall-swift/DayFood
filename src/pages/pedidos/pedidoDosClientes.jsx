@@ -5,7 +5,6 @@ import {collection, doc, onSnapshot, orderBy, query, updateDoc, where } from 'fi
 import {ContextGlobal} from '../../contexts/auth'
 import {format, set} from 'date-fns';
 import Load from '../../components/load'
-import { Notifica } from '../../components/apiDeNotificao'
 import formatCurrency from '../../utils/formatCurrency'
 
 

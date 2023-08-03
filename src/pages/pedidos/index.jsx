@@ -14,7 +14,7 @@ import formatCurrency from '../../utils/formatCurrency';
 import {db} from '../../pages/firebase'
 import {collection, doc, onSnapshot, orderBy, query, updateDoc, where } from 'firebase/firestore'
 import {ContextGlobal} from '../../contexts/auth'
-import { Notifica } from '../../components/apiDeNotificao';
+
 
 ///////////////////// icones////////////////////////////////
 import {IoIosArrowBack} from 'react-icons/io'
@@ -42,18 +42,7 @@ export default function Pedidos(){
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////     
 
 ////////////// notificação nativa do sistema///////////////////////////////////////
-async function notf(){
-        
-    try {
-        await Notifica.init()
-        Notifica.Notify({
-            titulo: `olá ${user.nome}`,
-            body: `O seu Pedido já foi e já vai saiu para entrgra`
-        })
-    } catch (err){
-        console.log('erro')
-    }
-}
+
 
 ///////////////////////////////////////////////////////////////////////////////////
 
