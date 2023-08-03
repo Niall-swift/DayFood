@@ -4,22 +4,20 @@
     position: fixed;
     width: 350px;
     max-width: 414px;
-    margin-top: -65px;
     height: 100vh;
     z-index: 2;
     align-items: flex-start;
     top: 0;
     justify-content: space-between;
     left: -600px;
-    background: #000000;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='1'/%3E%3C/filter%3E%3Crect width='100' height='100' style='filter:url(%23f)' opacity='.2'/%3E%3C/svg%3E");
-    mask: linear-gradient(rgb(0, 0, 0) 1rem, transparent);
-    -webkit-mask: linear-gradient(rgba(0, 0, 0, 0.974) 100rem, transparent);
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
-    transition: all 400ms ease;
+    background: var(--color-background);
+    background-image: url(../../assets//bg-icons-1.png);
+    transition: .7s;
     padding: 70px 20px 25px;
     flex-direction: column;
+    -webkit-box-shadow: 9px 0 11px 3px #00000068;
+    -moz-box-shadow: 9px 0 11px 3px #00000068;
+    box-shadow: 9px 0 11px 3px #00000068;
 }
 .cart-items{
     width: 100%;
@@ -33,21 +31,18 @@
     font-size: 1.3em;
     font-weight: 500;
     padding: 35px 0 15px 0;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--color-secondary);
 }
 .cart-items .cart-item:last-child{
     border-bottom: none;
 }
 .cart-active {
     display: flex;
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     overflow: hidden;
-    transition: all 1s ease-in-out;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    backdrop-filter: blur(15px);
+    transition:.7s ;
 }
 .button-perdi-item{
     position: absolute;

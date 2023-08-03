@@ -4,15 +4,12 @@ import styled from "styled-components";
 export const Content = styled.section`
     width: 100%;
     height: 15vh;
-    margin-bottom: 60px;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    flex-wrap: wrap;
     overflow-x: scroll;
-
-
-
+    
 ::-webkit-scrollbar{
     display: none;
 }
@@ -35,6 +32,12 @@ export const Button = styled.button`
     
     :hover,:active{
         background: var(--color-primary);
+        transition: .7s;
+        color: var(--color-white)!important;
+        > svg{
+            color: var(--color-white)!important;
+            transition: .7s;
+        }
     }
     svg{
         font-size: 2rem;

@@ -10,6 +10,8 @@ footer{
     backdrop-filter: blur(15px);
     font-size: 14px;
     line-height: 14px;
+    margin-right: 0px;
+    box-sizing: border-box;
 }
 footer::before {
     display: block;

@@ -1,20 +1,19 @@
 .refeicoes{
-    width: 100%;
-    height: 100vh;
     display: flex;
+    max-width: 100%;
     align-items: center;
-    justify-content: space-evenly;
-    justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 1px;
-    margin-bottom: 1em;
+    justify-content: center;
+    overflow: hidden;
     background: url(../../assets/bg-icons-1.png)center/cover;
 }
 .refeicoes::-webkit-scrollbar{
     display: none;
 }
 .Contenter{
+    margin-right: 0;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,21 +124,7 @@
     font-size: 1rem;
 }
 
-@media screen and (max-width: 512px) {
-    .refeicoes{
-        margin-right: 0;
-        width: 100%;
-        overflow-y: scroll;
-        white-space: nowrap;
-        height: 80vh;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        flex-direction: column;
-        padding: 1px;
-        margin-bottom: 1em;
-        flex-wrap: nowrap;
-    }
+@media screen and (max-width: 640px) {
     .Contenter{
         width: 100%;
         display: flex;

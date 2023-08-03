@@ -1,5 +1,6 @@
 import Header from "../../components/Hearder"
 import Refeicoes from "../../components/Refeicoes"
+import {Homen} from './HomeStyled.jsx'
 import {ContextGlobal} from '../../contexts/auth'
 import { useContext, useEffect, useState } from "react"
 import Cart from "../../components/cart"
@@ -19,7 +20,7 @@ export default function Home(){
     const [menuIsVisible, setMenuIsVisible] = useState(false);
 
     return(
-        <>
+        <Homen>
         <MenuMobile
             menuIsVisible={menuIsVisible}
             setMenuIsVisible={setMenuIsVisible}
@@ -33,11 +34,11 @@ export default function Home(){
         <Bane/>
         <Servicos/>
         <ResumoDoCart/>
-        <Titulo/>
+        <Titulo th4='CARDÁPIO' th1='Conheça o nosso cardápio'/>
         <Categoria/>
         <Refeicoes/>
         <ButtonCartFixo/>
         <Footer/>
-        </>
+        </Homen>
     )
 }

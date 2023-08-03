@@ -2,11 +2,12 @@ import styled from "styled-components";
 import bg from '../../assets/bg-icons-2.png'
 
 export const Content = styled.section`
-    position: relative;
     background-image: url(${bg});
     margin-top: 50px;
-    height: 80vh;
-    width: 100vw;
+    height: 80%;
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 150px;
 
     h4{
         text-align: center;

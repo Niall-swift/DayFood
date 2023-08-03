@@ -22,8 +22,9 @@
         margin-bottom: 30px;
 }
 
-@media screen and (max-width: 512px){
+@media screen and (max-width: 412px){
     .Titulo{
-        margin-top: 100%;
+        padding-top: 100px;
+        padding-bottom: 20px;
     }
 }

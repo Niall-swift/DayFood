@@ -26,18 +26,18 @@
 *{
   padding: 0;
   margin: 0;
+  margin-right: 0;
   box-sizing: border-box;
 }
 html, body, #root{
-  height: 100%;
+  width: 100%;
   scroll-behavior: smooth;
 }
 
 body{
-  color: #5d5d5d;
   background-color: var(--color-background);
   font-family: 'PoppinsRegular', 'Rubik', sans-serif;
-  filter: saturate(1.1);
+ 
 }
 b{
   font-family: 'PoppinsMedium', 'Rubik', sans-serif;
@@ -59,4 +59,7 @@ button{
 ::-webkit-scrollbar-thumb{
   border-radius: 20px;
   background-color: #750310;
+}
+::-webkit-scrollbar{
+  display: none;
 }

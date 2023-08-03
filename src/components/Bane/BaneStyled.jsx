@@ -4,10 +4,9 @@ import bg from '../../assets/bg-icons-2.png'
 export const Content = styled.section`
     background: url(${bg})center/cover;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    padding: 15px;
+    margin-right: 0;
+    box-sizing: border-box;
 `
 
 

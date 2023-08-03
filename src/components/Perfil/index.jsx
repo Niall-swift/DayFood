@@ -109,9 +109,7 @@ export default function Perfil(){
             </Link>
 
         <div className='content'>
-            <Titulo titulos='Meu perfil'>
-                <FiSettings size={25} color='#fff'/>
-            </Titulo>
+            <Titulo th1='Meu perfil'/>
 
             <div className='conteiner'>
 

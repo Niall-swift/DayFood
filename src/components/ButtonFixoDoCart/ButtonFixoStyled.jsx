@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-    position: sticky;
+    position: fixed;
     left: 93%;
     bottom: 50px;
     height: 50px;
