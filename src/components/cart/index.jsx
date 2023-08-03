@@ -33,7 +33,7 @@ export default function Cart(){
                 </div>
 
 
-                <div className='cart-resume'>{formatCurrency(total, 'BRL')}
+                <div className='cart-resume'>Subtotal: {formatCurrency(total, 'BRL')}
                 <button 
                     type='button'
                     className='button-perdi-item'

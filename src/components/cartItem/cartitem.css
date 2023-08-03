@@ -12,7 +12,7 @@
 .cart-img{
     width: 70px;
     height: 70px;
-    border-radius: 50%;
+    border-radius: 11px;
     object-fit: cover;
 }
 .cart-item-content{
@@ -24,6 +24,7 @@
 }
 .cart-item-preco{
     font-weight: 900;
+    color: var(--color-primary);
 }
 .button-remove-item{
     position: absolute;
@@ -31,9 +32,9 @@
     top: 20px;
     max-width: 99px;
     border: none;
-    border-radius: 5px;
+    border-radius: 11px;
     padding: 8px;
-    background: #750310;
+    background: var(--color-primary);
     color: #fff;
     font-size: 0.90em;
     font-weight: bold;

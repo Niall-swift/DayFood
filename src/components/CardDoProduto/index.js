@@ -195,14 +195,12 @@ export default function CardDoProduto({data}){
                 }
 
     
-
                 <motion.img
                     whileHover={{ scale: 1.1 }}
                     initial={{ scale: 1.15 }}
                     animate={{ scale: 1 }}
                     transition={{ ...transition, duration: 1.45, delay: 0.7 }}
                 src={imagem} alt='img' />
-
                 
                 <h3 className='tituloRef'>{nome}</h3>
 
