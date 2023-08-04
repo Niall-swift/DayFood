@@ -27,7 +27,7 @@
     position: relative;
     width: 70%;
     height: 100vh;
-    background-color: #00152d;
+    background-color: var(--color-white);
     border-radius: 10px;
     padding: 20px;
 }
@@ -38,11 +38,22 @@
 }
 .ResumoDoCart--seguandaria form{
     padding: 90px;
+    flex: 1;
+    overflow: auto;
+    overflow-x: hidden;
 }
 .ResumoDoCart--seguandaria form input{
-    max-width: 400px;
-    margin-right: 3rem;
+    background-color: var(--color-white);
+    color: var(--color-black)!important;
+    border-radius: 20px;
+    padding: 15px 25px;
+    font-size: 20px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1)!important;
+    border: none!important;
     
+}
+.ResumoDoCart--seguandaria form label{
+    color: #000000;
 }
 .modaloff{
     display: none;

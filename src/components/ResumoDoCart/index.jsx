@@ -1,20 +1,17 @@
-import { Link } from 'react-router-dom'
+
 import { MdPix} from 'react-icons/md'
-import {IoCloseSharp, IoSearch} from 'react-icons/io5'
-import {FaMapMarkedAlt, FaRegMoneyBillAlt, FaRegCreditCard, FaPix} from 'react-icons/fa'
-import './ResumoDoCart.css'
+import {IoCloseSharp} from 'react-icons/io5'
+import {FaMapMarkedAlt, FaRegMoneyBillAlt, FaRegCreditCard} from 'react-icons/fa'
+import {Content, Form, ModalPay} from './enderecoStyled'
 import {ContextGlobal} from '../../contexts/auth'
 import { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import Swal from 'sweetalert2'
-import { scaleUp} from '../../utils/Animations'
-import {motion} from 'framer-motion'
 import formatCurrency from '../../utils/formatCurrency'
 /////////////////////////////////////////////////////////
 import {db} from '../../pages/firebase'
 import { addDoc, collection, onSnapshot } from 'firebase/firestore'
-import { set } from 'date-fns'
 
 
 
@@ -103,7 +100,8 @@ export default function ResumoDoCart(){
 
 
 ////////////////////////////////// huscando cep com api viacep/////////////////////////////////////////////////////////////////
-        async function fetchCepData() {
+        useEffect(()=>{
+            async function fetchCepData() {
 
                 const ceps = cep.trim().replace(/\D/g, '')
     
@@ -158,6 +156,10 @@ export default function ResumoDoCart(){
         
         
         };
+        if(cep.length === 8){
+            fetchCepData();
+        }
+    },[cep])
 
         function gerarNumeroAleatorio(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -206,14 +208,12 @@ export default function ResumoDoCart(){
         
 
     return(
-        <motion.div {...scaleUp} className={!modal ? 'modaloff': "ResumoDoCart--principal"}>
-
-            <div className='ResumoDoCart--seguandaria'>
-                <button className='btn_fechar_modal' onClick={() => setModal(!modal)}><IoCloseSharp size={45}/></button>
-                <h1>Endereço de entrega:</h1>
+        <Content ismodal={!modal}>
+            
+            <Form>
             <form>
 
-                <label htmlFor="CEP" className='CEP'>
+                <label>Cep</label>
                 <input
                 type='text'
                 name='CEP'
@@ -222,13 +222,9 @@ export default function ResumoDoCart(){
                 value={cep}
                 onChange={(e)=> setCep(e.target.value)}
                 />
-                <button onClick={fetchCepData}>
-                    <IoSearch color='#fff'/>
-                </button>
-                </label>
 
-                <label htmlFor='Endereço'>
-                    <input 
+                <label>Endereço</label>
+                <input 
                     type="text"
                     name='Endereço'
                     required
@@ -236,10 +232,9 @@ export default function ResumoDoCart(){
                     value={endereco}
                     onChange={(e) => setEndereco (e.target.value)}
                     />
-                </label>
 
-                <label htmlFor='Bairro'>
-                    <input 
+                <label>Bairro</label>
+                <input 
                     type="text"
                     name='Bairro'
                     required
@@ -247,20 +242,18 @@ export default function ResumoDoCart(){
                     value={bairro}
                     onChange={(e) => setBairro (e.target.value)}
                     />
-                </label>
 
-                <label htmlFor='Número'>
-                    <input 
+                <label>Número</label>
+                <input 
                     type="number"
                     name='Endereço'
                     required
                     placeholder=' Número:'
                     onChange={(e) => setnumero (e.target.value)}
                     />
-                </label>
 
-                <label htmlFor='Cidade'>
-                    <input 
+                <label>Cidade</label>
+                <input 
                     type="text"
                     name='Cidade'
                     required
@@ -268,16 +261,14 @@ export default function ResumoDoCart(){
                     value={cidade}
                     onChange={(e) => setCidade (e.target.value)}
                     />
-                </label>
 
-                <label htmlFor='Complemento'>
-                    <input 
+                <label>Complemento</label>
+                <input 
                     type="text"
                     name='Complemento'
                     placeholder='Complemento:'
                     onChange={(e) => setComplemento (e.target.value)}
                     />
-                </label>
 
             </form>
 
@@ -286,11 +277,11 @@ export default function ResumoDoCart(){
                 :
                 <></>
             }
-            </div>
+            </Form>
 
 
 
-            <div className={!modalpay ? 'modaloff':'ResumoDoCart--pay'}>
+            <ModalPay ispay={!modalpay}>
             <h1 style={{textAlign: 'center', marginTop: '15px', marginBottom: '15px'}}>selecione a forma de pagamento !</h1>
             <button className='btn_fechar_modal' onClick={() => setModalpay(!modalpay)}><IoCloseSharp size={45}/></button>
                 <label className='Moneys' >
@@ -344,7 +335,7 @@ export default function ResumoDoCart(){
             :<>
             </>}
             <button className='btn' onClick={finalizarpedido}>Finalizar pedido :)</button>
-            </div>
-        </motion.div>
+            </ModalPay>
+        </Content>
     )
 }
