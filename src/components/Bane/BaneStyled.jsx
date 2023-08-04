@@ -4,6 +4,7 @@ import bg from '../../assets/bg-icons-2.png'
 export const Content = styled.section`
     background: url(${bg})center/cover;
     width: 100%;
+    margin-top: 60px;
     padding: 15px;
     margin-right: 0;
     box-sizing: border-box;
@@ -102,13 +103,13 @@ export const Cadapio = styled.div`
         a:nth-child(2){
         white-space: nowrap;
         font-size: 18px;
-        width: 230px;
+        width: 250px!important;
         padding: 15px;
         svg{
-            font-size: 35px;
+            font-size: 35px!important;
             color: #fff;
             padding: 5px;
-            margin-right: 10px;
+            margin-right: 15px;
             border-radius: 10px;
             background: var(--color-primary);
         }

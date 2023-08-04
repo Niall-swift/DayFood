@@ -9,14 +9,11 @@ export const Container = styled.div`
     justify-content: space-between;
     padding: 10px;
     top: 0;
-    position: sticky;
+    position: fixed;
     z-index: 99;
-    background: #011b2fd0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='1'/%3E%3C/filter%3E%3Crect width='100' height='100' style='filter:url(%23f)' opacity='.2'/%3E%3C/svg%3E");
-    mask: linear-gradient(rgb(0, 12, 65) 1rem, transparent);
-    -webkit-mask: linear-gradient(rgb(0, 10, 48) 10rem, transparent);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
 
 `
 export const Logo = styled.div`
@@ -55,12 +52,13 @@ export const Menus = styled.div`
 
         background: none;
         border: none;
-        color: #fff;
+        color: var(--color-black);
         font-size: 19px;
 
         svg{
             font-size: 30px;
             margin-right: 0.2em;
+            color: var(--color-black);
         }
     }
     button:hover{
@@ -74,10 +72,10 @@ export const Menus = styled.div`
 
 `
 export const Menu = styled.div`
-    width: 300px;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     
     button{
         display: none;
@@ -96,6 +94,7 @@ export const Menu = styled.div`
 
         svg{
             font-size: 30px;
+            color: black;
         }
 
     }
@@ -107,8 +106,6 @@ export const ContainerMobile = styled.div`
     
 
     @media screen and (max-width: 512px){
-    width: 100%;
-    height: 100vh;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -132,19 +129,16 @@ export const ContainerMobile = styled.div`
     ${({ isVisible }) => isVisible && css`
     width: 100%;
     height: 100vh;
-    position: sticky;
+    position: fixed;
     display: flex;
     transition: .7s;
+    
     top: 0;
     z-index: 100;
     opacity: 1;
     pointer-events: auto;
-    background: #011b2f;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='1'/%3E%3C/filter%3E%3Crect width='100' height='100' style='filter:url(%23f)' opacity='.2'/%3E%3C/svg%3E");
-    mask: linear-gradient(rgb(0, 12, 65) 1rem, transparent);
-    -webkit-mask: linear-gradient(rgb(0, 10, 48) 48rem, transparent);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
 
     > svg {
         transform: rotate(0deg);
@@ -171,7 +165,7 @@ export const MenusMobile = styled.div`
 
         background: none;
         border: none;
-        color: #fff;
+        color: #000;
         font-size: 19px;
         text-transform: uppercase;
         font-weight: 600;

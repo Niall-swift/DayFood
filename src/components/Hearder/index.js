@@ -33,17 +33,12 @@ export default function Header({menuIsVisible,setMenuIsVisible}){
     return(
         
         <Container>
-            <Logo>
-                <img src={user.avatar === null ? `${whatsappPic === 'Image is unavailable; possibily due to user privacy settings.' ? avataof : whatsappPic}` : user.avatar} alt="Logo_hexagon" />
-                <p>Olá {user.nome}</p>
-            </Logo>
-
                 <Menu sVisible={menuIsVisible}>
-
-                <CartButton/>
+                    
                 <button onClick={opmenu}>
                     <HiMenu size={45} onClick={() => setMenuIsVisible(true)}/>
                 </button>
+
                 </Menu>
 
             <Menus>

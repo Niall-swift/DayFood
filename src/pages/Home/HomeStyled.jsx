@@ -7,4 +7,5 @@ export const Homen = styled.main`
     overflow: hidden;
     margin-right: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 `
