@@ -15,9 +15,8 @@ export const Content = styled.section`
     right: 0;
     z-index: 99;
     position: fixed;
-    background-color: #ffffffc1;
-    backdrop-filter: blur(100px);
-    -webkit-backdrop-filter: blur(100px);
+    background-color: #ffffff;
+    opacity: 1;
 
     button{
         display: flex;
@@ -54,6 +53,7 @@ export const Content = styled.section`
 
 ///////////////////////////////////////////////
     ${({ ismodal }) => ismodal && css`
+        opacity: 0;
         display: none;
 `}
 
@@ -129,16 +129,14 @@ export const Form = styled.div`
         }
 
         input{
-            background-color: var(--color-white);
+            background: #e3efff;
             color: var(--color-black)!important;
             width: 100%;
             margin-top: 2rem;
             border-radius: 15px;
             padding: 15px 25px;
             font-size: 20px;
-            box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.15)!important;
-            -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15)!important;
-            -moz-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15)!important;
+            box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.38);
             border: none!important;
 
             ::placeholder{
@@ -254,7 +252,7 @@ export const ModalPay = styled.section`
         bottom: 200px;
 
         input{
-            background-color: var(--color-white);
+            background-color: #e3efff;
             border-radius: 20px;
             padding: 15px 25px;
             font-size: 20px;
