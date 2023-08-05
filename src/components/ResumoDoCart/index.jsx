@@ -1,14 +1,14 @@
 
 import { MdPix} from 'react-icons/md'
-import {IoCloseSharp} from 'react-icons/io5'
-import {FaMapMarkedAlt, FaRegMoneyBillAlt, FaRegCreditCard} from 'react-icons/fa'
-import {Content, Form, ModalPay} from './enderecoStyled'
+import {FaMapMarkedAlt, FaRegMoneyBillAlt, FaRegCreditCard, FaArrowLeft} from 'react-icons/fa'
+import {Content, Form, ModalPay, Map, Contentpay} from './enderecoStyled'
 import {ContextGlobal} from '../../contexts/auth'
 import { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import Swal from 'sweetalert2'
 import formatCurrency from '../../utils/formatCurrency'
+import Titulo from '../pages_titulos'
 /////////////////////////////////////////////////////////
 import {db} from '../../pages/firebase'
 import { addDoc, collection, onSnapshot } from 'firebase/firestore'
@@ -209,7 +209,7 @@ export default function ResumoDoCart(){
 
     return(
         <Content ismodal={!modal}>
-            
+            <button className='valta' onClick={() => setModal(!modal)}> <FaArrowLeft/> Voltar</button>
             <Form>
             <form>
 
@@ -243,37 +243,37 @@ export default function ResumoDoCart(){
                     onChange={(e) => setBairro (e.target.value)}
                     />
 
-                <label>Número</label>
+                <label>Número:</label>
                 <input 
                     type="number"
                     name='Endereço'
                     required
-                    placeholder=' Número:'
+                    placeholder='número ou s/n'
                     onChange={(e) => setnumero (e.target.value)}
                     />
 
-                <label>Cidade</label>
+                <label>Cidade:</label>
                 <input 
                     type="text"
                     name='Cidade'
                     required
-                    placeholder='Cidade:'
+                    placeholder='Cidade'
                     value={cidade}
                     onChange={(e) => setCidade (e.target.value)}
                     />
 
-                <label>Complemento</label>
+                <label>Complemento (opcional) </label>
                 <input 
                     type="text"
                     name='Complemento'
-                    placeholder='Complemento:'
+                    placeholder='Complemento'
                     onChange={(e) => setComplemento (e.target.value)}
                     />
 
             </form>
 
             {cep !=='' && endereco !=='' && bairro !=='' && numero !=='' && cidade !== '' ?
-                    <button className='btn' onClick={() => setModalpay(!modalpay)}>selecione a forma de pagamento</button>
+                    <button onClick={() => setModalpay(!modalpay)}>Continuar</button>
                 :
                 <></>
             }
@@ -281,20 +281,22 @@ export default function ResumoDoCart(){
 
 
 
-            <ModalPay ispay={!modalpay}>
-            <h1 style={{textAlign: 'center', marginTop: '15px', marginBottom: '15px'}}>selecione a forma de pagamento !</h1>
-            <button className='btn_fechar_modal' onClick={() => setModalpay(!modalpay)}><IoCloseSharp size={45}/></button>
-                <label className='Moneys' >
-                    
+            <Contentpay ispay={!modalpay}>
+
+            <button className='valta' onClick={() => setModalpay(!modalpay)}> <FaArrowLeft/> Voltar</button>
+
+                <ModalPay>
+                
                     <label htmlFor='Card'>
                         <input
                         type='radio'
                         value='débito/crédito'
                         onChange={opcaoselecionada}
                         checked={pay === 'débito/crédito'}
+                        placeholder='card'
                         />
                         <FaRegCreditCard/>
-                        débito / crédito
+                        card
                     </label>
 
                     <label htmlFor='money'>
@@ -318,24 +320,39 @@ export default function ResumoDoCart(){
                         <MdPix/>
                         pix
                     </label>
-                </label>
+
             
+
             {pay === 'dinheiro' ?
-            <>
-            <p style={{marginTop: '35px'}} >Valor do seu pedido: {formatCurrency(total, 'BRL')}</p>
+            <div className='pay_select'>
             <label htmlFor='Troco'>
+            Valor do seu pedido: {formatCurrency(total, 'BRL')}
             <input 
             type="number"
             name='Troco'
-            placeholder='Digite o valor do troco'
+            placeholder='Digite o valor do troco aqui!'
             onChange={(e) => setPayTroco (e.target.value)}
             />
             </label>
+            </div>
+            :
+            <>
             </>
-            :<>
-            </>}
-            <button className='btn' onClick={finalizarpedido}>Finalizar pedido :)</button>
-            </ModalPay>
+            }
+                </ModalPay>
+            <button className='pedi' onClick={finalizarpedido}>Enviar pedido</button>
+
+            <Map>
+                <FaMapMarkedAlt/>
+                <div>
+                    <h3>Local da entrega:</h3>
+                    <p>{endereco},<p>{numero},{bairro}</p></p>
+                    <p>{cidade}/{cep}</p>
+                </div>
+            </Map>
+            
+            </Contentpay>
+
         </Content>
     )
 }
