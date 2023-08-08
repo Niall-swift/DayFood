@@ -8,6 +8,20 @@ export const Content = styled.section`
     padding: 15px;
     margin-right: 0;
     box-sizing: border-box;
+
+    img{
+        width: 85px;
+        height: 85px;
+        border-radius: 20px;
+        border: 2px solid var(--color-primary);
+        object-fit: cover;
+    }
+    h2{
+        
+        b{
+            color: var(--color-primary);
+        }
+    }
 `
 
 

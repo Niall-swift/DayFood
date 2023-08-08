@@ -7,6 +7,7 @@ import {fadeInUp} from '../../utils/Animations'
 
 
 export default function ButtonCartFixo(){
+
     const {onCart,setOffcart, offcart} = useContext(ContextGlobal)
 
     return(

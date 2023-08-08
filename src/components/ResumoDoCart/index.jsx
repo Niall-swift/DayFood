@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import Swal from 'sweetalert2'
 import formatCurrency from '../../utils/formatCurrency'
-import Titulo from '../pages_titulos'
 /////////////////////////////////////////////////////////
 import {db} from '../../pages/firebase'
 import { addDoc, collection, onSnapshot } from 'firebase/firestore'
@@ -29,7 +28,6 @@ export default function ResumoDoCart(){
     const [pay, setPay]= useState('pix')
     const [payTroco, setPayTroco]= useState('')
     const [modalpay, setModalpay] = useState(false)
-    const [img, setImg] = useState(null)
 
     const navigate = useNavigate();
 
@@ -171,6 +169,16 @@ export default function ResumoDoCart(){
             e.preventDefault();
 
             
+            Swal.fire({
+                text: 'Seu pedido esta sendo eviado para cozinha !',
+                imageUrl: 'https://media.giphy.com/media/A5ugHVbuFL3uo/giphy.gif',
+                imageWidth: 400,
+                imageHeight: 300,
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                timer: 6000,
+                timerProgressBar: true,
+            }).then(async()=>{
                 await addDoc(collection(db, "Pedidos"),{
                     cliente: user.nome,
                     clienteId: user.uid,
@@ -200,6 +208,8 @@ export default function ResumoDoCart(){
                 .catch(()=>{
                     alert('nao foi')
                 })
+            })
+                
             }
 ///////////////////////////////////// buscando pedidos em tempo real /////////////////////////////////////
         function opcaoselecionada(e){

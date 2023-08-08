@@ -19,7 +19,7 @@ export const Content = styled.section`
 
 table tr{
     margin-bottom: 5px;
-    background: #000617;
+    background: #0006176f;
 }
 
 table th, table td{

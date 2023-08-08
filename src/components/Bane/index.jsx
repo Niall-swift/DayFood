@@ -9,15 +9,20 @@ import {BsInstagram,BsFacebook,BsWhatsapp} from 'react-icons/bs'
 import {fadeInUp, transition, letterAnimation } from '../../utils/Animations'
 import {motion} from 'framer-motion'
 import { Link } from 'react-router-dom'
+//////////////////////////////////////
+import {ContextGlobal} from '../../contexts/auth'
+import { useContext } from 'react'
 
 export default function Bane(){
 
-
+    const {user} = useContext (ContextGlobal)
 
     return(
         <Content>
             <Titulo>
-            <motion.h1 {...letterAnimation} class="wow fadeInLeft"> <b>Escolha sua  <br/> comida <b class="color-primary">favorita.</b> </b> </motion.h1>
+            <img src={user.avatar} alt=''/>
+            <h2>Olá, <b>{user.nome}</b> que tal !</h2>
+            <motion.h1 {...letterAnimation} class="wow fadeInLeft"> <b>Escolhe sua  <br/> comida <b class="color-primary">favorita.</b> </b> </motion.h1>
             
             </Titulo>
 

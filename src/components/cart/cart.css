@@ -2,18 +2,18 @@
 .cart{
     display: flex;
     position: fixed;
-    width: 350px;
-    max-width: 414px;
+    width: 100vw;
     height: 100vh;
     z-index: 2;
     align-items: flex-start;
     top: 0;
+    z-index: 99;
     justify-content: space-between;
-    left: -600px;
+    left: -5000px;
     background: var(--color-background);
     background-image: url(../../assets//bg-icons-1.png);
-    transition: .7s;
-    padding: 70px 20px 25px;
+    transition: .7s ease-in-out;
+    padding: 70px 500px 25px;
     flex-direction: column;
     -webkit-box-shadow: 9px 0 11px 3px #00000068;
     -moz-box-shadow: 9px 0 11px 3px #00000068;
@@ -43,15 +43,16 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 99;
     overflow: hidden;
-    transition:.7s ;
+    transition:.7s ease-in-out;
 }
 .button-perdi-item{
     position: absolute;
     display:flex;
     justify-content: center;
     align-items: center;
-    right: 0;
+    right: 500px;
     margin-left: 15px;
     margin-right: 15px;
     border: none;
@@ -71,5 +72,19 @@
 @media screen and (max-width: 512px) {
     .cart{
         width: 100%;
+        padding: 70px 15px 25px;
+    }
+    .button-perdi-item{
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 920px){
+    .cart{
+        width: 100%;
+        padding: 70px 25px 25px;
+    }
+    .button-perdi-item{
+        right: 0;
     }
 }

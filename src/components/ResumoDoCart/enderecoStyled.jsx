@@ -16,8 +16,7 @@ export const Content = styled.section`
     z-index: 99;
     position: fixed;
     background-color: #ffffff;
-    opacity: 1;
-
+    
     button{
         display: flex;
         justify-content: center;
@@ -53,7 +52,6 @@ export const Content = styled.section`
 
 ///////////////////////////////////////////////
     ${({ ismodal }) => ismodal && css`
-        opacity: 0;
         display: none;
 `}
 
@@ -140,7 +138,7 @@ export const Form = styled.div`
             border: none!important;
 
             ::placeholder{
-                color:#00000056;
+                color:#00000037;
             }
 
             
@@ -224,7 +222,7 @@ export const Contentpay = styled.section`
     height: 100%;
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(5, 5fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
     grid-gap: 1rem;
     box-sizing: border-box;
@@ -232,6 +230,7 @@ export const Contentpay = styled.section`
 //////////////////////////////////////////////
 ${({ ispay }) => ispay && css`
         display: none;
+        
 `}
 
 `
@@ -242,9 +241,9 @@ export const ModalPay = styled.section`
     justify-content: center;
     align-items: center;
     justify-content: space-around;
-    width: 600px;
+    width: auto;
     height: 50%;
-    grid-column:3/3;
+    grid-column:2/2;
     grid-row: 3/3;
 
     .pay_select{
@@ -267,8 +266,7 @@ export const ModalPay = styled.section`
     
 
     @media screen and (max-width: 512px){
-        width: 100%;
-        grid-column:3/3;
+        grid-column:2/2;
         grid-row: 2/3;
     }
 
@@ -328,11 +326,11 @@ export const Map = styled.div`
     align-items: center;
     flex-direction: row;
     top: 50px;
-    grid-column: 3/3;
+    grid-column: 2/2;
     grid-row: 1/2;
 
     @media screen and (max-width: 512px){
-        grid-column: 3/3;
+        grid-column: 2/2;
         grid-row: 1/2;
     }
 
