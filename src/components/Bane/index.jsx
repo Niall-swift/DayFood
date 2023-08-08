@@ -12,15 +12,17 @@ import { Link } from 'react-router-dom'
 //////////////////////////////////////
 import {ContextGlobal} from '../../contexts/auth'
 import { useContext } from 'react'
+///////////////////////////////
+import avatares from '../../assets/undraw_drink_coffee_av1x.svg'
 
 export default function Bane(){
 
-    const {user} = useContext (ContextGlobal)
+    const {user, whatsappPic} = useContext (ContextGlobal)
 
     return(
         <Content>
             <Titulo>
-            <img src={user.avatar} alt=''/>
+            <img src={user.avatar === null ? `${whatsappPic === 'Image is unavailable; possibily due to user privacy settings.' ? avatares : whatsappPic}` : user.avatar} alt=''/>
             <h2>Olá, <b>{user.nome}</b> que tal !</h2>
             <motion.h1 {...letterAnimation} class="wow fadeInLeft"> <b>Escolhe sua  <br/> comida <b class="color-primary">favorita.</b> </b> </motion.h1>
             
