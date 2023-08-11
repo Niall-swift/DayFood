@@ -22,6 +22,7 @@ function AutorizarClientes( { children } ){
     const [categoria, setCategoria] = useState ('Refeição')
     const [modal, setModal] = useState(false)
     const [whatsappPic, setWhatsappPic] = useState(null)
+    const [busNome, setBusNome] = useState('')
     
     
     
@@ -31,7 +32,7 @@ function AutorizarClientes( { children } ){
 
         await createUserWithEmailAndPassword(auth,email,senha)
         .then(async (value)=>{
-            let uid =value.user.uid
+            let uid = value.user.uid
 
             await setDoc(doc(db, "usuarios", uid),{
                 nome: nome,
@@ -191,7 +192,9 @@ function AutorizarClientes( { children } ){
             modal,
             setModal,
             whatsappPic,
-            setWhatsappPic
+            setWhatsappPic,
+            busNome,
+            setBusNome
             
 
         }}>

@@ -162,7 +162,7 @@ export default function ResumoDoCart(){
         function gerarNumeroAleatorio(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-        const numeroAleatorio = gerarNumeroAleatorio(10, 5000);
+        const numeroAleatorio = gerarNumeroAleatorio(10, 8000);
         
     ////////////////////////////////// enviando pedido/////////////////////////////////////////////////////////////////////
         async function finalizarpedido(e){

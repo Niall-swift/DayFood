@@ -84,6 +84,7 @@ export default function Login(){
                 <h1>DayFood</h1>
             </div>
             <from>
+
             <h1 className='text'>Faça login</h1>
     
                 
@@ -103,8 +104,9 @@ export default function Login(){
 
                 <button onClick={singIn} className='btn'>Entrar</button>
             </from>
-            <Link to='/register'>Cadastre-se  É rápido e fácil.</Link>
 
+            <Link to='/register'>Cadastre-se  É rápido e fácil.</Link>
+            
         </div>
     </motion.div>
     <Footer/>

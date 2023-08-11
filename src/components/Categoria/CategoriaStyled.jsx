@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export const Content = styled.section`
     width: 100%;
-    height: 15vh;
-    margin-bottom: 1rem;
+    height: 9vh;
+    margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -20,7 +20,7 @@ export const Button = styled.button`
     justify-content: center;
     align-items: center;
     margin-left: 15px;
-    border-radius: 12px;
+    border-radius: 11px;
     background-color: var(--color-white);
     border: none;
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);

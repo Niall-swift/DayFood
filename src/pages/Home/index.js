@@ -13,6 +13,7 @@ import Categoria from '../../components/Categoria'
 import ButtonCartFixo from "../../components/ButtonFixoDoCart"
 import Servicos from "../../components/BaneServicos"
 import Titulo from "../../components/pages_titulos"
+import Barra from "../../components/Bararadepesquisa"
 
 
 
@@ -36,6 +37,7 @@ export default function Home(){
         <ResumoDoCart/>
         <Titulo th4='CARDÁPIO' th1='Conheça o nosso cardápio'/>
         <Categoria/>
+        <Barra/>
         <Refeicoes/>
         <ButtonCartFixo/>
         <Footer/>
