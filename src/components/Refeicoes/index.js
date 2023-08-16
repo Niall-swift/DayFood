@@ -97,6 +97,7 @@ useEffect(()=>{
 
 
 
+
 const reihtScroll = (e) =>{
     e.preventDefault();
 
@@ -108,11 +109,12 @@ const leftScroll = (e) =>{
     
     scroll.current.scrollLeft -= 320
 }
-    
+
+
     return(
         (load ? <Load/> :
         <motion.div {...fadeInUp}>
-            <Content ref={scroll}>
+            <Content>
                 {
                     prods.map((item, index) => <CardDoProduto key={index} data={item}/>)
                 }

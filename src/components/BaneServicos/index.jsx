@@ -2,10 +2,15 @@ import { Content } from "./ServicosStyled";
 import dl from '../../assets/icone-delivery.svg'
 import ql from '../../assets/icone-pedido.svg'
 import dy from '../../assets/icone-qualidade.svg'
+import { useState} from "react";
+
 
 
 
 export default function Servicos(){
+
+    
+
     return(
         <Content>
             <h4>SERVIÇOS</h4>
@@ -13,7 +18,7 @@ export default function Servicos(){
             <h1>Como são nossos serviços?</h1>
 
             <div>
-                <div>
+                <div >
                     <img src={ql} alt=""/>
                     <h2>Fácil de pedir</h2>
                     <p>Você só precisa de alguns passos para pedir sua comida.</p>

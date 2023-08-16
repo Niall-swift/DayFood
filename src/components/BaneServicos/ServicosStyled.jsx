@@ -26,6 +26,7 @@ export const Content = styled.section`
 
 
     div{
+        transition: all .5s;
         display: flex;
         justify-content: center;
         align-items: center;

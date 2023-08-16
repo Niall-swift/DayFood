@@ -22,17 +22,27 @@ import {Container, Logo, Menus, Menu} from './styledHeader'
 
 
 export default function Header({menuIsVisible,setMenuIsVisible}){
+
     const {user, exit, whatsappPic} = useContext(ContextGlobal)
     const [containerof, setContainerof] = useState (false)
+    const [scl, setScl] = useState (false)
 
     const opmenu = ()=>{
         setContainerof(!containerof)
 
     }
+    window.addEventListener ("scroll", function() {
+
+        const scl = window.scrollY > 0
+
+        setScl(scl)
+    });
+
+    
 
     return(
-        
-        <Container>
+
+        <Container scl={scl}>
                 <Menu sVisible={menuIsVisible}>
                     
                 <button onClick={opmenu}>

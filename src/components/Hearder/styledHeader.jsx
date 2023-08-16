@@ -11,10 +11,11 @@ export const Container = styled.div`
     top: 0;
     position: fixed;
     z-index: 99;
-    backdrop-filter: blur(100px);
+    backdrop-filter:blur(50px);
+    filter: saturate(2.1);
     -webkit-backdrop-filter: blur(100px);
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-
+    transition: all .7s;
+    box-shadow: ${props => (props.scl !== false ? '0px 10px 15px -3px rgba(0,0,0,0.30)' : '')};
 `
 export const Logo = styled.div`
     display: flex;
