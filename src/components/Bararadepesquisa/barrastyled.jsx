@@ -21,6 +21,7 @@ export const BarPequisa = styled.div`
         padding: 15px 25px;
         font-size: 20px;
         box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.38)!important;
+        border: 1px solid rgba(255, 255, 255, 0.246);
         border: none!important;
         max-width: 600px;
 

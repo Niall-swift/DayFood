@@ -54,8 +54,6 @@ useEffect(()=>{
                 }
                 setForPedidosCliente(lista)
                 setLoad(false)
-
-                
             })
         })
     }

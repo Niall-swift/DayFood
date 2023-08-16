@@ -10,7 +10,7 @@ export default function Barra(){
         <BarPequisa>
         <div>
         <input
-            type="search"
+            type="text"
             placeholder='Busque por pratos'
             onChange={(e) => setBusNome (e.target.value)}
             value={busNome}

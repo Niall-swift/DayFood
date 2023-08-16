@@ -1,5 +1,5 @@
 import {ContextGlobal} from '../../contexts/auth'
-import './style.css'
+import {Content} from './CardStyled'
 import { useContext, useEffect, useState, useRef } from 'react';
 import {FiArrowRightCircle, FiArrowLeftCircle} from 'react-icons/fi';
 import {LuSalad} from  'react-icons/lu'
@@ -7,12 +7,13 @@ import Titulo from '../pages_titulos';
 import {motion} from 'framer-motion'
 import {fadeInUp, transition} from '../../utils/Animations'
 import {db} from '../../pages/firebase'
-import {collection, doc, onSnapshot, orderBy, query, updateDoc, where, getDocs } from 'firebase/firestore'
+import {collection, doc, onSnapshot, orderBy, query, updateDoc, where, getDocs, limit, startAfter, QuerySnapshot } from 'firebase/firestore'
 import CardDoProduto from '../CardDoProduto';
 
 
 
 import Load from '../load';
+import { list } from 'firebase/storage';
 
 
 
@@ -26,29 +27,31 @@ export default function Refeicoes(){
     const [load, setLoad] = useState(true)
     const scroll = useRef(null)
 
-
-
 useEffect(()=>{
+
     async function listar(){
+
         if(busNome === ''){
 
-            const lista = collection(db, `${categoria}`)
-            const q = query(lista)
+                const lista = collection(db, `${categoria}`)
+                const q = query(lista,)
 
-            await getDocs(q)
+                await getDocs(q)
 
-            .then((snapshot)=>{
+                .then((snapshot)=>{
                 let lista = [];
-                
-                snapshot.forEach((doc)=>{
-                    lista.push({
-                        id: doc.id,
-                        nome: doc.data().nome,
-                        preco: doc.data().preco,
-                        imagem: doc.data().imagem,
-                        descricao: doc.data().descricao,
-                        categoria: doc.data().categoria,
+                    
+                    snapshot.forEach((doc)=>{
+
+                        lista.push({
+                            id: doc.id,
+                            nome: doc.data().nome,
+                            preco: doc.data().preco,
+                            imagem: doc.data().imagem,
+                            descricao: doc.data().descricao,
+                            categoria: doc.data().categoria,
                         Disponibilidade: doc.data().Disponibilidade
+
                     })
                     SetProds(lista)
                     setLoad(false)
@@ -56,36 +59,43 @@ useEffect(()=>{
             })
 
         }else{
-            const lista = collection(db, `${categoria}`)
+            const lista = ["Berbida","Sobremesa","Refeição"]
 
-            const q = query(lista, where("nome", "==", busNome))
+            for (const col of  lista){
 
-            await getDocs(q)
+                const querySnapshot = await getDocs(collection(db,col))
 
-            .then((snapshot)=>{
-                let lista = [];
+                const q = querySnapshot.docs.filter(doc => doc.data().nome.toLowerCase().startsWith(busNome.toLowerCase()) === busNome.toLowerCase().startsWith(busNome.toLowerCase()));
                 
-                snapshot.forEach((doc)=>{
-                    lista.push({
-                        id: doc.id,
-                        nome: doc.data().nome,
-                        preco: doc.data().preco,
-                        imagem: doc.data().imagem,
-                        descricao: doc.data().descricao,
-                        categoria: doc.data().categoria,
+                    let lista = []
+
+                    q.forEach((doc)=>{
+
+                        lista.push({
+                            id: doc.id,
+                            nome: doc.data().nome,
+                            preco: doc.data().preco,
+                            imagem: doc.data().imagem,
+                            descricao: doc.data().descricao,
+                            categoria: doc.data().categoria,
                         Disponibilidade: doc.data().Disponibilidade
+
                     })
                     SetProds(lista)
                     setLoad(false)
                 })
-            })
+                
+            }
             
-        }
-        
     }
+        
+}
+
     listar();
     setLoad(true)
 },[categoria, busNome])
+
+
 
 const reihtScroll = (e) =>{
     e.preventDefault();
@@ -101,14 +111,13 @@ const leftScroll = (e) =>{
     
     return(
         (load ? <Load/> :
-        <div className='Contenter'>
-        
-        <motion.section {...fadeInUp} className="refeicoes" ref={scroll}>
-            {
-                prods.map((item, index) => <CardDoProduto key={index} data={item}/>)
-            }
-        </motion.section> 
-    </div>
+        <motion.div {...fadeInUp}>
+            <Content ref={scroll}>
+                {
+                    prods.map((item, index) => <CardDoProduto key={index} data={item}/>)
+                }
+            </Content> 
+        </motion.div>
         )
     )
 }

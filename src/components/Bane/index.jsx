@@ -23,8 +23,8 @@ export default function Bane(){
         <Content>
             <Titulo>
             <img src={user.avatar === null ? `${whatsappPic === 'Image is unavailable; possibily due to user privacy settings.' ? avatares : whatsappPic}` : user.avatar} alt=''/>
-            <h2>Olá, <b>{user.nome}</b> que tal !</h2>
-            <motion.h1 {...letterAnimation} class="wow fadeInLeft"> <b>Escolhe sua  <br/> comida <b class="color-primary">favorita.</b> </b> </motion.h1>
+            <h2> Olá, <b>{user.nome.slice(0, 11)} </b> que tal !</h2>
+            <motion.h1  {...letterAnimation} class="wow fadeInLeft"> <b>Escolhe sua  <br/> comida <b class="color-primary"> favorita. </b> </b> </motion.h1>
             
             </Titulo>
 

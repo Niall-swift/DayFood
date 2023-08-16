@@ -10,7 +10,7 @@ import {Link} from 'react-router-dom'
 ////////////////
 import {motion} from 'framer-motion'
 import {fadeInUp, transition} from '../../utils/Animations'
-
+////////////////////////////////////////////////////////
 
 
 import {ContextGlobal} from '../../contexts/auth'
@@ -25,7 +25,8 @@ import {db} from '../../pages/firebase'
 import {doc, deleteDoc, updateDoc} from 'firebase/firestore'
 ///////
 import Ribbon from '../Ribbon';
-
+////////////////////////////////////
+import {Card, Content} from '../Refeicoes/CardStyled'
 export default function CardDoProduto({data}){
     const {onCart ,setOnCart, user, favoritos} = useContext(ContextGlobal)
     const [setStatus] = useState ('disponivel')
@@ -177,10 +178,10 @@ export default function CardDoProduto({data}){
 
 
     return(
-        <motion.div 
+        <Card
         {...fadeInUp}
                 transition={{ ...fadeInUp.transition, delay: 0.2 }}
-        className='Card'>
+                >
 
                 {Disponibilidade === 'esgotado' ? <Ribbon/> : <></>}
                 
@@ -196,13 +197,13 @@ export default function CardDoProduto({data}){
 
     
                 <motion.img
-                    whileHover={{ scale: 1.1 }}
-                    initial={{ scale: 1.15 }}
+                    whileHover={{ scale: 1.075 }}
+                    initial={{ scale: 1.075 }}
                     animate={{ scale: 1 }}
                     transition={{ ...transition, duration: 1.45, delay: 0.7 }}
                 src={imagem} alt='img' />
                 
-                <h3 className='tituloRef'>{nome}</h3>
+                <h3>{nome}</h3>
 
                 <p>{descricao}</p>
                 <strong>R$ {formatCurrency(preco, "BRL").replace(".", ",")}</strong>
@@ -226,6 +227,6 @@ export default function CardDoProduto({data}){
                 </div>
                 }
                 
-            </motion.div>
+            </Card>
     )
 }
