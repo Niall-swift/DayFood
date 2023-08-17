@@ -8,14 +8,16 @@ export const BarPequisa = styled.div`
     position: relative;
     margin: 0 auto;
     width: 100%;
-    max-width: 800px;
+    max-width: 1280px;
     padding: 15px;
 
     div{
         width: 100%;
-        max-width: 600px;
+        max-width: 500px;
         position: relative;
         input{
+        outline: none;
+        width: 100%;
         background-color: #fff8e4;
         border-radius: 20px;
         padding: 15px 25px;

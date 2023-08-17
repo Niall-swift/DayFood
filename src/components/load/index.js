@@ -1,10 +1,10 @@
 
 import './load.css'
-export default function Load(){
+export default function Load({titulo}){
     return(
         <div className='load'>
         <div className="custom-loader"></div>
-        <div className='titulo-load'>preparando tudo para você !...</div>
+        <div className='titulo-load'>{titulo}</div>
     </div>
     )
 }
