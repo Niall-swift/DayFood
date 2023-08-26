@@ -41,62 +41,6 @@ export default function ResumoDoCart(){
     }, 0);
 
 
-
-
-
-
-
-    async function whatPic(){
-    
-        const options = {
-            method: 'GET',
-                url: 'https://whatsapp-profile-pic.p.rapidapi.com/wspic/url',
-                params: {
-                phone: `55${user.telefone}`
-                },
-                headers: {
-                'X-RapidAPI-Key': 'f1eb0cc909msh1e37b957262260cp175866jsnba83f47c3e37',
-                'X-RapidAPI-Host': 'whatsapp-profile-pic.p.rapidapi.com'
-                }
-            };
-            
-            try {
-                const response = await axios.request(options);
-                setWhatsappPic(response.data);
-            } catch (error) {
-                
-            }
-        }
-    whatPic()
-        
-
-
-
-    // async function virfica(){
-    //     const options = {
-    //         method: 'GET',
-    //         url: 'https://whatsapp-checker-pro.p.rapidapi.com/5521990414180',
-    //         headers: {
-    //             'X-RapidAPI-Key': 'f1eb0cc909msh1e37b957262260cp175866jsnba83f47c3e37',
-    //             'X-RapidAPI-Host': 'whatsapp-checker-pro.p.rapidapi.com'
-    //             }
-    //         };
-            
-    //         try {
-    //             const response = await axios.request(options);
-    //             console.log(response.data);
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    // }
-    // virfica()
-    
-
-
-
-
-
-
 ////////////////////////////////// huscando cep com api viacep/////////////////////////////////////////////////////////////////
         useEffect(()=>{
             async function fetchCepData() {
