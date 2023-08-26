@@ -1,5 +1,5 @@
 //// icons
-import { MdFavoriteBorder} from 'react-icons/md';
+import { MdFavoriteBorder, MdDeleteForever, MdOutlineLayersClear, MdOutlineLayers} from 'react-icons/md';
 import {IoMdAddCircle, IoMdRemoveCircle,} from 'react-icons/io'
 import {IoBag} from 'react-icons/io5'
 import { FiEdit } from 'react-icons/fi';
@@ -29,7 +29,7 @@ import Ribbon from '../Ribbon';
 import {Card, Content} from '../Refeicoes/CardStyled'
 export default function CardDoProduto({data}){
     const {onCart ,setOnCart, user, favoritos} = useContext(ContextGlobal)
-    const [setStatus] = useState ('disponivel')
+    const [status ,setStatus] = useState ('disponivel')
     const [quantidade, setQuatidade] = useState(1)
     const {id, nome, imagem, preco, descricao, categoria, Disponibilidade} = data;
 
@@ -178,30 +178,22 @@ export default function CardDoProduto({data}){
 
 
     return(
-        <Card
-        {...fadeInUp}
-                transition={{ ...fadeInUp.transition, delay: 0.2 }}
-                >
-
-                {Disponibilidade === 'esgotado' ? <Ribbon/> : <></>}
-                
+        <>
+        
+        <Card>
+        {Disponibilidade === 'esgotado' ? <Ribbon/> : <></>}
                 {!user.adm === false ?
                 <button className='favorites'>
-                    <Link to={`/Addprodutos/${data.id}/${categoria}`}><FiEdit size={30} color='#FFF9'/></Link>
+                    <Link to={`/Addprodutos/${data.id}/${categoria}`}><FiEdit size={30} color='#000'/></Link>
                 </button> 
                 :
-                <button className='favorites'  onClick={()=>addfav({nome:nome, imagem:imagem, id:id, user: user.uid})}>
+                <button className='favorites'  onClick={()=>addfav({nome:nome, imagem:imagem, id:id, user:user.uid})}>
                         <MdFavoriteBorder size={30} color='#a52a2a'/>
                 </button> 
                 }
 
     
-                <motion.img
-                    whileHover={{ scale: 1.075 }}
-                    initial={{ scale: 1.075 }}
-                    animate={{ scale: 1 }}
-                    transition={{ ...transition, duration: 1.45, delay: 0.7 }}
-                src={imagem} alt='img' />
+                <img src={imagem} alt='img'/>
                 
                 <h3>{nome}</h3>
 
@@ -210,12 +202,12 @@ export default function CardDoProduto({data}){
                     
                 {!user.adm === false ? 
                 <div>
-                    <button type='button' onClick={exluir} >Excluir</button>
-                    {Disponibilidade === 'esgotado' ? <button type='button' onClick={()=>disponivel(id)} >Disponivel</button> : <button type='button' onClick={()=>esgotado(id)} >Esgotado</button>}
+                    <button type='button' onClick={exluir} > <MdDeleteForever/> Excluir</button>
+                    {Disponibilidade === 'esgotado' ? <button type='button' onClick={()=>disponivel(id)} > <MdOutlineLayers/> Disponivel</button> : <button type='button' onClick={()=>esgotado(id)} > < MdOutlineLayersClear/> Esgotado</button>}
                 </div>
                 :
                 <div>
-                    {Disponibilidade === 'esgotado' ? <></>:
+                    {Disponibilidade === 'esgotado' ? <b>Não temos isso agora</b>:
                     <>
                     <span onClick={menos}><IoMdRemoveCircle/></span>
                     <span> {quantidade<10 ? `0${quantidade}` : quantidade}</span>
@@ -228,5 +220,8 @@ export default function CardDoProduto({data}){
                 }
                 
             </Card>
+        </>
+       
     )
+    
 }

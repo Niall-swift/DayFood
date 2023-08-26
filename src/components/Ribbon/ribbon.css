@@ -1,7 +1,7 @@
 .ribbon {
         position: absolute;
-        left: -5px; top: -5px;
-        z-index: 1;
+        left: -1px; top: -1px;
+        z-index: 99px;
         overflow: hidden;
         width: 85px; height: 85px;
         text-align: right;

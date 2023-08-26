@@ -7,7 +7,9 @@ import {ContextGlobal} from '../../contexts/auth'
 import { useContext } from "react";
 ////////////////////////
 
+
 export default function Categoria(){
+
     const {setCategoria, categoria} = useContext(ContextGlobal);
 
     return(

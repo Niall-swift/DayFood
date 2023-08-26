@@ -45,6 +45,12 @@ export const Card = styled.div`
             }
         div{
             display: flex;
+            height: 45px;
+            margin: 0;
+            b{
+                margin-right: 65px;
+                color: red;
+            }
         }
     }
 
@@ -80,7 +86,6 @@ export const Card = styled.div`
     div{
         display: none;
         width: 100%;
-        height: 42px;
         align-items: center;
         justify-content: center;
 
@@ -95,17 +100,23 @@ export const Card = styled.div`
         }
 
         button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background: var(--color-black);
             border: none;
             border-radius: 15px;
             margin: 10px 15px;
             padding: 5px;
-            width: 100%;
-            max-width: 50px;
-            height: 50px;
+            width: auto;
+            max-width: 150px;
+            height: 45px;
+            color: var(--color-white);
 
             svg{
                 color: var(--color-white);
+                font-size: 1.5em;
+                margin: 10px;
             }
         }
     }
@@ -137,6 +148,9 @@ export const Card = styled.div`
             }
         div{
             display: flex;
+            height: auto;
+            position: absolute;
+            bottom: 0;
         }
     }
 

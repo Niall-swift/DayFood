@@ -301,6 +301,10 @@ function categoria_select(e){
                         <option>Refeição</option>
                         <option>Sobremesa</option>
                         <option>Berbida</option>
+                        <option>Pizza</option>
+                        <option>hamburguer</option>
+                        <option>espetinhos</option>
+                        <option>cerveja</option>
                     </select>
 
 

@@ -25,7 +25,10 @@ export default function Refeicoes(){
     const {categoria, busNome, user} = useContext(ContextGlobal)
     const [prods, SetProds] = useState ([])
     const [load, setLoad] = useState(true)
-    const scroll = useRef(null)
+
+
+
+
 
 useEffect(()=>{
 
@@ -50,7 +53,7 @@ useEffect(()=>{
                             imagem: doc.data().imagem,
                             descricao: doc.data().descricao,
                             categoria: doc.data().categoria,
-                        Disponibilidade: doc.data().Disponibilidade
+                            Disponibilidade: doc.data().Disponibilidade
 
                     })
                     SetProds(lista)
@@ -98,17 +101,17 @@ useEffect(()=>{
 
 
 
-const reihtScroll = (e) =>{
-    e.preventDefault();
+// const reihtScroll = (e) =>{
+//     e.preventDefault();
 
-    scroll.current.scrollLeft += 320
-}
+//     scroll.current.scrollLeft += 320
+// }
 
-const leftScroll = (e) =>{
-    e.preventDefault();
+// const leftScroll = (e) =>{
+//     e.preventDefault();
     
-    scroll.current.scrollLeft -= 320
-}
+//     scroll.current.scrollLeft -= 320
+// }
 
 
     return(

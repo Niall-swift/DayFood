@@ -1,5 +1,5 @@
 import { ContainerMobile, MenusMobile, Logo, ButtonClose } from "./styledHeader";
-import {MdFavorite} from 'react-icons/md'
+import {MdFavorite, MdAutoGraph} from 'react-icons/md'
 import { TbReceipt2 } from 'react-icons/tb'
 import {IoLogOut, IoClose} from 'react-icons/io5'
 import {ContextGlobal} from '../../contexts/auth'
@@ -28,6 +28,7 @@ export default function MenuMobile({ menuIsVisible, setMenuIsVisible}){
             </Logo>
                 <Link to='/pedidos'><button><TbReceipt2/>pedidos</button></Link>
                 <Link to='/perfil'><button><BiUserCircle/>perfil</button></Link>
+                <Link to='/vendas'><button><MdAutoGraph/>Vendas</button></Link>
                 <Link to='/*'><button><MdFavorite/>favoritos</button></Link>
                 <button onClick={exit}><IoLogOut/>sair</button>
             </MenusMobile>

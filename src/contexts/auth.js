@@ -25,7 +25,6 @@ function AutorizarClientes( { children } ){
     const [busNome, setBusNome] = useState('')
     
     
-    
     //Cadastrar usuário
     async function cadastrarUsuario(nome, telefone, email, senha){
         setCadastrarLoad(true);
@@ -35,7 +34,7 @@ function AutorizarClientes( { children } ){
             let uid = value.user.uid
 
             await setDoc(doc(db, "usuarios", uid),{
-                nome: nome,
+                nome: nome.split(' '),
                 telefone: telefone,
                 email: email,
                 avatar: whatsappPic
@@ -43,7 +42,7 @@ function AutorizarClientes( { children } ){
             .then(()=>{
                 let data ={
                     uid: uid,
-                    nome: nome,
+                    nome: nome.split(' '),
                     telefone: telefone,
                     email: value.user.email,
                     avatar: whatsappPic
