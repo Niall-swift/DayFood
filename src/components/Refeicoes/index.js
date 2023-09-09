@@ -70,11 +70,11 @@ useEffect(()=>{
 
                 const q = querySnapshot.docs.filter(doc => doc.data().nome.toLowerCase().startsWith(busNome.toLowerCase()) === busNome.toLowerCase().startsWith(busNome.toLowerCase()));
                 
-                    let lista = []
+                    let lista_com_busca = []
 
                     q.forEach((doc)=>{
 
-                        lista.push({
+                        lista_com_busca.push({
                             id: doc.id,
                             nome: doc.data().nome,
                             preco: doc.data().preco,
@@ -84,9 +84,13 @@ useEffect(()=>{
                         Disponibilidade: doc.data().Disponibilidade
 
                     })
-                    SetProds(lista)
+                    SetProds(lista_com_busca)
                     setLoad(false)
                 })
+
+                if(lista_com_busca.length === 0){
+
+                }
                 
             }
             
@@ -115,7 +119,7 @@ useEffect(()=>{
 
 
     return(
-        (load ? <Load/> :
+        (load ? <Load titulo={'Não há Item aqui'}/> :
         <motion.div {...fadeInUp}>
             <Content>
                 {

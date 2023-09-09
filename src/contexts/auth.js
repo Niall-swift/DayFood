@@ -1,9 +1,8 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import {setDoc, doc, getDoc, deleteDoc} from 'firebase/firestore'
+import {setDoc, doc, getDoc,} from 'firebase/firestore'
 import {auth, db} from '../pages/firebase'
-import {createContext, useState, useEffect, useRef} from 'react'
-import {json, useNavigate} from 'react-router-dom'
-import axios from 'axios';
+import {createContext, useState, useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
 import Swal from 'sweetalert2';
 
 
@@ -21,7 +20,6 @@ function AutorizarClientes( { children } ){
     const [favItem, setFavItem] = useState([])
     const [categoria, setCategoria] = useState ('Refeição')
     const [modal, setModal] = useState(false)
-    const [whatsappPic, setWhatsappPic] = useState(null)
     const [busNome, setBusNome] = useState('')
     
     
@@ -37,7 +35,7 @@ function AutorizarClientes( { children } ){
                 nome: nome.split(' '),
                 telefone: telefone,
                 email: email,
-                avatar: whatsappPic
+                avatar: null
             })
             .then(()=>{
                 let data ={
@@ -45,7 +43,7 @@ function AutorizarClientes( { children } ){
                     nome: nome.split(' '),
                     telefone: telefone,
                     email: value.user.email,
-                    avatar: whatsappPic
+                    avatar: null
                 };
                 setUser(data);
                 dadosLocal(data)
@@ -190,8 +188,6 @@ function AutorizarClientes( { children } ){
             setCategoria,
             modal,
             setModal,
-            whatsappPic,
-            setWhatsappPic,
             busNome,
             setBusNome
             

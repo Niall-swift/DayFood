@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import bg from '../../assets/bg-icons-1.png'
-
 
 export const Content = styled.section`
     backdrop-filter: blur(100px);
@@ -11,6 +9,7 @@ export const Content = styled.section`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    box-sizing: border-box;
 `
 
 export const Iniciar = styled.div`
