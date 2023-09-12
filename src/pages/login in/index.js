@@ -46,7 +46,7 @@ export default function Login(){
                 <img src={ logo } alt='logo da empresa'/>
                 <h1>Day <b>Food</b> </h1>
 
-            <from>
+            <form>
 
             <h1>Faça login</h1>
     
@@ -66,7 +66,7 @@ export default function Login(){
                 />
 
                 <Button onClick={singIn} className='btn'>Entrar</Button>
-            </from>
+            </form>
 
             <Link to='/register'> Cadastre-se <b> É rápido e fácil.</b> </Link>
             

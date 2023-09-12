@@ -36,7 +36,7 @@ export const Iniciar = styled.div`
     }
 
 
-    from{
+    form{
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -62,10 +62,32 @@ export const Iniciar = styled.div`
                 border: 1px solid var(--color-primary);
             }
         }
+
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            b{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                @media screen and (max-width: 512px) {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .valid{
+            color: #059800;
+        }
     }
 `
 
-export const Button = styled.button.attrs(props =>({
+export const Button = styled.button.attrs(props => ({
     type: 'submit',
     disabled: props.load,
 }))`

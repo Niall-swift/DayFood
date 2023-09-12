@@ -221,7 +221,6 @@ export default function CardDoProduto({data}){
                 
             </Card>
         </>
-       
     )
     
 }

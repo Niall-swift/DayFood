@@ -8,10 +8,10 @@ import Footer from '../../components/Footer'
 import { scaleUp } from '../../utils/Animations'
 import { PageTransition } from '../../components/PageAnimation'
 import logo from '../../assets/Polygon 1.svg'
-import Load from '../../components/load'
 ////////// import styled /////////////////////
 import { Content, Iniciar, Button } from './RegisterStyled'
-/////////////////////////////////////////////
+////////////// icones ///////////////////////////////
+import { AiOutlineCheckCircle } from 'react-icons/ai'
 /////// import jquery////////////////
 import $ from 'jquery';
 import 'jquery-mask-plugin/dist/jquery.mask.min.js';
@@ -29,16 +29,17 @@ export default function Register() {
 
     ///////////////////// REGEX DOS INPUTS////////////////////////////
     const regexEmail = (/^[^@\s]+@[^@\s]+\.[^@\s]+$/);
-    const regexSenha = (/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/);
     const regexTelefone = (/^(\+\d{1,3}\s?)?(\(\d{2,3}\)|\d{2,3})[-.\s]?\d{4,5}[-.\s]?\d{4}$/)
+    const regexSenha = [
+        { regex: /.{8,}/, label: '8+', para: 'caracteres' },
+        { regex: /[0-9]/, label: '1', para: 'número' },
+        { regex: /[a-z]/, label: 'a', para: 'minúscula' },
+        { regex: /[A-Z]/, label: 'A', para: 'maiúscula' },
+    ];
 
     const ValidaEmail = regexEmail.test(email);
-    const ValidaSenha = regexSenha.test(senha);
-    const VlaidaTelefone = regexTelefone.test(telefone)
-
-    console.log(ValidaEmail); // true (se o email for válido)
-    console.log(ValidaSenha); // true (se a senha for válida)
-    console.log(VlaidaTelefone); // true (se a telefone for válida)
+    const ValidaTelefone = regexTelefone.test(telefone)
+    const ValidaSenha = regexSenha.every((regex, index)=>(regex.regex.test(senha)))
     /////////////////////////////////////////////////////
 
     const { cadastrarUsuario, cadastrarLoad } = useContext(ContextGlobal);
@@ -46,11 +47,11 @@ export default function Register() {
     async function Criarconta(e) {
         e.preventDefault();
 
-        if(ValidaEmail && ValidaSenha && VlaidaTelefone){
+        if (ValidaEmail && ValidaSenha && ValidaTelefone) {
 
             await cadastrarUsuario(nome, telefone, email, senha)
 
-        }else{
+        } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Alguns dados estão inválidos <br> Os dados devem seguir o exemplo abaixo',
@@ -58,12 +59,11 @@ export default function Register() {
                 position: 'center',
                 showConfirmButton: false,
                 timer: 5000,
-                
                 background: '#00070A',
-                color:'#fff',
+                color: '#fff',
             })
         }
-        
+
     }
 
 
@@ -82,7 +82,7 @@ export default function Register() {
                         <img src={logo} alt='logo da empresa' />
                         <h1>Day <b>Food</b></h1>
 
-                        <from onSubmit={Criarconta}>
+                        <form onSubmit={Criarconta}>
                             <h1>Crie sua Conta</h1>
 
                             <input type='text'
@@ -112,10 +112,16 @@ export default function Register() {
                                 value={senha}
                                 onChange={(e) => setSenha(e.target.value)}
                             />
-
+                            <div>
+                                {regexSenha.map((regext, index) => (
+                                    <>
+                                        <b key={index} className={senha.match(regext.regex) ? 'valid' : ''}>{regext.label} <p>{regext.para}</p> </b>
+                                    </>
+                                ))}
+                            </div>
 
                             <Button onClick={Criarconta} load={cadastrarLoad}> {cadastrarLoad === true ? 'Criando sua conta ...' : 'Criar conta'} </Button>
-                        </from>
+                        </form>
                         <Link to='/'>Tem uma conta? <b> Iniciar Sessão</b> </Link>
 
                     </Iniciar>

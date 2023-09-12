@@ -9,12 +9,13 @@ export const Content = styled.section`
     overflow: auto;
     flex-wrap: wrap;
     max-width: 1280px;
+    margin: 0 auto;
     width: 100%;
     height: 100vh;
-    margin: 0 auto;
 
     @media screen and (max-width: 512px){
         max-width: 100%;
+        display: inline-block;
     }
 `
 
@@ -35,6 +36,7 @@ export const Card = styled.div`
     border: 1px solid rgba(255, 255, 255, 0.246);
     box-sizing: border-box;
     transition: all .7s;
+    margin-bottom: 2em;
 
     :hover{
         background-color: var(--color-primary);
@@ -48,7 +50,7 @@ export const Card = styled.div`
             height: 45px;
             margin: 0;
             b{
-                margin-right: 65px;
+                text-align: center;
                 color: red;
             }
         }
@@ -157,7 +159,7 @@ export const Card = styled.div`
         img{
         object-fit: cover;
         border-radius: 20px;
-        max-height: 150px;
+        max-height: 200px;
     }
 
     h3{
