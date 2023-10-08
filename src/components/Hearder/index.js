@@ -1,76 +1,91 @@
-import {useState, useContext} from 'react';
-import {Link} from 'react-router-dom'
-import {motion} from 'framer-motion'
-import {fadeInDown} from '../../utils/Animations'
-import {ContextGlobal} from '../../contexts/auth'
-import CartButton from '../CartButton';
-
-import avataof from '../../assets/undraw_pic_profile_re_7g2h.svg'
+import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { fadeInDown } from '../../utils/Animations'
+import { ContextGlobal } from '../../contexts/auth'
+import CartButton from '../Bottom_Add_Product';
+import { BsFillGearFill } from 'react-icons/bs'
 /// icones
-import {CgNotes} from 'react-icons/cg'
-import {BiUserCircle, BiAddToQueue} from 'react-icons/bi'
-import {IoLogOut} from 'react-icons/io5'
-import {HiMenu} from 'react-icons/hi'
-import {IoClose} from 'react-icons/io5'
-import {MdFavorite, MdAutoGraph} from 'react-icons/md'
-import {FaUsers, FaUser} from 'react-icons/fa'
+import { CgNotes } from 'react-icons/cg'
+import { BiUserCircle, BiAddToQueue } from 'react-icons/bi'
+import { IoLogOut } from 'react-icons/io5'
+import { HiMenu } from 'react-icons/hi'
+import { IoClose } from 'react-icons/io5'
+import { MdFavorite, MdAutoGraph } from 'react-icons/md'
+import { FaUsers, FaUser } from 'react-icons/fa'
 import { TbReceipt, TbReceiptOff, TbReceiptTax, TbReceiptRefund, TbReceipt2 } from 'react-icons/tb'
 import styled from 'styled-components';
-import {Container, Logo, Menus, Menu} from './styledHeader'
+import { Container, Headers , Menus, Menu, Message_Herder } from './styledHeader'
 
 
 
 
-export default function Header({menuIsVisible,setMenuIsVisible}){
+export default function Header({ menuIsVisible, setMenuIsVisible }) {
 
-    const {user, exit, whatsappPic} = useContext(ContextGlobal)
-    const [containerof, setContainerof] = useState (false)
-    const [scl, setScl] = useState (false)
+    const { user, exit} = useContext(ContextGlobal)
+    const [containerof, setContainerof] = useState(false)
+    const [scl, setScl] = useState(false)
 
-    const opmenu = ()=>{
+    const opmenu = () => {
         setContainerof(!containerof)
 
     }
-    window.addEventListener ("scroll", function() {
+
+    window.addEventListener("scroll", function () {
 
         const scl = window.scrollY > 0
 
         setScl(scl)
     });
 
-    
 
-    return(
 
-        <Container scl={scl}>
+    return (
+        <Headers>
+            <Container scl={scl}>
+
+                <CartButton />
+
+                <Message_Herder>
+                    {user.adm === true ?
+                    <>
+                    </>
+                    :
+                    <>
+                    <img src={user.avatar}/>
+                    <b>Olá e bom te ver aqui !!</b>
+                    </>
+                    }
+                </Message_Herder>
+
                 <Menu sVisible={menuIsVisible}>
-                    
-                <button onClick={opmenu}>
-                    <HiMenu size={45} onClick={() => setMenuIsVisible(true)}/>
-                </button>
-
+                    <button onClick={opmenu}>
+                        <HiMenu size={45} onClick={() => setMenuIsVisible(true)} />
+                    </button>
                 </Menu>
 
-            <Menus>
-                <CartButton/>
-                {user.adm === true ?(
-                    <>
-                    <Link to='/pedidos'><button><TbReceipt2/>pedidos</button></Link>
-                    <Link to='/perfil'><button><BiUserCircle/>perfil</button></Link>
-                    <Link to='/vendas'><button><MdAutoGraph/>Vendas</button></Link>
-                    <button onClick={exit}><IoLogOut/>sair</button>
-                    </>
-                ) : (
-                    <>
-                    <Link to='/pedidos'><button><TbReceipt2/>pedidos</button></Link>
-                    <Link to='/perfil'><button><BiUserCircle/>perfil</button></Link>
-                    <Link to='/*'><button><MdFavorite/>favoritos</button></Link>
-                    <button onClick={exit}><IoLogOut/>sair</button>
-                    </>
-                )}
-            </Menus>
+                <Menus>
+                    {user.adm === true ? (
+                        <>
+                            <Link to='/pedidos'><button><TbReceipt2 />pedidos</button></Link>
+                            <Link to='/perfil'><button><BiUserCircle />perfil</button></Link>
+                            <Link to='/vendas'><button><MdAutoGraph />Vendas</button></Link>
+                            <Link to='/configs'><button><BsFillGearFill />Configs</button></Link>
+                            <button onClick={exit}><IoLogOut />sair</button>
+                        </>
+                    ) : (
+                        <>
+                            <Link to='/pedidos'><button><TbReceipt2 />pedidos</button></Link>
+                            <Link to='/perfil'><button><BiUserCircle />perfil</button></Link>
+                            <Link to='/*'><button><MdFavorite />favoritos</button></Link>
+                            <button onClick={exit}><IoLogOut />sair</button>
+                        </>
+                    )}
+                </Menus>
 
-        </Container>
+            </Container>
+        </Headers>
+
     )
 };
 

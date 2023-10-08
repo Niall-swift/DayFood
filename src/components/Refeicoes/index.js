@@ -2,13 +2,11 @@ import {ContextGlobal} from '../../contexts/auth'
 import {Content} from './CardStyled'
 import { useContext, useEffect, useState, useRef } from 'react';
 import {FiArrowRightCircle, FiArrowLeftCircle} from 'react-icons/fi';
-import {LuSalad} from  'react-icons/lu'
-import Titulo from '../pages_titulos';
 import {motion} from 'framer-motion'
-import {fadeInUp, transition} from '../../utils/Animations'
+import {fadeInUp} from '../../utils/Animations'
 import {db} from '../../pages/firebase'
 import {collection, doc, onSnapshot, orderBy, query, updateDoc, where, getDocs, limit, startAfter, QuerySnapshot } from 'firebase/firestore'
-import CardDoProduto from '../CardDoProduto';
+import CardDoProduto from '../Product_Card';
 
 
 

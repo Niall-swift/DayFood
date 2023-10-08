@@ -95,6 +95,7 @@ div{
     justify-content: center;
     align-items: center;
     padding: 10px;
+    border-bottom: 1px solid var(--color-black);
     img{
         height: 60px;
         width: 60px;
@@ -106,9 +107,10 @@ div{
     max-width: 80%;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
-    padding: 5px 0 5px 0;
-    border-top: 1px solid var(--color-black);
+    padding: 15px 0 5px 0;
+    border: none;
     color: var(--color-primary);
 
     p{

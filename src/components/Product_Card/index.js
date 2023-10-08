@@ -7,10 +7,7 @@ import { FiEdit } from 'react-icons/fi';
 /// import reacts
 import {useContext, useState} from 'react';
 import {Link} from 'react-router-dom'
-////////////////
-import {motion} from 'framer-motion'
-import {fadeInUp, transition} from '../../utils/Animations'
-////////////////////////////////////////////////////////
+
 
 
 import {ContextGlobal} from '../../contexts/auth'
@@ -26,7 +23,7 @@ import {doc, deleteDoc, updateDoc} from 'firebase/firestore'
 ///////
 import Ribbon from '../Ribbon';
 ////////////////////////////////////
-import {Card, Content} from '../Refeicoes/CardStyled'
+import {Card} from '../Refeicoes/CardStyled'
 export default function CardDoProduto({data}){
     const {onCart ,setOnCart, user, favoritos} = useContext(ContextGlobal)
     const [status ,setStatus] = useState ('disponivel')
@@ -202,8 +199,8 @@ export default function CardDoProduto({data}){
                     
                 {!user.adm === false ? 
                 <div>
-                    <button type='button' onClick={exluir} > <MdDeleteForever/> Excluir</button>
-                    {Disponibilidade === 'esgotado' ? <button type='button' onClick={()=>disponivel(id)} > <MdOutlineLayers/> Disponivel</button> : <button type='button' onClick={()=>esgotado(id)} > < MdOutlineLayersClear/> Esgotado</button>}
+                    <button type='button' onClick={exluir} > <MdDeleteForever/></button>
+                    {Disponibilidade === 'esgotado' ? <button type='button' onClick={()=>disponivel(id)} > <MdOutlineLayers/></button> : <button type='button' onClick={()=>esgotado(id)} > < MdOutlineLayersClear/></button>}
                 </div>
                 :
                 <div>

@@ -10,7 +10,8 @@ export const Content = styled.section`
     flex-wrap: wrap;
     max-width: 1280px;
     margin: 0 auto;
-    width: 100%;
+    padding: 15px;
+    width: 100vw;
     height: 100vh;
 
     @media screen and (max-width: 512px){
@@ -23,6 +24,7 @@ export const Content = styled.section`
 export const Card = styled.div`
     background-color: var(--color-white);
     width: 100%;
+    aspect-ratio: 16 / 9;
     max-width: 290px;
     display: flex;
     flex-direction: column;
@@ -46,8 +48,8 @@ export const Card = styled.div`
                 display: none;
             }
         div{
+            width: 100%;
             display: flex;
-            height: 45px;
             margin: 0;
             b{
                 text-align: center;
@@ -65,9 +67,10 @@ export const Card = styled.div`
     }
 
     img{
+        height: 250px;
+        width: 250px;
         object-fit: cover;
         border-radius: 20px;
-        max-height: 250px;
         overflow-clip-margin: content-box;
         overflow: hidden;
         object-fit: cover;
@@ -96,9 +99,9 @@ export const Card = styled.div`
             justify-content: center;
             align-items: center;
             font-size: 2em;
-            width: 70%;
-            max-width: 50px;
-            height: 50px;
+            width: 70em;
+            max-width: 1.5em;
+            height: 1em;
         }
 
         button{
@@ -107,31 +110,30 @@ export const Card = styled.div`
             align-items: center;
             background: var(--color-black);
             border: none;
-            border-radius: 15px;
-            margin: 10px 15px;
-            padding: 5px;
-            width: auto;
-            max-width: 150px;
-            height: 45px;
+            border-radius: 11px;
+            margin: 5px;
+            padding: 1em;
+            height: 3em;
             color: var(--color-white);
+            text-align: center;
 
             svg{
                 color: var(--color-white);
                 font-size: 1.5em;
-                margin: 10px;
+                margin: 8px;
             }
         }
     }
 
     @media screen and (max-width: 512px){
         display: flex;
+        aspect-ratio: 0/9;
         justify-content: center;
         align-items: center;
         flex-direction: row;
-        max-width: 95%;
+        max-width: 100%;
         justify-content: center;
         align-items: center;
-        overflow: hidden;
         box-sizing: border-box;
 
         :hover{
@@ -142,24 +144,28 @@ export const Card = styled.div`
             opacity: 0;
         }
         strong{
-            display: flex;
-            bottom: 55px;
+            display: block;
+            bottom: 2.5em;
             color: var(--color-white);
             transition: all.7s;
             font-size: 1.5em;
+            text-align: center;
             }
         div{
             display: flex;
             height: auto;
-            position: absolute;
-            bottom: 0;
+            width: 50%;
+            left: 40%;
+            bottom: 0.5em;
         }
     }
 
         img{
+        width: 10.5em;
+        height: 6em;
+        margin-inline: auto;
         object-fit: cover;
-        border-radius: 20px;
-        max-height: 200px;
+        border-radius: 15px;
     }
 
     h3{
@@ -173,15 +179,16 @@ export const Card = styled.div`
     strong{
         position: absolute;
         bottom: 10px;
-        margin-left: 32px;
+        margin-left: 2.5em;
         transition: all.7s;
         font-size: 1em;
     }
 
     div{
         position: absolute;
-        bottom: 10px;
-        right: -3.5em;
+        max-width: 100%;
+        right: -4em;
+        bottom: 0.5em;
     }
 }
 `

@@ -1,0 +1,17 @@
+.Cart__button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 5px;
+    background: none;
+    cursor: pointer;
+    position: relative;
+
+    >a {
+        >svg{
+            font-size: 2rem;
+            color: var(--color-svg);
+        }
+    }
+}

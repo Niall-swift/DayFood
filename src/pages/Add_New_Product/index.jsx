@@ -2,14 +2,13 @@ import { useContext, useEffect, useState } from 'react'
 import {Link, useParams} from 'react-router-dom'
 
 /// compornetes
-import Header from '../../components/Hearder'
 import {ContextGlobal} from '../../contexts/auth'
 
 //// impor toutes
 import {useNavigate} from 'react-router-dom'
 
 /// css styles
-import './add.css'
+import {Container, Group_input, File_Upload} from './Styled_Add_New_Product'
 import { PageTransition } from '../../components/PageAnimation'
 
 /// icone
@@ -247,7 +246,7 @@ function categoria_select(e){
         <>
         <PageTransition/>
         
-        <div className='Container'>
+        <Container>
                 
         {user.adm ?
         <main className='meio'>
@@ -263,9 +262,12 @@ function categoria_select(e){
 
             <h2 className='Tituo-page'>{id ? `Edita prato -> ${nome}` : 'Adicionar  prato'}</h2>
 
-            <div className='input-page'>
+            <Group_input>
+
                 <form className='form-evia-prato'>
-                    <label className='label-imagem'><span>Imagem do prato</span>
+
+                    <File_Upload>
+                        
                     <span> <FiUpload size={35}/> </span>
                     <input onChange={pegar_img}
                     type='file'
@@ -273,42 +275,39 @@ function categoria_select(e){
                     placeholder='Selecione uma imagem'
                     />
                     {imagem == null ? (<img src={img} alt='fote da comida'/> ) : (<img src={imagem} alt='fote da comida'/>)}
-                    </label>
+                    </File_Upload>
                     
 
 
-                    <label><span className='nome_input'>Nome</span>
-                    <input className='input-prato' onChange={(e)=>setNome(e.target.value)}
-                    label='Nome'
-                    title='Nome do prato'
+                    <label htmlFor="patro" >Nome do prato</label>
+                    <input onChange={(e)=>setNome(e.target.value)}
                     type='text'
                     value={nome}
                     placeholder='Ex.: Salada Ceasar'
                     />
-                    </label>
 
-                    <label><span className='nome_input'>Preço</span></label>
-                    <input className='input-prato' onChange={(e)=>setPreco(e.target.value)}
-                    label='Nome'
+                    <label>Preço</label>
+                    <input onChange={(e)=>setPreco(e.target.value)}
                     title='Preço'
                     type='number'
                     placeholder='R$ 00,00'
                     value={preco}
                     />
 
-                    <label><span className='nome_input'>Categoria</span></label>
-                    <select className='Categoria' value={categoria} onChange={categoria_select}>
+                    <label>Categoria</label>
+                    <select value={categoria} onChange={categoria_select}>
                         <option>Refeição</option>
                         <option>Sobremesa</option>
                         <option>Berbida</option>
                         <option>Pizza</option>
-                        <option>hamburguer</option>
-                        <option>espetinhos</option>
-                        <option>cerveja</option>
+                        <option>Hamburguer</option>
+                        <option>Espetinhos</option>
+                        <option>Cerveja</option>
+                        <option>Massas</option>
                     </select>
 
 
-                    <label><span className='nome_input'>descrição</span></label>
+                    <label>descrição</label>
                     <textarea onChange={(e)=>setDescricao(e.target.value)}
                     type='text'
                     placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
@@ -316,14 +315,15 @@ function categoria_select(e){
                     />
                     {id ? <button className='btn' onClick={atualiza}>Salvar alterações</button> : <button className='btn' onClick={cardastra}>Cardastra prato</button>}
                 </form>
-            </div>
+            </Group_input>
+
         </main>
         :
         <main>
             gay
         </main>
         }
-        </div>
+        </Container>
         </>
     )
 }

@@ -18,6 +18,7 @@ import Barra from "../../components/Bararadepesquisa"
 
 
 export default function Home(){
+
     const [menuIsVisible, setMenuIsVisible] = useState(false);
 
     return(

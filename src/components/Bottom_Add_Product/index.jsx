@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 export default function CartButton(){
 
-    const {user, onCart, offcart, setOffcart} = useContext(ContextGlobal);
+    const {user} = useContext(ContextGlobal);
 
 
     return(
@@ -21,17 +21,11 @@ export default function CartButton(){
         type="button"
         className="Cart__button"
         >
-        <Link to='/Addprodutos'><BiAddToQueue/></Link>  
+        <Link to='/Addprodutos'><BiAddToQueue/></Link>
+        new product
         </button>
         :
-        <button
-        type="button"
-        className="Cart__button"
-        onClick={ () => setOffcart(!offcart) }
-        > 
-        <FaShoppingBasket/>
-            { onCart.length > 0 &&  <span className='cart__status'>{onCart.length}</span> }
-        </button>
+        <></>
         }
     </>
     )

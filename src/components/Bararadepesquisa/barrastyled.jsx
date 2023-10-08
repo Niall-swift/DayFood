@@ -18,7 +18,7 @@ export const BarPequisa = styled.div`
         input{
         outline: none;
         width: 100%;
-        background-color: #fff8e4;
+        background-color: var(--color-secondary);
         border-radius: 20px;
         padding: 15px 25px;
         font-size: 20px;
@@ -44,7 +44,7 @@ export const BarPequisa = styled.div`
 
         svg{
             font-size: 20px;
-            color: var(--color-secondary);
+            color: var(--color-svg);
         }
     }
 }

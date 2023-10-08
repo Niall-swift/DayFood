@@ -17,6 +17,7 @@ import $ from 'jquery';
 import 'jquery-mask-plugin/dist/jquery.mask.min.js';
 //////////////////////////// toast ///////////////////
 import Swal from 'sweetalert2'
+import { getHours } from 'date-fns'
 
 
 
@@ -25,7 +26,6 @@ export default function Register() {
     const [telefone, setTelefone] = useState('')
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
-
 
     ///////////////////// REGEX DOS INPUTS////////////////////////////
     const regexEmail = (/^[^@\s]+@[^@\s]+\.[^@\s]+$/);

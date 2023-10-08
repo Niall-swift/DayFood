@@ -1,21 +1,53 @@
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
 
-
-export const Container = styled.div`
-    width:100%;
+export const Headers = styled.header`
+    width: 100%;
     height: 4em;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    top: 0;
     position: fixed;
     z-index: 99;
-    backdrop-filter:blur(50px);
-    filter: saturate(2.1);
+`
+export const Message_Herder = styled.div`
+    display: none;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+
+    ${({ scl }) => scl && css`
+    display: flex;
+    img{
+    width: 3em;
+    height: 3em;
+    object-fit: cover;
+    border-radius: 25%;
+    border: 1px solid #c3c3c3;
+}
+
+`}
+`
+
+
+export const Container = styled.div`
+    width:100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-top: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    ${({ scl }) => scl && css`
+    height: 4em;
+    padding: 0.5em;
+    backdrop-filter:blur(50em);
     -webkit-backdrop-filter: blur(100px);
-    transition: all .7s;
-    box-shadow: ${props => (props.scl !== false ? '0px 10px 15px -3px rgba(0,0,0,0.30)' : '')};
+    transition: all .5s;
+    border-radius: 20px;
+`}
 `
 export const Logo = styled.div`
     display: flex;
@@ -39,7 +71,7 @@ export const Logo = styled.div`
 `
 
 export const Menus = styled.div`
-    width: 500px;
+    width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,8 +170,8 @@ export const ContainerMobile = styled.div`
     z-index: 100;
     opacity: 1;
     pointer-events: auto;
-    backdrop-filter: blur(100px);
-    -webkit-backdrop-filter: blur(100px);
+    backdrop-filter: blur(100rem);
+    -webkit-backdrop-filter: blur(100rem);
 
     > svg {
         transform: rotate(0deg);
