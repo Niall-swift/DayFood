@@ -87,7 +87,7 @@ function AutorizarClientes( { children } ){
                 Swal.fire({
                     position: 'top',
                     icon: 'error',
-                    title: 'Usuário e/ou senha inválidos',
+                    title: 'Usuário ou senha inválidos',
                     showConfirmButton: false,
                     timer: 1500,
                     background: '#00070A',
