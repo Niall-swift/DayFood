@@ -22,6 +22,7 @@ export default function Home(){
     const [menuIsVisible, setMenuIsVisible] = useState(false);
 
     return(
+
         <Homen>
         <MenuMobile
             menuIsVisible={menuIsVisible}
@@ -32,7 +33,6 @@ export default function Home(){
         setMenuIsVisible={setMenuIsVisible}
         />
         <Cart/>
-        <PageTransition/>
         <Bane/>
         <Servicos/>
         <ResumoDoCart/>

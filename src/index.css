@@ -8,6 +8,9 @@
   src: url('./fonts/Poppins-Regular.otf');
 }
 
+@import "https://unpkg.com/transition-style";
+
+
 
 :root{
   --color-background: #fffdf7;
