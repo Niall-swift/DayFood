@@ -275,6 +275,7 @@ function categoria_select(e){
                     placeholder='Selecione uma imagem'
                     />
                     {imagem == null ? (<img src={img} alt='fote da comida'/> ) : (<img src={imagem} alt='fote da comida'/>)}
+                    
                     </File_Upload>
                     
 
