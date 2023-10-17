@@ -152,7 +152,7 @@ function atualizarStatus(item, status) {
         })
         
         let texto =`Olá ${item.cliente} o seu pedido foi aceito e já está sendo preparado :)\n`;
-        texto += `\n*Itens do seu pedido:*${itens}\n`;
+        texto += `\n*Itens do seu pedido:* ${itens}\n`;
         texto += '\n*Endereço de entrega:*';
         texto += `\n${item.endereco}, N° ${item.numero}, ${item.bairro}`;
         texto += `\n${item.cidade} / ${item.cep} ${item.complemento}\n`;

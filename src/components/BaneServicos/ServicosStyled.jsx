@@ -4,8 +4,8 @@ import bg from '../../assets/bg-icons-2.png'
 export const Content = styled.section`
     background-image: url(${bg});
     margin-top: 50px;
-    height: 80%;
-    width: 100%;
+    height: 100%;
+    width: 100vw;
     padding-top: 100px;
     padding-bottom: 150px;
 
@@ -36,6 +36,9 @@ export const Content = styled.section`
         
         div{
             display: flex;
+            opacity: 0;
+            filter: blur(15px);
+            transition: all 2s;
             justify-content: center;
             align-items: center;
             flex-direction: column;
@@ -73,5 +76,10 @@ export const Content = styled.section`
                 
             }
         }
+    }
+    .show{
+        filter: blur(0);
+        transition: all 1s;
+        opacity: 1;
     }
 `
