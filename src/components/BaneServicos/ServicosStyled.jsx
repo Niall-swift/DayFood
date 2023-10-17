@@ -34,10 +34,11 @@ export const Content = styled.section`
         padding: 20px;
         
         
-        div{
+        .Serveces{
             display: flex;
             opacity: 0;
             filter: blur(15px);
+            transform: translateX(-100%);
             transition: all 2s;
             justify-content: center;
             align-items: center;
@@ -69,17 +70,11 @@ export const Content = styled.section`
                     }
             }
         }
-        @media screen and (max-width: 512px){
-            div{
-                width: 100%;
-                height: 100%;
-                
-            }
-        }
     }
     .show{
         filter: blur(0);
+        transform: translateX(0)!important;
         transition: all 1s;
-        opacity: 1;
+        opacity: 1!important;
     }
 `

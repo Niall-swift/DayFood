@@ -18,6 +18,7 @@ export default function Servicos() {
             } else {
                 entry.target.classList.remove('show')
             }
+            
         })
     })
     servers.forEach(element => myScroll.observe(element));
