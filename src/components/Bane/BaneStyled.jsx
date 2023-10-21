@@ -148,6 +148,23 @@ export const Contatos = styled.div`
         margin-left: 1rem;
         margin-right: 2rem;
         box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+        opacity: 0;
+        transition: all 1s;
+
+        :nth-child(1){
+            transform: translateX(-100%);
+            transition: all 3s;
+        }
+        :nth-child(2){
+            transform: translateX(-200%);
+            transition: all 4s;
+        }
+        :nth-child(3){
+            transform: translateX(-500%);
+            transition: all 5s;
+        }
+
+
 
         svg{
             font-size: 25px;
@@ -161,5 +178,22 @@ export const Contatos = styled.div`
             color: var(--color-white);
         }
     }
+    }
+    .show{
+        transition: all 1s;
+        opacity: 1;
+        :nth-child(1){
+            transform: translateX(0);
+            transition: all 2s;
+        }
+        :nth-child(2){
+            transform: translateX(0);
+            transition: all 1.5s;
+        }
+        :nth-child(3){
+            transform: translateX(0);
+            transition: all 1.2s;
+        }
+        
     }
 `

@@ -6,7 +6,7 @@ import {useState} from 'react'
 import {FaPhone} from 'react-icons/fa'
 import {BsInstagram,BsFacebook,BsWhatsapp} from 'react-icons/bs'
 /////////// animação/////////
-import {fadeInUp, transition, letterAnimation } from '../../utils/Animations'
+import {fadeInUp, transition, letterAnimation, fadeInLeft } from '../../utils/Animations'
 import {motion} from 'framer-motion'
 import { Link } from 'react-router-dom'
 //////////////////////////////////////
@@ -19,12 +19,26 @@ export default function Bane(){
 
     const {user, whatsappPic} = useContext (ContextGlobal)
 
+    const myScroll = new IntersectionObserver((myElemte) => {
+        myElemte.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show')
+            } else {
+                entry.target.classList.remove('show')
+            }
+            
+        })
+    })
+    const servers = document.querySelectorAll('.link')
+    servers.forEach(element => myScroll.observe(element));
+
     return(
         <Content>
             <Titulo>
             <img src={user.avatar === null ? `${whatsappPic === 'Image is unavailable; possibily due to user privacy settings.' ? avatares : whatsappPic}` : user.avatar} alt=''/>
             <h2> Olá, <b>{user.nome[0]}</b> <b>{user.nome[1]}</b> que tal !</h2>
-            <motion.h1  {...letterAnimation} class="wow fadeInLeft"> <b>Escolhe sua  <br/> comida <b class="color-primary"> favorita. </b> </b> </motion.h1>
+            <motion.h1  {...letterAnimation} className="wow fadeInLeft"> <b>Escolhe sua  <br/> comida <b className="color-primary"> favorita. </b> </b> </motion.h1>
             
             </Titulo>
 
@@ -40,9 +54,9 @@ export default function Bane(){
             </Cadapio>
 
             <Contatos>
-                <Link to='https://www.instagram.com/niall_swift_/'> <BsInstagram/> </Link>
-                <Link to='https://www.facebook.com/niall.swift.10'> <BsFacebook/> </Link>
-                <Link to='https://wa.me/5521990414180?text=Olá, preciso de ajudar'> <BsWhatsapp/> </Link>
+                <Link className='link'  to='https://www.instagram.com/niall_swift_/'> <BsInstagram/> </Link>
+                <Link className='link'  to='https://www.facebook.com/niall.swift.10'> <BsFacebook/> </Link>
+                <Link className='link'  to='https://wa.me/5521990414180?text=Olá, preciso de ajudar'> <BsWhatsapp/> </Link>
             </Contatos>
 
         </Content>

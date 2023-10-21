@@ -34,12 +34,8 @@ export const Content = styled.section`
         padding: 20px;
         
         
-        .Serveces{
+        .serveces{
             display: flex;
-            opacity: 0;
-            filter: blur(15px);
-            transform: translateX(-100%);
-            transition: all 2s;
             justify-content: center;
             align-items: center;
             flex-direction: column;
@@ -70,11 +66,5 @@ export const Content = styled.section`
                     }
             }
         }
-    }
-    .show{
-        filter: blur(0);
-        transform: translateX(0)!important;
-        transition: all 1s;
-        opacity: 1!important;
     }
 `
