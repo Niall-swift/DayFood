@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 
 export const Container = styled.section`
-    width: 100vw;
-    max-width: 1280vw;
+    width: 100%;
+    max-width: 1280px;
     height: 100vh;
     margin: 0 auto;
 `
@@ -14,7 +14,7 @@ export const Group_input = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 5em;
+    padding: 2em;
 
 
     label{
@@ -23,20 +23,18 @@ export const Group_input = styled.div`
 
     form{
         display: grid;
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         justify-content: center;
         align-items: center;
-        gap: 3em;
-        grid-auto-rows: 100px;
-        grid-template-columns: repeat(2, 600px);
-        grid-template-rows: auto;
+        gap: 2em;
 
         label{
             position: relative;
             text-align: start;
             margin-bottom: 6em;
             padding: 0.1em;
+
             :nth-child(2){
                 grid-column: 2/4;
                 grid-row: 1/1;

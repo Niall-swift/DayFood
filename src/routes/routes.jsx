@@ -9,7 +9,8 @@ import Favoritos from '../components/Favoritos'
 import Error404 from '../pages/erros/404'
 import Pedidos from '../pages/pedidos'
 import Vendas from '../components/Vendas'
-import Configs from '../pages/PageConfigs'
+import Configs from '../pages/configs'
+import Orders from '../pages/orders/orders'
 
 
 function RoutersApp() {
@@ -28,6 +29,7 @@ function RoutersApp() {
             <Route path='/favoritos' element={<Provider> <Favoritos /> </Provider>} />
             <Route path='/Vendas' element={<Provider> <Vendas /> </Provider>} />
             <Route path='/Pedidos' element={<Provider> <Pedidos /> </Provider>} />
+            <Route path='/Order' element={<Provider> <Orders /> </Provider>} />
             <Route path='/Configs' element={<Provider> <Configs /> </Provider>} />
 
 

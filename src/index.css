@@ -13,7 +13,7 @@
 
 
 :root{
-  --color-background: #fffdf7;
+  --color-background: #fffdf2;
   --color-svg: #212121;
   --color-black-heavy: #000000;
   --color-text: #4f4f4f;
@@ -26,33 +26,6 @@
   --color-separate: #cccccc;
 }
 
-:root .cupcake-theme{
-  --color-background: #fffdf7;
-  --color-svg: #FFFADD;
-  --color-black-heavy: #FFFADD;
-  --color-text: #4f4f4f;
-  --color-text-out: #90908e;
-  --color-primary: #FFA1F5;
-  --color-secondary: #D0BFFF;
-  --color-white: #ffffff;
-  --color-red: #e74c3c;
-  --color-green: #A6FF96;
-  --color-separate: #8DDFCB;
-}
-
-:root .dark-theme{
-  --color-background: #1B2430;
-  --color-black: #212121;
-  --color-black-heavy: #000000;
-  --color-text: #4f4f4f;
-  --color-text-out: #90908e;
-  --color-primary: #ffbf00;
-  --color-secondary: #fff2cc;
-  --color-white: #ffffff;
-  --color-red: #e74c3c;
-  --color-green: #2ecc71;
-  --color-separate: #cccccc;
-}
 
 *{
   padding: 0;
