@@ -1,5 +1,6 @@
 footer{
     position: absolute;
+    width: 100%;
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -25,13 +26,6 @@ footer::before {
     height: 1px;
     background: #111111;
     opacity: 0.2;
-}
-.foter{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 1rem;
 }
 .foter h3{
     font-weight: 200;

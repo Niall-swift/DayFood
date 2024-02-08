@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Content = styled.section`
-    position: relative;
     backdrop-filter: blur(100px);
     width: 100%;
     height: 100vh;
@@ -86,8 +85,8 @@ export const Iniciar = styled.div`
         }
     }
 
-    @media screen and (max-width: 512px) {
-        
+    @media screen and (max-width: 430px) {
+        padding: 2rem;
     }
 `
 
