@@ -1,6 +1,5 @@
 import {Link, useNavigate} from 'react-router-dom'
 import logo from '../../assets/Polygon 1.svg'
-import avatar from '../../assets/undraw_coffee_time_45em.svg'
 import { motion } from 'framer-motion'
 import { PageTransition } from '../../components/PageAnimation'
 import {ContextGlobal} from '../../contexts/auth'
@@ -8,29 +7,39 @@ import {scaleUp, transition, fadeInUp} from '../../utils/Animations'
 import {useContext, useState} from 'react'
 import Footer from '../../components/Footer'
 import {Content, Iniciar, Button} from '../register/RegisterStyled'
+import UseAPIClient from '../../api/api'
+
 
 import Load from '../../components/load'
 
 
 export default function Login(){
-    const {login, cadastrarLoad, user, whatsappPic} = useContext (ContextGlobal)
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
+
+    const {lognin} = useContext(ContextGlobal);
+
     
-    const navigate = useNavigate();
 
-    async function singIn(){
-        if(email !=='' && senha !==''){
-            await login(email, senha)
-        }else{
+    const [email, setEmail] = useState('')
+    const [passeord, setPasseord] = useState('')
+
+
+
+    async function Signin(event) {
+        event.preventDefault()
+
+        let data ={
+            email,
+            passeord
         }
-    }
 
-    if(cadastrarLoad){
-        return(
-        <Load titulo={'Entrando com ' + (email) }/>
-        )
+        await lognin(data)
     }
+    
+    //if(cadastrarLoad){
+    //    return(
+    //    <Load titulo={'Entrando com ' + (email) }/>
+    //    )
+    //}
 
 
     
@@ -61,11 +70,11 @@ export default function Login(){
     
                 <input type='password'
                 placeholder='Sua senha'
-                value={senha} 
-                onChange={(e)=> setSenha(e.target.value)}
+                value={passeord} 
+                onChange={(e)=> setPasseord(e.target.value)}
                 />
 
-                <Button onClick={singIn} className='btn'>Entrar</Button>
+                <Button onClick={Signin} className='btn'>Entrar</Button>
             </form>
 
             <Link to='/register'> Cadastre-se <b> É rápido e fácil.</b> </Link>

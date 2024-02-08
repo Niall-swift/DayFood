@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const Content = styled.section`
+    position: relative;
     backdrop-filter: blur(100px);
     width: 100%;
-    height: 100dvh;
+    height: 100vh;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     box-sizing: border-box;
 `
 
@@ -32,7 +32,7 @@ export const Iniciar = styled.div`
         }
 
     img{
-        height: 75px;
+        height: 5rem;
     }
 
 
@@ -42,17 +42,17 @@ export const Iniciar = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 32px;
+        margin: 1rem;
 
         input{
             width: 100%;
             background-color: var(--color-secondary);
             border-radius: 20px;
-            padding: 15px 25px;
+            padding: 1rem 2rem;
             font-size: 20px;
             box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.38)!important;
             border: none!important;
-            margin: 15px auto;
+            margin: 0.75rem auto;
             outline: none;
 
             :focus{
@@ -84,6 +84,10 @@ export const Iniciar = styled.div`
         .valid{
             color: #059800;
         }
+    }
+
+    @media screen and (max-width: 512px) {
+        
     }
 `
 

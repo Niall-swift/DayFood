@@ -72,9 +72,8 @@ export default function Register() {
     ////////////////////////////////////////
 
     return (
-        <>
-            <PageTransition />
             <Content>
+                <PageTransition />
                 <motion.div {...scaleUp}>
 
                     <Iniciar>
@@ -126,8 +125,7 @@ export default function Register() {
 
                     </Iniciar>
                 </motion.div>
+                <Footer />
             </Content>
-            <Footer />
-        </>
     )
 }
