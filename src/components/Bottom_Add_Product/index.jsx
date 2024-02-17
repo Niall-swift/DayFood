@@ -16,7 +16,7 @@ export default function CartButton(){
 
     return(
         <>
-        {user.adm === true ? 
+        {user === true ? 
         <button
         type="button"
         className="Cart__button"

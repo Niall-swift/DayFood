@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { setDoc, doc, getDoc, } from 'firebase/firestore'
+import { useParams } from 'react-router-dom';
 import { auth, db } from '../pages/firebase'
 import { createContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -14,9 +14,11 @@ export const ContextGlobal = createContext({});
 
 function AutorizarClientes({ children }) {
 
+    const api = UseAPIClient();
+
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
-    const [cadastrarLoad, setCadastrarLoad] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [dadosload, setDadosload] = useState(true);
     const [onCart, setOnCart] = useState([]);
     const [offcart, setOffcart] = useState(false)
@@ -33,71 +35,61 @@ function AutorizarClientes({ children }) {
         try {
             destroyCookie(undefined, '@dayfood.token')
             navigate('/Home', { replace: true })
-        } catch {
-
+        } catch(err){
+            console.log(err)
         }
     }
+
+    const { business_id } = useParams()
+    
     //Cadastrar usuário
-    async function cadastrarUsuario(nome, telefone, email, senha) {
-        setCadastrarLoad(true);
+    async function signUp({name, email, password, phone}){
 
-        await createUserWithEmailAndPassword(auth, email, senha)
-            .then(async (value) => {
-                let uid = value.user.uid
-
-                await setDoc(doc(db, "usuarios", uid), {
-                    nome: nome.split(' '),
-                    telefone: telefone,
-                    email: email,
-                    avatar: null
-                })
-                    .then(() => {
-                        let data = {
-                            uid: uid,
-                            nome: nome.split(' '),
-                            telefone: telefone,
-                            email: value.user.email,
-                            avatar: null
-                        };
-                        setUser(data);
-                        dadosLocal(data)
-                        navigate('/Home', { replace: true })
-                        setCadastrarLoad(false)
-
-                    })
+        try{
+        const response = await api.post('/register', {
+            name,
+            email,
+            password,
+            phone,
+            business_id
+        })
+        setLoading(true)
+        console.log(response)
+        }catch(err){
+            Swal.fire({
+                icon: 'error',
+                title: 'Unable to register user 😖',
+                position: 'center',
+                showConfirmButton: false,
+                timer: 3000,
+                background: `var(--color-background)`,
+                color: `var(--color-primary)`,
             })
-            .catch(() => {
-                setCadastrarLoad(false)
-            })
+        }
     }
-    //////////////////////
 
 
     // Fazendo login com o usuario
-    async function lognin({email, passeord}) {
+    async function lognin({email, password}) {
 
         try{
-            const api = UseAPIClient();
             const response = await api.post('/session', {
                 email,
-                passeord
+                password
             })
-
-            console.log(response.data)
-
+            setLoading(true)
+            navigate('/home')
         }catch(err){
-            console.log(err)
             Swal.fire({
                 icon: 'error',
                 title: 'E-mail or Password incorrect 🫷😖🫸',
                 html: 'Check your email and password are correct',
                 position: 'center',
                 showConfirmButton: false,
-                timer: 5000,
+                timer: 3000,
                 background: `var(--color-background)`,
                 color: `var(--color-primary)`,
             })
-
         }
     }
     /////////////////////
@@ -168,8 +160,8 @@ function AutorizarClientes({ children }) {
         <ContextGlobal.Provider value={{
             usuario: !!user,
             user,
-            cadastrarLoad,
-            cadastrarUsuario,
+            signUp,
+            loading,
             lognin,
             dadosload,
             exit,

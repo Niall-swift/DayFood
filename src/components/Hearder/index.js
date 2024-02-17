@@ -16,6 +16,7 @@ import { FaUsers, FaUser } from 'react-icons/fa'
 import { TbReceipt, TbReceiptOff, TbReceiptTax, TbReceiptRefund, TbReceipt2 } from 'react-icons/tb'
 import styled from 'styled-components';
 import { Container, Headers , Menus, Menu, Message_Herder } from './styledHeader'
+import avatar from '../../assets/name=molla, size=400.png'
 
 
 
@@ -47,12 +48,12 @@ export default function Header({ menuIsVisible, setMenuIsVisible }) {
                 <CartButton />
 
                 <Message_Herder>
-                    {user.adm === true ?
+                    {user === true ?
                     <>
                     </>
                     :
                     <>
-                    <img src={user.avatar}/>
+                    <img src={avatar}/>
                     <b>Olá e bom te ver aqui !!</b>
                     </>
                     }
@@ -65,7 +66,7 @@ export default function Header({ menuIsVisible, setMenuIsVisible }) {
                 </Menu>
 
                 <Menus>
-                    {user.adm === true ? (
+                    {user === true ? (
                         <>
                             <Link to='/pedidos'><button><TbReceipt2 />pedidos</button></Link>
                             <Link to='/perfil'><button><BiUserCircle />perfil</button></Link>

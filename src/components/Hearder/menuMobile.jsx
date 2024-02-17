@@ -22,10 +22,10 @@ export default function MenuMobile({ menuIsVisible, setMenuIsVisible}){
             <IoClose onClick={() => setMenuIsVisible(false)}/>
             <MenusMobile>
             <Logo>
-            <img src={user.avatar === null ? `${whatsappPic === 'Image is unavailable; possibily due to user privacy settings.' ? avataof : whatsappPic}` : user.avatar} alt="Logo_hexagon" />
-                <p style={{width:'35ch'}}>{user.email}</p>
+            <img src={avataof} alt="Logo_hexagon" />
+                <p style={{width:'35ch'}}>{}</p>
             </Logo>
-                {user.adm === true ?
+                {user === true ?
                 <>
                 <Link to='/pedidos'><button><TbReceipt2/>pedidos</button></Link>
                 <Link to='/perfil'><button><BiUserCircle/>Perfil</button></Link>

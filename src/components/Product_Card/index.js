@@ -179,7 +179,7 @@ export default function CardDoProduto({data}){
         
         <Card>
         {Disponibilidade === 'esgotado' ? <Ribbon/> : <></>}
-                {!user.adm === false ?
+                {!user === false ?
                 <button className='favorites'>
                     <Link to={`/Addprodutos/${data.id}/${categoria}`}><FiEdit size={30} color='#000'/></Link>
                 </button> 
@@ -197,7 +197,7 @@ export default function CardDoProduto({data}){
                 <p>{descricao}</p>
                 <strong>R$ {formatCurrency(preco, "BRL").replace(".", ",")}</strong>
                     
-                {!user.adm === false ? 
+                {!user === false ? 
                 <div>
                     <button type='button' onClick={exluir} > <MdDeleteForever/></button>
                     {Disponibilidade === 'esgotado' ? <button type='button' onClick={()=>disponivel(id)} > <MdOutlineLayers/></button> : <button type='button' onClick={()=>esgotado(id)} > < MdOutlineLayersClear/></button>}

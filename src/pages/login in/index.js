@@ -15,31 +15,31 @@ import Load from '../../components/load'
 
 export default function Login(){
 
-    const {lognin} = useContext(ContextGlobal);
+    const {lognin, loading} = useContext(ContextGlobal);
 
     
 
     const [email, setEmail] = useState('')
-    const [passeord, setPasseord] = useState('')
+    const [password, setPassword] = useState('')
 
 
 
     async function Signin(event) {
         event.preventDefault()
 
-        let data ={
+        let data = {
             email,
-            passeord
+            password
         }
 
         await lognin(data)
     }
     
-    //if(cadastrarLoad){
-    //    return(
-    //    <Load titulo={'Entrando com ' + (email) }/>
-    //    )
-    //}
+    if(loading){
+        return(
+        <Load titulo={'Entrando com ' + (email)}/>
+    )
+    }
 
 
     
@@ -70,8 +70,8 @@ export default function Login(){
     
                 <input type='password'
                 placeholder='Sua senha'
-                value={passeord} 
-                onChange={(e)=> setPasseord(e.target.value)}
+                value={password} 
+                onChange={(e)=> setPassword(e.target.value)}
                 />
 
                 <Button onClick={Signin} className='btn'>Entrar</Button>

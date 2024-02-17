@@ -18,11 +18,9 @@ function RoutersApp() {
     return (
         <Routes>
             <Route path='' element={<Login />} />
-            <Route path='/Register' element={<Register />} />
+            <Route path='/Register/:business_id' element={<Register />} />
+            <Route path='/Home' element={<Home />}/>
 
-
-
-            <Route path='/Home' element={<Provider> <Home /> </Provider>} />
             <Route path='/Addprodutos' element={<Provider> <Addprodutos /> </Provider>} />
             <Route path='/Addprodutos/:id/:Categoria' element={<Provider> <Addprodutos /> </Provider>} />
             <Route path='/Perfil' element={<Provider> <Perfil /> </Provider>} />
