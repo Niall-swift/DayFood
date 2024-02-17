@@ -15,7 +15,7 @@ import { MdFavorite, MdAutoGraph } from 'react-icons/md'
 import { FaUsers, FaUser } from 'react-icons/fa'
 import { TbReceipt, TbReceiptOff, TbReceiptTax, TbReceiptRefund, TbReceipt2 } from 'react-icons/tb'
 import styled from 'styled-components';
-import { Container, Headers , Menus, Menu, Message_Herder } from './styledHeader'
+import { Container, Headers, Menus, Menu, Message_Herder } from './styledHeader'
 import avatar from '../../assets/name=molla, size=400.png'
 
 
@@ -23,70 +23,45 @@ import avatar from '../../assets/name=molla, size=400.png'
 
 export default function Header({ menuIsVisible, setMenuIsVisible }) {
 
-    const { user, exit} = useContext(ContextGlobal)
-    const [containerof, setContainerof] = useState(false)
-    const [scl, setScl] = useState(false)
+  const { user, exit } = useContext(ContextGlobal)
+  const [containerof, setContainerof] = useState(false)
+  const [scl, setScl] = useState(false)
 
-    const opmenu = () => {
-        setContainerof(!containerof)
+  const opmenu = () => {
+    setContainerof(!containerof)
 
-    }
+  }
 
-    window.addEventListener("scroll", function () {
+  window.addEventListener("scroll", function () {
 
-        const scl = window.scrollY > 0
+    const scl = window.scrollY > 0
 
-        setScl(scl)
-    });
+    setScl(scl)
+  });
 
 
 
-    return (
-        <Headers>
-            <Container scl={scl}>
+  return (
+    <Headers>
+      <Container scl={scl}>
 
-                <CartButton />
+        <Menu sVisible={menuIsVisible}>
+          <button onClick={opmenu}>
+            <HiMenu size={45} onClick={() => setMenuIsVisible(true)} />
+          </button>
+        </Menu>
 
-                <Message_Herder>
-                    {user === true ?
-                    <>
-                    </>
-                    :
-                    <>
-                    <img src={avatar}/>
-                    <b>Olá e bom te ver aqui !!</b>
-                    </>
-                    }
-                </Message_Herder>
+        <Menus>
+          <Link to='/pedidos'><button><TbReceipt2 />pedidos</button></Link>
+          <Link to='/perfil'><button><BiUserCircle />perfil</button></Link>
+          <Link to='/vendas'><button><MdAutoGraph />Vendas</button></Link>
+          <Link to='/configs'><button><BsFillGearFill />Configs</button></Link>
+          <button onClick={exit}><IoLogOut />sair</button>
+        </Menus>
 
-                <Menu sVisible={menuIsVisible}>
-                    <button onClick={opmenu}>
-                        <HiMenu size={45} onClick={() => setMenuIsVisible(true)} />
-                    </button>
-                </Menu>
+      </Container>
+    </Headers>
 
-                <Menus>
-                    {user === true ? (
-                        <>
-                            <Link to='/pedidos'><button><TbReceipt2 />pedidos</button></Link>
-                            <Link to='/perfil'><button><BiUserCircle />perfil</button></Link>
-                            <Link to='/vendas'><button><MdAutoGraph />Vendas</button></Link>
-                            <Link to='/configs'><button><BsFillGearFill />Configs</button></Link>
-                            <button onClick={exit}><IoLogOut />sair</button>
-                        </>
-                    ) : (
-                        <>
-                            <Link to='/pedidos'><button><TbReceipt2 />pedidos</button></Link>
-                            <Link to='/perfil'><button><BiUserCircle />perfil</button></Link>
-                            <Link to='/*'><button><MdFavorite />favoritos</button></Link>
-                            <button onClick={exit}><IoLogOut />sair</button>
-                        </>
-                    )}
-                </Menus>
-
-            </Container>
-        </Headers>
-
-    )
+  )
 };
 

@@ -56,7 +56,7 @@ export const Group_input = styled.div`
         input,
         select,
         textarea{
-            background: #e3efff;
+            background: var(--color-secondary);
             color: var(--color-black)!important;
             width: 100%;
             outline: none;
@@ -91,6 +91,15 @@ export const Group_input = styled.div`
         button{
             grid-column:1/3;
             grid-row:4/4;
+            width: 100%;
+            background: ${props => (props.load === true ? '#a97f00' : 'var(--color-primary)')};
+            color: var(--color-white)!important;
+            border-radius: 20px;
+            border: none;
+            padding: 15px 25px;
+            font-size: 20px;
+            box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+            text-transform: uppercase;
         }
 
         @media screen and (max-width: 512px) {
@@ -105,9 +114,11 @@ export const Group_input = styled.div`
 
 `
 export const File_Upload = styled.label`
-    width: auto;
+    width: 100%;
     height: auto;
     display: flex;
+    object-fit: cover;
+    padding: 1rem;
     justify-content: center;
     align-items: center;
     flex-direction: column;

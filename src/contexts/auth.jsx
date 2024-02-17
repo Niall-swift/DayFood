@@ -77,6 +77,7 @@ function AutorizarClientes({ children }) {
                 email,
                 password
             })
+            setUser(email, password)
             setLoading(true)
             navigate('/home')
         }catch(err){
