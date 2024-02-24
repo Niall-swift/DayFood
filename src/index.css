@@ -11,8 +11,65 @@
 @import "https://unpkg.com/transition-style";
 
 
+:root1{
+  --color-background: #fffdf2;
+  --color-svg: #212121;
+  --color-black-heavy: #000000;
+  --color-text: #4f4f4f;
+  --color-text-out: #90908e;
+  --color-primary: #ffbf00;
+  --color-secondary: #fff2cc;
+  --color-white: #ffffff;
+  --color-red: #e74c3c;
+  --color-green: #2ecc71;
+  --color-separate: #cccccc;
 
-:root{
+  --tc-bg-color: #c4eed0;
+  --tc-icon-bg-color: #6dd58c;
+  --tc-icon-color: #0a3818;
+  --tc-hover-bg-color: #6dd58c;
+  --tc-hover-icon-bg-color: #37be5f;
+  --tc-focus-bg-color: #37be5f;
+  --tc-focus-icon-bg-color: #1ea446;
+}
+
+:root2{
+  --color-background: #fffdf2;
+  --color-svg: #212121;
+  --color-black-heavy: #000000;
+  --color-text: #4f4f4f;
+  --color-text-out: #90908e;
+  --color-primary: #ffbf00;
+  --color-secondary: #fff2cc;
+  --color-white: #ffffff;
+  --color-red: #e74c3c;
+  --color-green: #2ecc71;
+  --color-separate: #cccccc;
+
+  --tc-bg-color: #c2e7ff;
+  --tc-icon-bg-color: #7fcfff;
+  --tc-icon-color: #062e6f;
+  --tc-hover-bg-color: #7fcfff;
+  --tc-hover-icon-bg-color: #5ab3f0;
+  --tc-focus-bg-color: #5ab3f0;
+  --tc-focus-icon-bg-color: #3998d3;
+}
+
+:root3{
+  --color-background: #fffdf2;
+  --color-svg: #212121;
+  --color-black-heavy: #000000;
+  --color-text: #4f4f4f;
+  --color-text-out: #90908e;
+  --color-primary: #ffbf00;
+  --color-secondary: #fff2cc;
+  --color-white: #ffffff;
+  --color-red: #e74c3c;
+  --color-green: #2ecc71;
+  --color-separate: #cccccc;
+}
+
+:root {
   --color-background: #fffdf2;
   --color-svg: #212121;
   --color-black-heavy: #000000;
@@ -27,42 +84,51 @@
 }
 
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-html, body, #root{
+
+html,
+body,
+#root {
   width: 100%;
   scroll-behavior: smooth;
 }
 
-body{
+body {
   background-color: var(--color-background);
   font-family: 'PoppinsRegular', 'Rubik', sans-serif;
- 
+
 }
-b{
+
+b {
   font-family: 'PoppinsMedium', 'Rubik', sans-serif;
 }
-a{
+
+a {
   text-decoration: none;
 }
-ul{
+
+ul {
   list-style: none;
 }
-button{
+
+button {
   cursor: pointer;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 0;
   height: 10px;
 }
-::-webkit-scrollbar-thumb{
+
+::-webkit-scrollbar-thumb {
   border-radius: 20px;
   background-color: #750310;
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
   display: none;
 }

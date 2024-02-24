@@ -7,8 +7,6 @@ import UseAPIClient from '../api/api';
 
 
 
-
-
 export const ContextGlobal = createContext({});
 
 function AutorizarClientes({ children }) {
@@ -115,7 +113,6 @@ function AutorizarClientes({ children }) {
 		}
 		SearchForDetails()
 	}, [user])
-
 
 	return (
 		<ContextGlobal.Provider value={{

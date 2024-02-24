@@ -6,13 +6,12 @@ export const Content = styled.section`
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    overflow: auto;
     flex-wrap: wrap;
     max-width: 1280px;
-    margin: 0 auto;
+    margin: 25px auto;
     padding: 15px;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 
     @media screen and (max-width: 512px){
         max-width: 100%;
