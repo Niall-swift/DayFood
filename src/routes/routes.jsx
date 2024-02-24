@@ -1,6 +1,6 @@
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Register from '../pages/register'
-import Login from '../pages/login in'
+import Login from '../pages/login'
 import Home from '../pages/Home'
 import Provider from './private'
 import Addprodutos from '../pages/addproducts'
