@@ -11,7 +11,7 @@ import { BiUserCircle } from 'react-icons/bi'
 import CartButton from "../Bottom_Add_Product";
 
 export default function MenuMobile({ menuIsVisible, setMenuIsVisible }) {
-	const { exit, user, whatsappPic } = useContext(ContextGlobal)
+	const { singOut, detail} = useContext(ContextGlobal)
 
 	useEffect(() => {
 		document.body.style.overflowY = menuIsVisible ? 'hidden' : 'auto';
@@ -24,20 +24,20 @@ export default function MenuMobile({ menuIsVisible, setMenuIsVisible }) {
 				
 				<Logo>
 					<img src={avataof} alt="Logo_hexagon" />
-					<p style={{ width: '35ch' }}>{ }</p>
+					<p style={{ width: '35ch' }}>{detail.email}</p>
 				</Logo>
 
 				<Link to='/pedidos'><button><TbReceipt2 />pedidos</button></Link>
 				<Link to='/perfil'><button><BiUserCircle />Perfil</button></Link>
 				<Link to='/vendas'><button><MdAutoGraph />Vendas</button></Link>
 				<Link to='/configs'><button><BsFillGearFill />Configs</button></Link>
-				<button onClick={exit}><IoLogOut />sair</button>
+				<button onClick={singOut}><IoLogOut />sair</button>
 
 				<Link to='/pedidos'><button><TbReceipt2 />pedidos</button></Link>
 				<Link to='/perfil'><button><BiUserCircle />perfil</button></Link>
 				<Link to='/vendas'><button><MdAutoGraph />Vendas</button></Link>
 				<Link to='/*'><button><MdFavorite />favoritos</button></Link>
-				<button onClick={exit}><IoLogOut />sair</button>
+				<button onClick={singOut}><IoLogOut />sair</button>
 
 			</MenusMobile>
 		</ContainerMobile>

@@ -23,7 +23,7 @@ import avatar from '../../assets/name=molla, size=400.png'
 
 export default function Header({ menuIsVisible, setMenuIsVisible }) {
 
-  const { user, exit } = useContext(ContextGlobal)
+  const { user, singOut } = useContext(ContextGlobal)
   const [containerof, setContainerof] = useState(false)
   const [scl, setScl] = useState(false)
 
@@ -56,7 +56,7 @@ export default function Header({ menuIsVisible, setMenuIsVisible }) {
           <Link to='/perfil'><button><BiUserCircle />perfil</button></Link>
           <Link to='/vendas'><button><MdAutoGraph />Vendas</button></Link>
           <Link to='/configs'><button><BsFillGearFill />Configs</button></Link>
-          <button onClick={exit}><IoLogOut />sair</button>
+          <button onClick={singOut}><IoLogOut />sair</button>
         </Menus>
 
       </Container>

@@ -3,7 +3,7 @@ import {Navigate} from 'react-router-dom'
 import {ContextGlobal} from '../contexts/auth'
 
 export default function Provider({children}){
-    const {usuario, dadosload } = useContext(ContextGlobal)
+    const {users, dadosload } = useContext(ContextGlobal)
 
     if(dadosload){
         return(
@@ -12,10 +12,8 @@ export default function Provider({children}){
         )
     }
 
-    if(!usuario){
+    if(!users){
         return <Navigate to='/'/>
     }
-
     return children
-
 }
