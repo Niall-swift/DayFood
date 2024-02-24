@@ -17,12 +17,12 @@ function RoutersApp() {
 
 	return (
 		<Routes>
-			<Route path='' element={<Login/>} />
-			<Route path='/Register/:id' element={<Register/>} />
-			<Route path='/Home' element={<Home/>} />
+			<Route path='login' element={<Login/>} />
+			<Route path='/register/:id' element={<Register/>} />
+			<Route path='/home' element={<Home/>} />
 
-			<Route path='/Addprodutos' element={<Addprodutos />} />
-			<Route path='/Addprodutos/:id/' element={<Addprodutos />} />
+			<Route path='/addproducts' element={<Provider><Addprodutos/></Provider>} />
+			<Route path='/addproducts/:id' element={<Provider><Addprodutos/></Provider>} />
 
 			<Route path='/Perfil' element={<Provider> <Perfil /> </Provider>} />
 			<Route path='/favoritos' element={<Provider> <Favoritos /> </Provider>} />

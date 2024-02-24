@@ -33,10 +33,8 @@ function AutorizarClientes({ children }) {
 		setUser(null);
 		setLoading(false)
 		// Redirecionar para a página inicial
-		navigate('/', { replace: true });
+		navigate('/login', { replace: true });
 	}
-
-
 
 	//Cadastrar usuário
 	async function signUp({ name, email, password, phone }) {
@@ -62,7 +60,6 @@ function AutorizarClientes({ children }) {
 			})
 		}
 	}
-
 
 	// Fazendo login com o usuario
 	async function lognin({ email, password }) {
@@ -97,8 +94,6 @@ function AutorizarClientes({ children }) {
 			})
 		}
 	}
-
-	console.log(user)
 
 	useEffect(() => {
 		// Verificar se existe um token de autenticação nos cookies

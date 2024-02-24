@@ -1,33 +1,21 @@
 import { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-
 /// compornetes
 import { ContextGlobal } from '../../contexts/auth'
-
 //// impor toutes
 import { useNavigate } from 'react-router-dom'
-
 /// css styles
 import { Container, Group_input, File_Upload } from './Styled_Add_New_Product'
 import { PageTransition } from '../../components/PageAnimation'
-
 /// icone
 import { IoIosArrowBack } from 'react-icons/io'
 import { FiUpload } from 'react-icons/fi';
-
 ///-- API
 import UseAPIClient from '../../api/api'
-
-
 /// img
-import img from '../../assets/undraw_breakfast_psiw.png'
-import { SnapshotMetadata, addDoc, collection, getDocs, updateDoc, doc, getDoc } from 'firebase/firestore'
-
+import img from '../../assets/undraw_images_re_0kll.svg'
 /// toast
 import Swal from 'sweetalert2'
-
-
-
 
 
 
@@ -46,13 +34,31 @@ export default function Addprodutos() {
 	const [description, setDescription] = useState('')
 	const [image, setImage] = useState(null)
 	const [disponibilidade, setDisponibilidade] = useState('disponivel')
-	const { Categoria, id } = useParams()
+	const { id } = useParams()
 
 
+	/// cadastrando um produto
+	async function RegisterProduct(e){
+		e.preventDefault()
+		try{
+			const data = new FormData();
 
+			data.append('name', name)
+			data.append('price', price)
+			data.append('description', description)
+			data.append('file', image)
+			data.append('order', 1)
+			data.append('active', true)
+			data.append('category_id', category[categorySelected].id)
 
+			await api.post('/product',data)
 
+			alert('deu bom gay')
 
+		}catch(err){
+			console.log(err)
+		}
+	}
 
 	///--- buscanto lista de cadegory
 	useEffect((id, name) => {
@@ -97,12 +103,14 @@ export default function Addprodutos() {
 
 	}
 
+
 	return (
 		<>
 			<PageTransition />
 
 			<Container>
 				<main className='meio'>
+
 					{/* esser e o botão de voltar */}
 					<Link to='/Home'>
 						<div className='btn-voltar'><button>
@@ -118,14 +126,13 @@ export default function Addprodutos() {
 						<form className='form-evia-prato'>
 
 							<File_Upload>
-
 								<span> <FiUpload size={35} /> </span>
 								<input onChange={pegar_img}
 									type='file'
 									accept='image/*'
 									placeholder='Selecione uma imagem'
 								/>
-								<img src={imagem} />
+								<img src={imagem == null ? img : imagem} alt='Selecione uma imagem'/>
 							</File_Upload>
 
 
@@ -163,9 +170,10 @@ export default function Addprodutos() {
 								placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
 								value={description}
 							/>
-							{id ? <button className='btn' onClick={categoria_select}>Salvar alterações</button> : <button className='btn' onClick={categoria_select}>Cardastra prato</button>}
+							{id ? <button className='btn' onClick={categoria_select}>Salvar alterações</button> : <button className='btn' onClick={RegisterProduct}>Cardastra prato</button>}
 						</form>
 					</Group_input>
+
 				</main>
 
 			</Container>

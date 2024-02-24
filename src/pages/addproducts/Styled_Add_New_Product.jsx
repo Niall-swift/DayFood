@@ -7,6 +7,25 @@ export const Container = styled.section`
     max-width: 1280px;
     height: 100vh;
     margin: 0 auto;
+
+
+    button{
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: ${props => (props.load === true ? '#a97f00' : 'var(--color-primary)')};
+        color: var(--color-white)!important;
+        border-radius: 20px;
+        border: none;
+        padding: 10px 15px;
+        margin: 2rem;
+        font-size: 20px;
+        box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+        text-transform: uppercase;
+
+    }
+    
 `
 
 export const Group_input = styled.div`
@@ -84,6 +103,10 @@ export const Group_input = styled.div`
             grid-row: 2/2;
         }
         textarea{
+            width: 100%;
+            height: 80px;
+            margin: 0;
+            resize: none;
             grid-column: 1/3;
             grid-row: 3/3;
         }
@@ -96,6 +119,8 @@ export const Group_input = styled.div`
             color: var(--color-white)!important;
             border-radius: 20px;
             border: none;
+            margin: 0;
+            margin-top: 1rem;
             padding: 15px 25px;
             font-size: 20px;
             box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
@@ -115,6 +140,7 @@ export const Group_input = styled.div`
 `
 export const File_Upload = styled.label`
     width: 100%;
+    max-width: 25rem;
     height: auto;
     display: flex;
     object-fit: cover;

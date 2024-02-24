@@ -8,14 +8,10 @@ import { FiEdit } from 'react-icons/fi';
 import {useContext, useState} from 'react';
 import {Link} from 'react-router-dom'
 
-
-
 import {ContextGlobal} from '../../contexts/auth'
-
 
 import Swal from 'sweetalert2'
 import formatCurrency from '../../utils/formatCurrency';
-
 
 //// import firebase
 import {db} from '../../pages/firebase'
@@ -24,14 +20,15 @@ import {doc, deleteDoc, updateDoc} from 'firebase/firestore'
 import Ribbon from '../Ribbon';
 ////////////////////////////////////
 import {Card} from '../Refeicoes/CardStyled'
+import UseAPIClient from '../../api/api';
 export default function CardDoProduto({data}){
+
+    const api = UseAPIClient();
     const {onCart ,setOnCart, user, favoritos} = useContext(ContextGlobal)
     const [status ,setStatus] = useState ('disponivel')
     const [quantidade, setQuatidade] = useState(1)
-    const {id, nome, imagem, preco, descricao, categoria, Disponibilidade} = data;
 
-
-
+    const {id,name,price,description,banner,order,active,category_id,Disponibilidade} = data;
 
     const add = (itemid) =>{
         const item = onCart.find(item => item.id === id)
@@ -59,11 +56,6 @@ export default function CardDoProduto({data}){
             
         }
     };
-
-
-
-
-
 
     function mais(){
         const limitDeItem = quantidade >=15
@@ -100,8 +92,11 @@ export default function CardDoProduto({data}){
     }
 
 
+
+
+    
     async function exluir(){
-        const exluir = doc(db, `${categoria}`, id)
+        const exluir = doc(db, `${category_id}`, id)
         
         Swal.fire({
             icon: 'warning',
@@ -123,7 +118,7 @@ export default function CardDoProduto({data}){
                     background: '#000e30',
                     color: '#fff',
                     title: 'Deletado!',
-                    text: `Seu arquivo ${nome} foi excluído.`,
+                    text: `Seu arquivo ${name} foi excluído.`,
                     timer: 2500,
                     timerProgressBar: true,
                 })
@@ -135,7 +130,7 @@ export default function CardDoProduto({data}){
                         background: '#000e30',
                         color: '#fff',
                         title: 'Cancelado!',
-                        text: `Seu arquivo ${nome} está seguro :)`,
+                        text: `Seu arquivo ${name} está seguro :)`,
                         timer: 2500,
                         timerProgressBar: true,
                     })
@@ -166,14 +161,13 @@ export default function CardDoProduto({data}){
     }
 
     async function disponibilidade(id, status){
-        const docStatus = doc(db, `${categoria}`, id)
+        const docStatus = doc(db, `${category_id}`, id)
 
         await updateDoc(docStatus,{
             Disponibilidade: status
         })
     }
-
-
+    
     return(
         <>
         
@@ -181,21 +175,21 @@ export default function CardDoProduto({data}){
         {Disponibilidade === 'esgotado' ? <Ribbon/> : <></>}
                 {!user === false ?
                 <button className='favorites'>
-                    <Link to={`/Addprodutos/${data.id}/${categoria}`}><FiEdit size={30} color='#000'/></Link>
+                    <Link to={`/Addprodutos/${id}`}><FiEdit size={30} color='#000'/></Link>
                 </button> 
                 :
-                <button className='favorites'  onClick={()=>addfav({nome:nome, imagem:imagem, id:id, user:user.uid})}>
+                <button className='favorites'  onClick={()=>addfav({nome:name, imagem:banner, id:id, user:user.uid})}>
                         <MdFavoriteBorder size={30} color='#a52a2a'/>
                 </button> 
                 }
 
     
-                <img src={imagem} alt='img'/>
+                <img src={(`http://localhost:3333/files/${banner}`)} alt='img'/>
                 
-                <h3>{nome}</h3>
+                <h3>{name}</h3>
 
-                <p>{descricao}</p>
-                <strong>R$ {formatCurrency(preco, "BRL").replace(".", ",")}</strong>
+                <p>{description}</p>
+                <strong>R$ {formatCurrency(price, "BRL").replace(".", ",")}</strong>
                     
                 {!user === false ? 
                 <div>
@@ -210,7 +204,7 @@ export default function CardDoProduto({data}){
                     <span> {quantidade<10 ? `0${quantidade}` : quantidade}</span>
                     <span onClick={mais}><IoMdAddCircle/></span>
 
-                    <button type='button' onClick={()=> add({quantidades:quantidade, nome:nome, imagem:imagem, preco:preco, id:id})}> <IoBag size={25}/> </button>
+                    <button type='button' onClick={()=> add({quantidades:quantidade, nome:name, imagem:banner, preco:price, id:id})}> <IoBag size={25}/> </button>
                     </>
                     }
                 </div>

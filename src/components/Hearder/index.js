@@ -52,6 +52,7 @@ export default function Header({ menuIsVisible, setMenuIsVisible }) {
         </Menu>
 
         <Menus>
+          <Link to='/addproducts'><button><TbReceipt2 />add</button></Link>
           <Link to='/pedidos'><button><TbReceipt2 />pedidos</button></Link>
           <Link to='/perfil'><button><BiUserCircle />perfil</button></Link>
           <Link to='/vendas'><button><MdAutoGraph />Vendas</button></Link>
