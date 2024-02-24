@@ -1,9 +1,10 @@
-import { useParams } from 'react-router-dom';
+
 import { createContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2';
-import { destroyCookie, setCookie } from 'nookies';
+import { destroyCookie, parseCookies, setCookie } from 'nookies';
 import UseAPIClient from '../api/api';
+
 
 
 
@@ -14,8 +15,7 @@ function AutorizarClientes({ children }) {
 	const api = UseAPIClient();
 
 	const navigate = useNavigate();
-	const [user, setUser] = useState(null);
-	const [detail, setDetail] = useState([])
+	const [user, setUser] = useState('');
 	const [loading, setLoading] = useState(false);
 	const [onCart, setOnCart] = useState([]);
 	const [offcart, setOffcart] = useState(false)
@@ -25,18 +25,17 @@ function AutorizarClientes({ children }) {
 
 
 
-	/// delogando empresa
-	function singOut() {
-		try {
-			destroyCookie(undefined, '@dayfood.token')
-			navigate('/', { replace: true })
-		} catch (err) {
-			console.log(err)
-		}
+	// Função para fazer logout do usuário
+	function logOut() {
+		// Remover o token do cookie
+		destroyCookie(undefined, '@dayfood.token');
+		// Limpar o estado do usuário
+		setUser(null);
+		setLoading(false)
+		// Redirecionar para a página inicial
+		navigate('/', { replace: true });
 	}
 
-
-	const { business_id } = useParams()
 
 
 	//Cadastrar usuário
@@ -48,7 +47,6 @@ function AutorizarClientes({ children }) {
 				email,
 				password,
 				phone,
-				business_id
 			})
 			setLoading(true)
 			console.log(response)
@@ -100,25 +98,33 @@ function AutorizarClientes({ children }) {
 		}
 	}
 
+	console.log(user)
 
-	// buscando detalhes da empresa
 	useEffect(() => {
-		async function SearchForDetails() {
-			if (user !== null) {
-				const response = await api.get('/me', {
+		// Verificar se existe um token de autenticação nos cookies
+		const { '@dayfood.token': token } = parseCookies();
+
+		if (token) {
+			// Se existir um token, fazer uma requisição para obter os detalhes do usuário
+			api.get('/me')
+				.then(response => {
+					const { id, name, email } = response.data;
+					// Definir o usuário no estado
+					setUser({ id, name, email });
+					setLoading(true);
+					navigate('/Home')
 				})
-				setDetail(response.data)
-			}
-			return
+				.catch(() => {
+					// Se houver algum erro ao obter os detalhes do usuário, fazer logout
+					logOut();
+				});
 		}
-		SearchForDetails()
-	}, [user])
+	}, []);
 
 	return (
 		<ContextGlobal.Provider value={{
 			users: !!user,
 			user,
-			detail,
 			signUp,
 			loading,
 			lognin,
@@ -132,8 +138,7 @@ function AutorizarClientes({ children }) {
 			setModal,
 			busNome,
 			setBusNome,
-			singOut
-
+			logOut
 
 		}}>
 			{children}

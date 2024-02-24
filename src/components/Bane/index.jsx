@@ -17,7 +17,7 @@ import avatares from '../../assets/undraw_drink_coffee_av1x.svg'
 
 export default function Bane(){
 
-    const {detail} = useContext (ContextGlobal)
+    const {user} = useContext (ContextGlobal)
 
     const myScroll = new IntersectionObserver((myElemte) => {
         myElemte.forEach((entry) => {
@@ -37,7 +37,7 @@ export default function Bane(){
         <Content>
             <Titulo>
             <img src={avatares} alt=''/>
-            <h2> Olá, <b>{detail.name}</b> <b>{""}</b> que tal !</h2>
+            <h2> Olá, <b>{user.name}</b> <b>{""}</b> que tal !</h2>
             <motion.h1  {...letterAnimation} className="wow fadeInLeft"> <b>Escolhe sua  <br/> comida <b className="color-primary"> favorita. </b> </b> </motion.h1>
             
             </Titulo>
