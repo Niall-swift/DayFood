@@ -19,10 +19,9 @@ function AutorizarClientes({ children }) {
 	const [loading, setLoading] = useState(false);
 	const [onCart, setOnCart] = useState([]);
 	const [offcart, setOffcart] = useState(false)
-	const [categoria, setCategoria] = useState('Refeição')
+	const [idcategory, setIdcategory] = useState('')
 	const [modal, setModal] = useState(false)
 	const [busNome, setBusNome] = useState('')
-
 
 
 	// Função para fazer logout do usuário
@@ -47,7 +46,6 @@ function AutorizarClientes({ children }) {
 				phone,
 			})
 			setLoading(true)
-			console.log(response)
 		} catch (err) {
 			Swal.fire({
 				icon: 'error',
@@ -119,6 +117,7 @@ function AutorizarClientes({ children }) {
 	return (
 		<ContextGlobal.Provider value={{
 			users: !!user,
+			api,
 			user,
 			signUp,
 			loading,
@@ -127,8 +126,8 @@ function AutorizarClientes({ children }) {
 			setOnCart,
 			offcart,
 			setOffcart,
-			categoria,
-			setCategoria,
+			idcategory,
+			setIdcategory,
 			modal,
 			setModal,
 			busNome,

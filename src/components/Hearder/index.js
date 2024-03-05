@@ -57,6 +57,7 @@ export default function Header({ menuIsVisible, setMenuIsVisible }) {
           <Link to='/perfil'><button><BiUserCircle />perfil</button></Link>
           <Link to='/vendas'><button><MdAutoGraph />Vendas</button></Link>
           <Link to='/configs'><button><BsFillGearFill />Configs</button></Link>
+          <Link to='/newcategory'><button><BsFillGearFill />Category</button></Link>
           <button onClick={logOut}><IoLogOut />sair</button>
         </Menus>
 

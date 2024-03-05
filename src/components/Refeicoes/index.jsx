@@ -1,74 +1,85 @@
-import {ContextGlobal} from '../../contexts/auth'
-import {Content} from './CardStyled'
-import { useContext, useEffect, useState, useRef } from 'react';
-import {FiArrowRightCircle, FiArrowLeftCircle} from 'react-icons/fi';
-import {motion} from 'framer-motion'
-import {fadeInUp} from '../../utils/Animations'
+import { ContextGlobal } from '../../contexts/auth'
+import { Content } from './CardStyled'
+import { useContext, useEffect, useReducer, useState} from 'react';
+import { motion } from 'framer-motion'
+import { fadeInUp } from '../../utils/Animations'
 import CardDoProduto from '../Product_Card';
 
 import UseAPIClient from '../../api/api';
 
 import Load from '../load';
 
-export default function Refeicoes(){
+export default function Refeicoes() {
 
     const api = UseAPIClient()
 
-    const {categoria, busNome, user} = useContext(ContextGlobal)
-    const [product, SetProduct] = useState ([])
+    const { idcategory, setIdcategory } = useContext(ContextGlobal)
+
+    const [product, setProduct] = useState([])
+    const [idproduct, setIdproduct] = useState('')
     const [load, setLoad] = useState(true)
 
-    
-    useEffect((id,name,price,description,banner,order,active,category_id)=>{
+    // -- listando produtos 
+    useEffect(() => {
+        async function ListProduct(id, name, price, description, banner, order, active, category_id) {
+            try {
+                const response = await api.get('/product', {
+                    id,
+                    name,
+                    price,
+                    description,
+                    banner,
+                    order,
+                    active,
+                    category_id
+                })
+                setIdproduct(response.data)
+                setLoad(false)
 
-        async function ListProduct(){
-
-        try{
-            const response = await api.get('/product',{
-                id,
-                name,
-                price,
-                description,
-                banner,
-                order,
-                active,
-                category_id
-            })
-            setLoad(false)
-            SetProduct(response.data)
-            console.log(response.data)
-        }catch(err){
-            console.log(err)
+                //-- aqui eu estou verificando se o useState do produto esta vazio 
+                // e se estiver eu colocor o ID de uma categoria no useState Idcategory
+                // para depois eu fazer um filtro de produtos por categoria
+                if (product.length === 0) {
+                    setProduct(response.data)
+                    setIdcategory(idproduct[1].category_id)
+                }
+                
+                /// aqui eu uso o reduse para compara o item com o id da sua categoria para faze um filtro
+                const foundProduct = idproduct.filter(product => product.category_id === idcategory);
+                setProduct(foundProduct)
+                
+            } catch (err) {
+                console.log(err)
+            }
         }
-    }
 
     ListProduct()
-},[])
+    }, [idcategory, setIdcategory])
 
+    console.log(product)
+    console.log(idproduct)
+    console.log(idcategory)
+    // const reihtScroll = (e) =>{
+    //     e.preventDefault();
 
+    //     scroll.current.scrollLeft += 320
+    // }
 
-// const reihtScroll = (e) =>{
-//     e.preventDefault();
+    // const leftScroll = (e) =>{
+    //     e.preventDefault();
 
-//     scroll.current.scrollLeft += 320
-// }
+    //     scroll.current.scrollLeft -= 320
+    // }
 
-// const leftScroll = (e) =>{
-//     e.preventDefault();
-    
-//     scroll.current.scrollLeft -= 320
-// }
-
-
-    return(
-        (load ? <Load titulo={'Não há Item aqui'}/> :
-        <motion.div {...fadeInUp}>
-            <Content>
-                {
-                    product.map((item, index) => <CardDoProduto key={index} data={item}/>)
-                }
-            </Content> 
-        </motion.div>
+    return (
+        (load ? <Load titulo={'Não há Item aqui'} /> :
+            <motion.div {...fadeInUp}>
+                <Content>
+                    {
+                        product.map((item, index) => <CardDoProduto key={index} data={item} />)
+                    }
+                </Content>
+            </motion.div>
         )
     )
 }

@@ -38,14 +38,9 @@ export const Button = styled.button`
         background: var(--color-primary);
         transition: .7s;
         color: var(--color-white)!important;
-        > svg{
-            color: var(--color-white)!important;
-            transition: .7s;
-        }
     }
-    svg{
-        font-size: 2rem;
-        margin-right: 5px;
-        color: var(--color-black)!important;
+    img{
+        width: 1.5em;
+        margin-left: 1em;
     }
 `

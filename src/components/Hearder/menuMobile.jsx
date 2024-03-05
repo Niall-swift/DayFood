@@ -28,7 +28,7 @@ export default function MenuMobile({ menuIsVisible, setMenuIsVisible }) {
 				</Logo>
 
 				<Link to='/pedidos'><button><TbReceipt2 />pedidos</button></Link>
-				<Link to='/perfil'><button><BiUserCircle />Perfil</button></Link>
+				<Link to='/newcategory'><button><BiUserCircle />Perfil</button></Link>
 				<Link to='/vendas'><button><MdAutoGraph />Vendas</button></Link>
 				<Link to='/configs'><button><BsFillGearFill />Configs</button></Link>
 				<button onClick={logOut}><IoLogOut />sair</button>

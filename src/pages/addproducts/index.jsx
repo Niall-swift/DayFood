@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useReducer, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 /// compornetes
 import { ContextGlobal } from '../../contexts/auth'
@@ -20,7 +20,10 @@ import Swal from 'sweetalert2'
 
 
 
-export default function Addprodutos() {
+
+
+
+export default function Addprodutos(props) {
 	const api = UseAPIClient();
 
 	const navigate = useNavigate();
@@ -33,14 +36,15 @@ export default function Addprodutos() {
 	const [price, setPrice] = useState('')
 	const [description, setDescription] = useState('')
 	const [image, setImage] = useState(null)
-	const [disponibilidade, setDisponibilidade] = useState('disponivel')
+	const [productData, setProductData] = useState([]);
 	const { id } = useParams()
 
+	console.log(image)
 
 	/// cadastrando um produto
-	async function RegisterProduct(e){
+	async function RegisterProduct(e) {
 		e.preventDefault()
-		try{
+		try {
 			const data = new FormData();
 
 			data.append('name', name)
@@ -51,14 +55,58 @@ export default function Addprodutos() {
 			data.append('active', true)
 			data.append('category_id', category[categorySelected].id)
 
-			await api.post('/product',data)
+			await api.post('/product', data)
 
-			alert('deu bom gay')
+			// alert 
+			Swal.fire({
+				icon: 'success',
+				title: `O produto ${name} foi cadastrado com sucesso`,
+				html: '😁',
+				position: 'center',
+				showConfirmButton: false,
+				timer: 3000,
+				background: `var(--color-background)`,
+				color: `var(--color-primary)`,
+			})
 
-		}catch(err){
+			setName('')
+			setPrice('')
+			setImage(null)
+			setDescription('')
+
+		} catch (err) {
 			console.log(err)
 		}
 	}
+
+
+	/// busnaco dados do produto
+	useEffect(() => {
+		const fetchProductData = async () => {
+			try {
+				const response = await api.get(`/product`, { id });
+				const data = response.data;
+				if (data.length > 0) {
+					const foundProduct = data.find(product => product.id === id);
+					if (foundProduct) {
+						setProductData(foundProduct);
+						setImagem(productData.banner)
+						setName(productData.name)
+						setPrice(productData.price)
+						setDescription(productData.description)
+					} else {
+						console.error('Produto com ID não encontrado:', id);
+					}
+				} else {
+					console.error('Resposta da API vazia ou nula.');
+				}
+			} catch (error) {
+				console.error('Erro ao obter produtos:', error);
+			}
+		};
+
+		fetchProductData();
+	}, [category, id]);
 
 	///--- buscanto lista de cadegory
 	useEffect((id, name) => {
@@ -82,7 +130,7 @@ export default function Addprodutos() {
 		setCategorySelected([e.target.value])
 	}
 
-	/// sistema de previw da imagem do prato
+	/// previw da imagem
 	function pegar_img(e) {
 		if (e.target.files[0]) {
 			const image = e.target.files[0];
@@ -119,7 +167,7 @@ export default function Addprodutos() {
 					</Link>
 
 
-					<h2 className='Tituo-page'>{id ? `Edita prato -> ${name}` : 'Adicionar  prato'}</h2>
+					<h2 className='Tituo-page'>{id ? `Edita produto -> ${name}` : 'Adicionar  prato'}</h2>
 
 					<Group_input>
 
@@ -132,7 +180,13 @@ export default function Addprodutos() {
 									accept='image/*'
 									placeholder='Selecione uma imagem'
 								/>
-								<img src={imagem == null ? img : imagem} alt='Selecione uma imagem'/>
+
+								{id ? 
+								<img src={imagem !== image ? `http://localhost:3333/files/${imagem}` : img} alt='Selecione uma imagem'/>
+								:
+								<img src={imagem !== image ? imagem : img} alt='Selecione uma imagem'/>
+								}
+
 							</File_Upload>
 
 
@@ -155,7 +209,7 @@ export default function Addprodutos() {
 							<label>Categoria</label>
 							<select value={categorySelected} onChange={categoria_select}>
 								{category.map((item, index) => {
-									return(
+									return (
 										<option key={item.id} value={index}>
 											{item.name}
 										</option>

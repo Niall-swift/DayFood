@@ -5,7 +5,7 @@ const UseAPIClient = (ctx) => {
     let cookies = parseCookies(ctx);
 
     const api = axios.create({
-        baseURL: 'https://back-end-dayfood-pkjip5np4-niall-swift.vercel.app/',
+        baseURL: 'http://localhost:3333/',
         headers: {
             Authorization: `Bearer ${cookies['@dayfood.token']}`
         }
