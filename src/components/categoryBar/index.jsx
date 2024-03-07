@@ -33,7 +33,7 @@ export default function Categoria(){
     return(
         <Content>
             {name.map((item, index) => (
-                <Button key={index} onClick={()=> setIdcategory(item.id)}> {item.name} <img src={item.icon}alt=""/> </Button>
+                <Button key={index} onClick={()=> setIdcategory(item.id)}> <img src={item.icon}alt="Icon da Categoria"/> {item.name} </Button>
             ))}
         </Content>
     )

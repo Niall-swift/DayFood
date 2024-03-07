@@ -9,7 +9,7 @@ import { PageTransition } from "../../components/PageAnimation"
 import ResumoDoCart from "../../components/ResumoDoCart"
 import MenuMobile from "../../components/Hearder/menuMobile"
 import Bane from "../../components/Bane"
-import Categoria from '../../components/Categoria'
+import Categoria from '../../components/categoryBar/index.jsx'
 import ButtonCartFixo from "../../components/Bottom_Cart"
 import Servicos from "../../components/BaneServicos"
 import Titulo from "../../components/pages_titulos"

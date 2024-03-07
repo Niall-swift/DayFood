@@ -7,18 +7,16 @@ import { Content, Conteiner, Text, Form, SelecIcon} from './newcategory-styles'
 //--API
 import UseAPIClient from '../../api/api'
 // icons 
-import bacon from '../../utils/icons/bacon-solid.svg'
-import bowl from '../../utils/icons/bowl-food-solid.svg'
-import burger from '../../utils/icons/burger-solid.svg'
-import pizza from '../../utils/icons/pizza-slice-solid.svg'
-import utensils from '../../utils/icons/utensils-solid.svg'
-import hotdog from '../../utils/icons/hotdog-solid.svg'
-import martini from '../../utils/icons/martini-glass-citrus-solid.svg'
-import ice from '../../utils/icons/ice-cream-solid.svg'
-import drumstick from '../../utils/icons/drumstick-bite-solid.svg'
-import cookie from '../../utils/icons/cookie-solid.svg'
-import candy from '../../utils/icons/candy-cane-solid.svg'
-import water from '../../utils/icons/bottle-water-solid.svg'
+import bacon from '../../utils/icons/bacon-solid.svg'; import bowl from '../../utils/icons/bowl-food-solid.svg'
+import burger from '../../utils/icons/burger-solid.svg';import pizza from '../../utils/icons/pizza-slice-solid.svg'
+import utensils from '../../utils/icons/utensils-solid.svg';import hotdog from '../../utils/icons/hotdog-solid.svg';import martini from '../../utils/icons/martini-glass-citrus-solid.svg';
+import ice from '../../utils/icons/ice-cream-solid.svg';import drumstick from '../../utils/icons/drumstick-bite-solid.svg';
+import cookie from '../../utils/icons/cookie-solid.svg';import candy from '../../utils/icons/candy-cane-solid.svg';
+import water from '../../utils/icons/bottle-water-solid.svg';import pizzarepo from '../../utils/icons/pizza-svgrepo-com.svg';
+import pinacola from '../../utils/icons/pina-colada-svgrepo-com.svg';import breakfast from '../../utils/icons/breakfast-svgrepo-com.svg';import muffin from '../../utils/icons/muffin-svgrepo-com.svg';import beer from '../../utils/icons/beer-mug-svgrepo-com.svg';
+import served from '../../utils/icons/served-plate-svgrepo-com.svg';
+import beer4 from '../../utils/icons/canned-beer-4-svgrepo-com.svg';
+import beer2 from '../../utils/icons/canned-beer-2-svgrepo-com.svg';
 
 export default function NewCategory() {
     const api = UseAPIClient();
@@ -26,7 +24,10 @@ export default function NewCategory() {
     const [name , setName] = useState('')
     const [icon, setIcon] = useState('')
 
-    const icons = [bacon,bowl,burger,pizza,utensils,hotdog,martini,ice,drumstick,cookie,candy,water]
+    const icons = [bacon,bowl,burger,pizza,utensils,hotdog,martini,
+        ice,drumstick,cookie,candy,water,pizzarepo,pinacola,breakfast,
+        muffin,beer,served,beer2,beer4
+    ]
 
 
     // quando um icon e selecionado 
