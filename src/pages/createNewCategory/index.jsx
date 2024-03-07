@@ -28,14 +28,12 @@ export default function NewCategory() {
 
     const icons = [bacon,bowl,burger,pizza,utensils,hotdog,martini,ice,drumstick,cookie,candy,water]
 
-    console.log(icon.name)
 
     // quando um icon e selecionado 
     function handleSelectIcon(e){
         setIcon(e.target.value)
     }
 
-    console.log(icon)
     // cadastrando categoria
     async function RegisteCategory(e){
         e.preventDefault()
@@ -44,7 +42,7 @@ export default function NewCategory() {
             try{
                 const response = await api.post('/category',{
                     name,
-                    order: "",
+                    order:"",
                     icon
                 })
                 setName('')

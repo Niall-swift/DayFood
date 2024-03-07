@@ -39,8 +39,6 @@ export default function Addprodutos(props) {
 	const [productData, setProductData] = useState([]);
 	const { id } = useParams()
 
-	console.log(image)
-
 	/// cadastrando um produto
 	async function RegisterProduct(e) {
 		e.preventDefault()
@@ -55,7 +53,7 @@ export default function Addprodutos(props) {
 			data.append('active', true)
 			data.append('category_id', category[categorySelected].id)
 
-			await api.post('/product', data)
+			await api.post('/add/product', data)
 
 			// alert 
 			Swal.fire({
@@ -72,6 +70,7 @@ export default function Addprodutos(props) {
 			setName('')
 			setPrice('')
 			setImage(null)
+			setImagem(null)
 			setDescription('')
 
 		} catch (err) {

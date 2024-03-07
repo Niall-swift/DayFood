@@ -17,11 +17,14 @@ function AutorizarClientes({ children }) {
 	const navigate = useNavigate();
 	const [user, setUser] = useState('');
 	const [loading, setLoading] = useState(false);
-	const [onCart, setOnCart] = useState([]);
+	const [cart, setCart] = useState([]);
 	const [offcart, setOffcart] = useState(false)
 	const [idcategory, setIdcategory] = useState('')
 	const [modal, setModal] = useState(false)
 	const [busNome, setBusNome] = useState('')
+
+
+
 
 
 	// Função para fazer logout do usuário
@@ -93,8 +96,8 @@ function AutorizarClientes({ children }) {
 		}
 	}
 
+	// Verificar se existe um token de autenticação nos cookies
 	useEffect(() => {
-		// Verificar se existe um token de autenticação nos cookies
 		const { '@dayfood.token': token } = parseCookies();
 
 		if (token) {
@@ -122,8 +125,8 @@ function AutorizarClientes({ children }) {
 			signUp,
 			loading,
 			lognin,
-			onCart,
-			setOnCart,
+			cart,
+			setCart,
 			offcart,
 			setOffcart,
 			idcategory,

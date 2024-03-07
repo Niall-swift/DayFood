@@ -5,10 +5,10 @@ export const Content = styled.section`
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
     max-width: 1280px;
-    margin: 25px auto;
+    margin: 2em auto;
     padding: 15px;
     width: 100%;
     height: 100%;
@@ -25,19 +25,20 @@ export const Card = styled.div`
     width: 100%;
     aspect-ratio: 16 / 9;
     max-width: 290px;
+    max-height: 290px;
     display: flex;
     flex-direction: column;
     padding: 15px;
     justify-content: center;
     align-items: center;
-    margin: 15px auto;
+    margin: 3em auto;
+    margin-top: -1em;
     border-radius: 20px;
     position: relative;
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.30)!important;
     border: 1px solid rgba(255, 255, 255, 0.246);
     box-sizing: border-box;
     transition: all .7s;
-    margin-bottom: 2em;
 
     :hover{
         background-color: var(--color-primary);
@@ -89,6 +90,7 @@ export const Card = styled.div`
 
     div{
         display: none;
+        height: 32%;
         width: 100%;
         align-items: center;
         justify-content: center;
@@ -107,7 +109,7 @@ export const Card = styled.div`
             display: flex;
             justify-content: center;
             align-items: center;
-            background: var(--color-black);
+            background: var(--color-svg);
             border: none;
             border-radius: 11px;
             margin: 5px;
@@ -131,6 +133,7 @@ export const Card = styled.div`
         align-items: center;
         flex-direction: row;
         max-width: 100%;
+        max-height: 10em;
         justify-content: center;
         align-items: center;
         box-sizing: border-box;

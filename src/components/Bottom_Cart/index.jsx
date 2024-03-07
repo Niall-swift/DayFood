@@ -8,16 +8,16 @@ import {fadeInUp} from '../../utils/Animations'
 
 export default function ButtonCartFixo(){
 
-    const {onCart,setOffcart, offcart} = useContext(ContextGlobal)
+    const {cart,setOffcart, offcart} = useContext(ContextGlobal)
 
     return(
         <>
-        {onCart.length === 0 ?
+        {cart.length === 0 ?
         <></>
         :
         <motion.span {...fadeInUp} transition={{ ...fadeInUp.transition, delay: 0.1,}}>
         <Content onClick={ () => setOffcart(!offcart) }>
-            <span>{onCart.length}</span>
+            <span>{cart.length}</span>
             <IoBag size={30}/>
         </Content>
         </motion.span>

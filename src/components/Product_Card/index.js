@@ -21,41 +21,40 @@ export default function CardDoProduto({ data }) {
 
 	const api = UseAPIClient();
 
-	const { onCart, setOnCart, user } = useContext(ContextGlobal)
-	const [quantidade, setQuatidade] = useState(1)
+	const { cart, setCart, user } = useContext(ContextGlobal)
+	const [quantity, setQuantity] = useState(1)
 
 	const { id, name, price, description, banner, order, active, category_id, Disponibilidade } = data;
 
-	const add = (itemid) => {
-		const item = onCart.find(item => item.id === id)
-		if (item) {
-			const Toast = Swal.mixin({
-				toast: true,
-				position: 'top',
-				showConfirmButton: false,
-				timer: 2000,
-				timerProgressBar: true,
-				width: '100%',
-				background: '#00070A',
-				color: '#fff',
-				didOpen: (toast) => {
-					toast.addEventListener('mouseenter', Swal.stopTimer)
-					toast.addEventListener('mouseleave', Swal.resumeTimer)
-				}
-			})
-			Toast.fire({
-				icon: 'error',
-				title: 'Você ja tem esse !'
-			})
-		} else {
-			setOnCart([...onCart, itemid])
 
+	
+
+	const addItemInCart = (item) => {
+		setCart([...cart, item])
+
+		const checkExistentIncart = cart.find((item)=> item.id === id);
+
+		if(checkExistentIncart){
+
+			const newCart = cart.map((item)=>{
+				if(item.id === id){
+
+					const quantity = item.quantity + 1
+				
+					return {...item, quantity}
+				}
+				return item
+			})
+			setCart(newCart)
 		}
 	};
 
 
+
+
+
 	function mais() {
-		const limitDeItem = quantidade >= 15
+		const limitDeItem = quantity >= 15
 
 		if (limitDeItem) {
 			const Toast = Swal.mixin({
@@ -65,8 +64,8 @@ export default function CardDoProduto({ data }) {
 				timer: 2000,
 				timerProgressBar: true,
 				width: '100%',
-				background: '#00070A',
-				color: '#fff',
+				background: `var(--color-secondary)`,
+				color: `var(--color-primary)`,
 				didOpen: (toast) => {
 					toast.addEventListener('mouseenter', Swal.stopTimer)
 					toast.addEventListener('mouseleave', Swal.resumeTimer)
@@ -78,28 +77,28 @@ export default function CardDoProduto({ data }) {
 			})
 			return
 		}
-		setQuatidade(quantidade + 1)
+		setQuantity(quantity + 1)
 	}
 	function menos() {
-		setQuatidade(quantidade - 1)
+		setQuantity(quantity - 1)
 
-		if (quantidade === 1) {
-			setQuatidade(1)
+		if (quantity === 1) {
+			setQuantity(1)
 		}
 	}
 
 
-	return (
-		<>
+return (
+	<>
 
-			<Card>
-				{Disponibilidade === 'esgotado' ? <Ribbon /> : <></>}
-				{!user === false ?
+	<Card>
+			{Disponibilidade === 'esgotado' ? <Ribbon /> : <></>}
+			{!user === false ?
 					<button className='favorites'>
 						<Link to={`/addproducts/${id}`}><FiEdit size={30} color='#000' /></Link>
 					</button>
 					:
-					<button className='favorites' onClick={() =>({ nome: name, imagem: banner, id: id, user: user.uid })}>
+					<button className='favorites' onClick={() => ({ nome: name, imagem: banner, id: id, user: user.uid })}>
 						<MdFavoriteBorder size={30} color='#a52a2a' />
 					</button>
 				}
@@ -122,15 +121,14 @@ export default function CardDoProduto({ data }) {
 						{Disponibilidade === 'esgotado' ? <b>Não temos isso agora</b> :
 							<>
 								<span onClick={menos}><IoMdRemoveCircle /></span>
-								<span> {quantidade < 10 ? `0${quantidade}` : quantidade}</span>
+								<span> {quantity < 10 ? `0${quantity}` : quantity}</span>
 								<span onClick={mais}><IoMdAddCircle /></span>
 
-								<button type='button' onClick={() => add({ quantidades: quantidade, nome: name, imagem: banner, preco: price, id: id })}> <IoBag size={25} /> </button>
+								<button type='button' onClick={() => addItemInCart({ quantity: quantity, name: name, imagem: banner, price: price, id: id })}> <IoBag size={25} /> </button>
 							</>
 						}
 					</div>
 				}
-
 			</Card>
 		</>
 	)

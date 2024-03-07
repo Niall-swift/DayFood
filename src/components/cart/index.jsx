@@ -12,10 +12,11 @@ import {Cart_zero_item, Button_etapas} from './cartStyled'
 export default function Cart(){
     
 
-    const {onCart, setOnCart, offcart, setOffcart, modal, setModal} = useContext(ContextGlobal)
+    const {cart, setCart, offcart, setOffcart, modal, setModal} = useContext(ContextGlobal)
 
-    const total = onCart.reduce((accumulator, currentItem) => {
-        const subtotal = currentItem.quantidades * currentItem.preco;
+    
+    const total = cart.reduce((accumulator, currentItem) => {
+        const subtotal = currentItem.quantity * currentItem.price;
         return accumulator + subtotal;
     }, 0);
 
@@ -33,11 +34,11 @@ export default function Cart(){
                 <button>Fechar</button>
             </Button_etapas>
 
-            {onCart.length !== 0 ?
+            {cart.length !== 0 ?
             <>
                 <div className='cart-items'>
                 {
-                    onCart.map((onCart)=> <CartItem key={onCart.id} data={onCart}/>)
+                    cart.map((cart)=> <CartItem key={cart.id} data={cart}/>)
                 }
                 </div>
 

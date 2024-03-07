@@ -5,15 +5,15 @@ import { useContext, useState } from 'react';
 
 
 export default function CartItem({data}){
-    const {id, nome, imagem, preco, quantidades} = data;
+    const {id, name, imagem, price, quantity} = data;
 
-    const {onCart, setOnCart} = useContext(ContextGlobal)
+    const {cart, setCart} = useContext(ContextGlobal)
 
 
 
     const removeitem = () =>{
-        const updateditem = onCart.filter((item) => item.id !== id);
-        setOnCart(updateditem)
+        const updateditem = cart.filter((item) => item.id !== id);
+        setCart(updateditem)
     }
 
 
@@ -26,9 +26,9 @@ export default function CartItem({data}){
             className='cart-img'
             />
             <div className='cart-item-content'>
-                <h3 className='cart-item-titulo'>{nome}</h3>
-                <h3 className='cart-item-titulo'>Quantidade:  {quantidades}</h3>
-                <h3 className='cart-item-preco'>R${preco.replace(".", ",")}</h3>
+                <h3 className='cart-item-titulo'>{name}</h3>
+                <h3 className='cart-item-titulo'>Quantidade:  {quantity}</h3>
+                <h3 className='cart-item-preco'>R${price}</h3>
 
                 
                 <button

@@ -16,7 +16,7 @@ import { addDoc, collection, onSnapshot } from 'firebase/firestore'
 
 
 export default function ResumoDoCart(){
-    const {modal, setModal, onCart, setOnCart ,user, setOffcart, whatsappPic, setWhatsappPic,dadosLocal} = useContext(ContextGlobal)
+    const {modal, setModal, cart, setCart ,user, setOffcart, whatsappPic, setWhatsappPic,dadosLocal} = useContext(ContextGlobal)
 
     const [cep, setCep] = useState('')
     const [endereco, setEndereco] = useState ('')
@@ -35,7 +35,7 @@ export default function ResumoDoCart(){
 
 
 
-    const total = onCart.reduce((accumulator, currentItem) => {
+    const total = cart.reduce((accumulator, currentItem) => {
         const subtotal = currentItem.quantidades * currentItem.preco;
         return accumulator + subtotal;
     }, 0);
@@ -134,7 +134,7 @@ export default function ResumoDoCart(){
                     cidade: cidade,
                     complemento: complemento,
                     status: status,
-                    pratos: onCart,
+                    pratos: cart,
                     volorTotal: total.toFixed(2),
                     pay: pay,
                     payTroco: payTroco,
@@ -144,7 +144,7 @@ export default function ResumoDoCart(){
                 .then(()=>{
                     navigate('/pedidos')
                     setTimeout(()=>{
-                        setOnCart([])
+                        setCart([])
                         setModal(false)
                         setOffcart(false)
                     },3000)
