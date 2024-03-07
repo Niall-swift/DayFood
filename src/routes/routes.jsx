@@ -3,13 +3,13 @@ import Register from '../pages/register'
 import Login from '../pages/login'
 import Home from '../pages/Home'
 import Provider from './private'
-import Addprodutos from '../pages/addproducts'
+import Addprodutos from '../pages/addNewProducts'
 import Favoritos from '../components/Favoritos'
 import Error404 from '../pages/erros/404'
 import Pedidos from '../pages/orders'
 import Vendas from '../components/Vendas'
 import Configs from '../pages/configs'
-import NewCategory from '../pages/createcategory'
+import NewCategory from '../pages/createNewCategory'
 
 
 
