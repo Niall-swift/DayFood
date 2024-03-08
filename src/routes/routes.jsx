@@ -9,7 +9,7 @@ import Error404 from '../pages/erros/404'
 import Pedidos from '../pages/orders'
 import Vendas from '../components/Vendas'
 import Configs from '../pages/configs'
-import NewCategory from '../pages/createNewCategory'
+import CreateNewCategory from '../pages/createNewCategory'
 
 
 
@@ -33,7 +33,7 @@ function RoutersApp() {
 			<Route path='/addproducts/:id' element={<Provider><Addprodutos/></Provider>} />
 
 
-			<Route path='/newcategory' element={<NewCategory/>}/>
+			<Route path='/newcategory' element={<CreateNewCategory/>}/>
 
 
 			<Route path='*' element={<Error404 />} />

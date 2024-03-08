@@ -18,7 +18,7 @@ import served from '../../utils/icons/served-plate-svgrepo-com.svg';
 import beer4 from '../../utils/icons/canned-beer-4-svgrepo-com.svg';
 import beer2 from '../../utils/icons/canned-beer-2-svgrepo-com.svg';
 
-export default function NewCategory() {
+export default function CreateNewCategory() {
     const api = UseAPIClient();
 
     const [name , setName] = useState('')
@@ -122,12 +122,6 @@ export default function NewCategory() {
                 </Form>
 
             </Conteiner>
-
-            <Conteiner>
-                <div><h1>Suas Categorias</h1></div>
-
-            </Conteiner>
-
         </Content>
     )
 }
