@@ -27,9 +27,7 @@ function RoutersApp() {
 
 			<Route path='/addproducts' element={<Provider><Addprodutos/></Provider>} />
 			<Route path='/addproducts/:id' element={<Provider><Addprodutos/></Provider>} />
-
-
-			<Route path='/newcategory' element={<CreateNewCategory/>}/>
+			<Route path='/newcategory' element={<Provider><CreateNewCategory/></Provider>}/>
 
 
 			<Route path='*' element={<Error404 />} />

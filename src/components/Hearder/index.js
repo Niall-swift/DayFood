@@ -41,9 +41,9 @@ export default function Header() {
       <Dropdown>
         <Button> <IoApps/> Apps </Button>
         <Menu>
-          <Buttons> <GrChapterAdd/> product</Buttons>
-          <Buttons> <MdCategory /> category</Buttons>
-          <Buttons> <FaPowerOff /> Exit </Buttons>
+          <Link to='/addproducts'><Buttons> <GrChapterAdd/> product</Buttons></Link>
+          <Link to='/newcategory'><Buttons> <MdCategory /> category</Buttons></Link>
+          <Buttons onClick={logOut}> <FaPowerOff /> Exit </Buttons>
         </Menu>
       </Dropdown>
     </Headers>
