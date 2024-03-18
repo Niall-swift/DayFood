@@ -11,7 +11,9 @@ export const Content = styled.section`
     margin: 2em auto;
     padding: 15px;
     width: 100%;
-    height: 100%;
+    height: 100dvb;
+    overflow: hidden;
+    overflow-y: auto;
 
     @media screen and (max-width: 512px){
         max-width: 100%;
@@ -173,7 +175,7 @@ export const Card = styled.div`
     h3{
         width: 100%;
         text-align: center;
-        margin-right: 4em;
+        margin-right: 3em;
         margin-bottom: 32px;
         font-size: 1em;
     }

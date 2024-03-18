@@ -3,13 +3,12 @@ import Register from '../pages/register'
 import Login from '../pages/login'
 import Home from '../pages/Home'
 import Provider from './private'
-import Addprodutos from '../pages/addNewProducts'
+import Addprodutos from '../pages/Add_New_Products'
 import Favoritos from '../components/Favoritos'
 import Error404 from '../pages/erros/404'
 import Pedidos from '../pages/orders'
 import Vendas from '../components/Vendas'
-import Configs from '../pages/configs'
-import CreateNewCategory from '../pages/createNewCategory'
+import CreateNewCategory from '../pages/Create_New_Category'
 
 
 
@@ -23,10 +22,7 @@ function RoutersApp() {
 			<Route path='/home' element={<Home/>} />
 			<Route path='/Vendas' element={<Provider> <Vendas /> </Provider>}/>
 			<Route path='/Pedidos' element={<Provider> <Pedidos /> </Provider>}/>
-			<Route path='/Configs' element={<Provider> <Configs /> </Provider>}/>
 			<Route path='/favoritos' element={<Provider> <Favoritos /> </Provider>}/>
-
-
 
 
 			<Route path='/addproducts' element={<Provider><Addprodutos/></Provider>} />

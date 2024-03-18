@@ -78,7 +78,6 @@ export default function Addprodutos(props) {
 		}
 	}
 
-
 	/// busnaco dados do produto
 	useEffect(() => {
 		const fetchProductData = async () => {
