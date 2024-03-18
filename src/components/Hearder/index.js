@@ -10,8 +10,9 @@ import { BiUserCircle, BiAddToQueue } from 'react-icons/bi'
 import { IoLogOut } from 'react-icons/io5'
 import { HiMenu } from 'react-icons/hi'
 import { IoClose, IoApps} from 'react-icons/io5'
-import { MdFavorite, MdAutoGraph } from 'react-icons/md'
-import { FaUsers, FaUser } from 'react-icons/fa'
+import { GrChapterAdd } from "react-icons/gr";
+import { FaPowerOff } from "react-icons/fa";
+import { MdCategory } from "react-icons/md";
 import { TbReceipt, TbReceiptOff, TbReceiptTax, TbReceiptRefund, TbReceipt2 } from 'react-icons/tb'
 /// styled
 import {Headers, Dropdown, Button, Menu, Buttons} from './styledHeader'
@@ -40,19 +41,9 @@ export default function Header() {
       <Dropdown>
         <Button> <IoApps/> Apps </Button>
         <Menu>
-          <Buttons>new product</Buttons>
-          <Buttons>new category</Buttons>
-          <Buttons>Exit</Buttons>
-          <Buttons>new product</Buttons>
-          <Buttons>new category</Buttons>
-          <Buttons>Exit</Buttons>
-          <Buttons>new product</Buttons>
-          <Buttons>new category</Buttons>
-          <Buttons>Exit</Buttons>
-          <Buttons>Exit</Buttons>
-          <Buttons>new product</Buttons>
-          <Buttons>new category</Buttons>
-          <Buttons>Exit</Buttons>
+          <Buttons> <GrChapterAdd/> product</Buttons>
+          <Buttons> <MdCategory /> category</Buttons>
+          <Buttons> <FaPowerOff /> Exit </Buttons>
         </Menu>
       </Dropdown>
     </Headers>

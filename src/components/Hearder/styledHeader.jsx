@@ -48,7 +48,7 @@ export const Button = styled.button`
     align-items: center;
     flex-direction: column;
     padding: 0.5em;
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
     border: none;
     max-width: 55px;
     max-height: 55px;
@@ -57,20 +57,9 @@ export const Button = styled.button`
     svg{
         font-size: 100px;
     }
-
-    ::before{
-        content: "";
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        scale: 0.25;
-        opacity: 0;
-        background: rgb(255 255 /8%);
-        transition: 0.2s;
+    :hover{
+        background-color: var(--color-primary);
+        color: #fff;
     }
 `
 
@@ -88,7 +77,8 @@ export const Menu = styled.div`
     width: 270px;
     max-height: 286px;
     padding: 10px;
-    background: #2d2d2d;
+    background: var(--color-bacgruand);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
     border-radius: 8px;
     opacity: 0;
     visibility: hidden;
@@ -106,11 +96,24 @@ export const Buttons = styled.button`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 0.5em;
-    background-color: var(--color-primary);
+    padding: 0.7em;
+    background-color: var(--color-secondary);
     border: none;
-    max-width: 55px;
-    max-height: 55px;
-    border-radius: 12px;
+    max-width: 70px;
+    max-height: 70px;
+    border-radius: 10px;
+    font-size: 15px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+
+    :hover{
+        background-color: var(--color-primary);
+        color: #fff;
+        transition: 0.5s;
+    }
+
+    svg{
+        font-size: 25px;
+        margin-bottom: 0.2em;
+    }
 `
 
