@@ -28,15 +28,12 @@ export const Button = styled.button`
     margin-left: 1rem;
     margin-bottom: 0.5rem;
     border-radius: 11px;
-    border: 0.1rem solid var(--color-secondary);
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
     padding: 5px 15px;
-    font-family: 'PoppinsRegular', 'Rubik', sans-serif;
     color: var(--color-black)!important;
     font-size: clamp(0.2rem, 1.5rem, 1.625rem);
-    flex: 1;
 
-    
     :hover{
         background: var(--color-primary);
         transition: .7s;

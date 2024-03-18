@@ -10,6 +10,7 @@ import ButtonCartFixo from "../../components/Bottom_Cart"
 import Servicos from "../../components/BaneServicos"
 import Titulo from "../../components/pages_titulos"
 import Barra from "../../components/Search_Bar/index.jsx"
+import Header from "../../components/Hearder/index.js"
 
 
 
@@ -17,6 +18,7 @@ export default function Home(){
 
     return(
         <Homen>
+            <Header/>
             <Cart/>
             <Bane/>
             <Servicos/>
