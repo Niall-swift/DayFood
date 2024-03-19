@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 //--Swal
 import Swal from 'sweetalert2'
 //--styles
@@ -23,7 +25,7 @@ import soup from '../../utils/icons/soup-in-bowl-bowl-soup-hot-food-svgrepo-com.
 
 export default function CreateNewCategory() {
     const api = UseAPIClient();
-
+    const navigate = useNavigate();
     const [name , setName] = useState('')
     const [icon, setIcon] = useState('')
 
@@ -31,9 +33,6 @@ export default function CreateNewCategory() {
         ice,drumstick,cookie,candy,water,pizzarepo,pinacola,breakfast,
         muffin,beer,served,beer2,beer4,vegetables,soup,can,coffee
     ]
-
-    console.log(icons)
-
 
     // quando um icon e selecionado 
     function handleSelectIcon(e){
@@ -51,10 +50,9 @@ export default function CreateNewCategory() {
                     order:"",
                     icon
                 })
-                setName('')
                 Swal.fire({
                     icon: 'success',
-                    title: `A categoria`   `${name}`   `foi criadar com sucesso`,
+                    title: `A categoria foi criadar com sucesso`,
                     html: '😁',
                     position: 'center',
                     showConfirmButton: false,
@@ -62,6 +60,8 @@ export default function CreateNewCategory() {
                     background: `var(--color-background)`,
                     color: `var(--color-primary)`,
                 })
+                setName('')
+                navigate('/Home')
             }catch(err){
                 console.log(err)
             }
@@ -88,7 +88,7 @@ export default function CreateNewCategory() {
                 <Button> <TbArrowBack /> Voltar </Button>
             </Link>
 
-                <Text><h1>Cria Categoria</h1></Text>
+                <Text><h1>Criar nova categoria</h1></Text>
 
                 <Form>
                     <form>
