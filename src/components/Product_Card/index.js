@@ -95,11 +95,11 @@ return (
 			{Disponibilidade === 'esgotado' ? <Ribbon /> : <></>}
 			{!user === false ?
 					<button className='favorites'>
-						<Link to={`/addproducts/${id}`}><FiEdit size={30} color='#000' /></Link>
+						<Link to={`/addproducts/${id}`}><FiEdit color='#000' /></Link>
 					</button>
 					:
 					<button className='favorites' onClick={() => ({ nome: name, imagem: banner, id: id, user: user.uid })}>
-						<MdFavoriteBorder size={30} color='#a52a2a' />
+						<MdFavoriteBorder color='#a52a2a' />
 					</button>
 				}
 

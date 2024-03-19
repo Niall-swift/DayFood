@@ -75,7 +75,7 @@ export const Menu = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: max-content;
     translate: 0 16px;
-    width: 270px;
+    width: 240px;
     max-height: 286px;
     padding: 10px;
     background: var(--color-background);
