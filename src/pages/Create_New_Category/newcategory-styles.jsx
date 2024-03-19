@@ -55,6 +55,8 @@ export const Button = styled.button`
 export const Text = styled.div`
     position: absolute;
     top: 25px;
+    right: 25px;
+    font-size: 1rem;
     color: var(--color-text);
 `
 export const Form = styled.div`
