@@ -21,13 +21,13 @@ function RoutersApp() {
 
 			<Route path='/home' element={<Home/>} />
 			<Route path='/Vendas' element={<Provider> <Vendas /> </Provider>}/>
-			<Route path='/orders' element={<Provider> <Pedidos /> </Provider>}/>
+			<Route path='/orders' element={<Pedidos/>}/>
 			<Route path='/favoritos' element={<Provider> <Favoritos /> </Provider>}/>
 
 
-			<Route path='/addproducts' element={<Provider><Addprodutos/></Provider>} />
+			<Route path='/addproducts' element={<Addprodutos/>} />
 			<Route path='/addproducts/:id' element={<Provider><Addprodutos/></Provider>} />
-			<Route path='/newcategory' element={<Provider><CreateNewCategory/></Provider>}/>
+			<Route path='/newcategory' element={<CreateNewCategory/>}/>
 
 
 			<Route path='*' element={<Error404 />} />
