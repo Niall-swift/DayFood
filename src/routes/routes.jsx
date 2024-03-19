@@ -21,7 +21,7 @@ function RoutersApp() {
 
 			<Route path='/home' element={<Home/>} />
 			<Route path='/Vendas' element={<Provider> <Vendas /> </Provider>}/>
-			<Route path='/Pedidos' element={<Provider> <Pedidos /> </Provider>}/>
+			<Route path='/orders' element={<Provider> <Pedidos /> </Provider>}/>
 			<Route path='/favoritos' element={<Provider> <Favoritos /> </Provider>}/>
 
 

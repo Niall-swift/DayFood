@@ -7,7 +7,7 @@ export const Headers = styled.header`
     align-items: center;
     justify-content: space-around;
     justify-content: end;
-    padding: 10px;
+    padding: 0.5em;
     position: fixed;
     z-index: 99;
     background: transparent;
@@ -28,6 +28,7 @@ export const Dropdown = styled.div`
     display: grid;
     place-items: center;
     height: 72px;
+    margin: 1em;
 
     :hover > button::before{
         scale: 1;
@@ -52,7 +53,7 @@ export const Button = styled.button`
     border: none;
     max-width: 55px;
     max-height: 55px;
-    border-radius: 12px;
+    border-radius: 10px;
     
     svg{
         font-size: 100px;
@@ -96,13 +97,13 @@ export const Buttons = styled.button`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 0.7em;
+    padding: 0.5em;
     background-color: var(--color-secondary);
     border: none;
-    max-width: 70px;
-    max-height: 70px;
+    max-width: 55px;
+    max-height: 55px;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 0.75rem;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 
     :hover{
@@ -112,8 +113,7 @@ export const Buttons = styled.button`
     }
 
     svg{
-        font-size: 25px;
-        margin-bottom: 0.2em;
+        font-size: 100px;
     }
 `
 

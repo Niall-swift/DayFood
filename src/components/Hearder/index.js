@@ -38,12 +38,13 @@ export default function Header() {
 
   return (
     <Headers scl={scl}>
+      <Link to='/orders'><Buttons><TbReceipt/>Pedidos</Buttons></Link>
       <Dropdown>
         <Button> <IoApps/> Apps </Button>
         <Menu>
-          <Link to='/addproducts'><Buttons> <GrChapterAdd/> product</Buttons></Link>
-          <Link to='/newcategory'><Buttons> <MdCategory /> category</Buttons></Link>
-          <Buttons onClick={logOut}> <FaPowerOff /> Exit </Buttons>
+          <Link to='/addproducts'><Buttons><GrChapterAdd/> product</Buttons></Link>
+          <Link to='/newcategory'><Buttons><MdCategory />category</Buttons></Link>
+          <Buttons onClick={logOut}><FaPowerOff />Exit</Buttons>
         </Menu>
       </Dropdown>
     </Headers>

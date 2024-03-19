@@ -41,6 +41,6 @@ export const Button = styled.button`
     }
     img{
         width: 1.3em;
-        margin-right: 1em;
+        margin-right: 0.3em;
     }
 `

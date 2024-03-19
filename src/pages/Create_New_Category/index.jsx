@@ -3,20 +3,23 @@ import { useState } from 'react'
 //--Swal
 import Swal from 'sweetalert2'
 //--styles
-import { Content, Conteiner, Text, Form, SelecIcon} from './newcategory-styles'
+import { Content, Conteiner, Text, Form, SelecIcon, Button} from './newcategory-styles'
 //--API
 import UseAPIClient from '../../api/api'
-// icons 
-import bacon from '../../utils/icons/bacon-solid.svg'; import bowl from '../../utils/icons/bowl-food-solid.svg'
-import burger from '../../utils/icons/burger-solid.svg';import pizza from '../../utils/icons/pizza-slice-solid.svg'
+//  icons import
+import { TbArrowBack } from "react-icons/tb";
+// icons svg
+import bacon from '../../utils/icons/bacon-solid.svg'; import bowl from '../../utils/icons/bowl-food-solid.svg';import burger from '../../utils/icons/burger-solid.svg';import pizza from '../../utils/icons/pizza-slice-solid.svg'
 import utensils from '../../utils/icons/utensils-solid.svg';import hotdog from '../../utils/icons/hotdog-solid.svg';import martini from '../../utils/icons/martini-glass-citrus-solid.svg';
 import ice from '../../utils/icons/ice-cream-solid.svg';import drumstick from '../../utils/icons/drumstick-bite-solid.svg';
 import cookie from '../../utils/icons/cookie-solid.svg';import candy from '../../utils/icons/candy-cane-solid.svg';
 import water from '../../utils/icons/bottle-water-solid.svg';import pizzarepo from '../../utils/icons/pizza-svgrepo-com.svg';
 import pinacola from '../../utils/icons/pina-colada-svgrepo-com.svg';import breakfast from '../../utils/icons/breakfast-svgrepo-com.svg';import muffin from '../../utils/icons/muffin-svgrepo-com.svg';import beer from '../../utils/icons/beer-mug-svgrepo-com.svg';
-import served from '../../utils/icons/served-plate-svgrepo-com.svg';
-import beer4 from '../../utils/icons/canned-beer-4-svgrepo-com.svg';
-import beer2 from '../../utils/icons/canned-beer-2-svgrepo-com.svg';
+import served from '../../utils/icons/served-plate-svgrepo-com.svg';import beer4 from '../../utils/icons/canned-beer-4-svgrepo-com.svg';
+import beer2 from '../../utils/icons/canned-beer-2-svgrepo-com.svg';import vegetables from '../../utils/icons/vegetables-svgrepo-com.svg';
+import soup from '../../utils/icons/soup-in-bowl-bowl-soup-hot-food-svgrepo-com.svg';import can from '../../utils/icons/can-juice-2-svgrepo-com.svg';import coffee from '../../utils/icons/coffee-love-svgrepo-com.svg';
+
+
 
 export default function CreateNewCategory() {
     const api = UseAPIClient();
@@ -26,8 +29,10 @@ export default function CreateNewCategory() {
 
     const icons = [bacon,bowl,burger,pizza,utensils,hotdog,martini,
         ice,drumstick,cookie,candy,water,pizzarepo,pinacola,breakfast,
-        muffin,beer,served,beer2,beer4
+        muffin,beer,served,beer2,beer4,vegetables,soup,can,coffee
     ]
+
+    console.log(icons)
 
 
     // quando um icon e selecionado 
@@ -77,14 +82,11 @@ export default function CreateNewCategory() {
 
     return (
         <Content>
-
-            <Link to='/Home'>
-                <div className='btn-voltar'>
-                    <button>Voltar</button>
-                </div>
-            </Link>
-
             <Conteiner>
+
+            <Link to='/Home#Cadapio'>
+                <Button> <TbArrowBack /> Voltar </Button>
+            </Link>
 
                 <Text><h1>Cria Categoria</h1></Text>
 
@@ -94,16 +96,21 @@ export default function CreateNewCategory() {
                     <SelecIcon>
                         {icons.map((item, index)=>{
                             return(
-                            <label key={index}>
+
+                        <div key={index}>
+                        <label key={index}>
                             <input
                             type='radio'
                             value={item}
-                            placeholder='card'
+                            placeholder='card-icon'
                             onChange={handleSelectIcon}
                             checked={icon === item}
                             />
                             <img src={item} alt=''/>
                         </label>
+                        <h6>{item.split("/").pop().split("-")[0]}</h6>
+                        </div>
+
                             )
                         })}
                     </SelecIcon>
@@ -111,6 +118,7 @@ export default function CreateNewCategory() {
 
 
                         <label>Nome da categoria</label>
+
                         <input
                         onChange={((e)=> setName(e.target.value))}
                         value={name}

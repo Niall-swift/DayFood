@@ -26,10 +26,36 @@ export const Conteiner = styled.main`
     background-color: var(--color-white);
     border-radius: 20px;
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.38);
+
 `
+export const Button = styled.button`
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20px;
+    left: 20px;
+    background: var(--color-primary);
+    border: none;
+    padding: 1em;
+    border-radius: 12px;
+    color: #fff;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.38);
+    transition: 0.5s;
+    :hover{
+        transition: 0.5s;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
+    svg{
+        font-size: 20px;
+        margin-right: 2px;
+    }
+`
+
 export const Text = styled.div`
     position: absolute;
-    top: 10px;
+    top: 25px;
+    color: var(--color-text);
 `
 export const Form = styled.div`
     display: flex;
@@ -81,16 +107,32 @@ export const Form = styled.div`
 
 export const SelecIcon = styled.div`
     width: 100%;
-    height: auto;
+    height: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    margin: 1rem 0.1rem;
+    justify-content: flex-start;
+    margin: 0 auto;
     overflow-Y: hidden;
     overflow-Y: auto;
     position: relative;
     flex-wrap: wrap;
+
+::-webkit-scrollbar {
+    display: flex;
+}
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 1em;
+
+        h6{
+            font-size: 0.75em;
+            color: var(--color-text);
+        }
+    }
 
     label{
         display: flex;
@@ -99,9 +141,12 @@ export const SelecIcon = styled.div`
         flex-direction: column;
         cursor: pointer;
         padding: 1px;
+        width: auto;
+        height: auto;
+
 
         img{
-            z-index: 9;
+            z-index: 1;
             position: absolute;
             display: flex;
             justify-content: center;
@@ -118,15 +163,19 @@ export const SelecIcon = styled.div`
             width: 3em;
             height: 3em;
             margin: 0.5em;
-            z-index: 99;
-            transition: .7s;
-            border: 1px solid var(--color-text);
+            transition: 0.7s;
+            cursor: pointer;
+
+        :hover{
+        transition: 0.5s;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
         }
+    }
+
         input[type="radio"]:checked{
-            transition: .7;
+            transition: 0.7s;
             background: var(--color-primary);
-            z-index: 1;
-            border: none;
         }
+
     }
 `
