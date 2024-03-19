@@ -8,6 +8,10 @@ export const Container = styled.section`
     height: 100vh;
     margin: 0 auto;
 
+    h2{
+        text-align: center;
+        color: var(--color-text);
+    }
 
     button{
         width: auto;
@@ -34,11 +38,6 @@ export const Group_input = styled.div`
     align-items: center;
     width: 100%;
     padding: 2em;
-
-
-    label{
-
-    }
 
     form{
         display: grid;

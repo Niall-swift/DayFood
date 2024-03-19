@@ -4,21 +4,21 @@ import styled from "styled-components";
 export const Content = styled.section`
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     align-items: flex-start;
     flex-wrap: wrap;
-    max-width: 1280px;
+    max-width: 1320px;
     margin: 2em auto;
     padding: 15px;
     width: 100%;
-    height: 100dvb;
+    height: 100vh;
     overflow: hidden;
     overflow-y: auto;
 
     @media screen and (max-width: 512px){
-        max-width: 100%;
-        display: inline-block;
+        padding: 5px;
+        height: 100vh;
     }
 `
 
@@ -34,8 +34,7 @@ export const Card = styled.div`
     padding: 15px;
     justify-content: center;
     align-items: center;
-    margin: 3em auto;
-    margin-top: -1em;
+    margin: 1em 1em;
     border-radius: 20px;
     position: relative;
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.30)!important;

@@ -6,18 +6,14 @@ export const Content = styled.section`
     max-width: 1280px;
     margin: 0 auto;
     height: 20vh;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     display: flex;
     padding: 1rem;
     align-items: center;
     justify-content: center;
     justify-content: flex-start;
     overflow: hidden;
-    overflow-x: scroll;
-
-::-webkit-scrollbar{
-    display: none;
-}
+    overflow-x: auto;
 `
 export const Button = styled.button`
     background: ${props => (props.selicd ? 'var(--color-primary)' :'var(--color-white)')};
@@ -40,7 +36,7 @@ export const Button = styled.button`
         color: var(--color-white)!important;
     }
     img{
-        width: 1.3em;
-        margin-right: 0.3em;
+        width: 1.2em;
+        margin-right: 0.4em;
     }
 `
