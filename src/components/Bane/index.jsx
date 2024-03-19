@@ -5,6 +5,7 @@ import {useState} from 'react'
 ///////icons ////////
 import {FaPhone} from 'react-icons/fa'
 import {BsInstagram,BsFacebook,BsWhatsapp} from 'react-icons/bs'
+import { FaLinkedin } from "react-icons/fa";
 /////////// animação/////////
 import {fadeInUp, transition, letterAnimation, fadeInLeft } from '../../utils/Animations'
 import {motion} from 'framer-motion'
@@ -55,7 +56,7 @@ export default function Bane(){
 
             <Contatos>
                 <Link className='link'  to='https://www.instagram.com/niall_swift_/'> <BsInstagram/> </Link>
-                <Link className='link'  to='https://www.facebook.com/niall.swift.10'> <BsFacebook/> </Link>
+                <Link className='link'  to='https://www.linkedin.com/in/josu%C3%A9-ramos-dev/'> <FaLinkedin /> </Link>
                 <Link className='link'  to='https://wa.me/5521980280673?text=Olá, preciso de ajudar'> <BsWhatsapp/> </Link>
             </Contatos>
 
