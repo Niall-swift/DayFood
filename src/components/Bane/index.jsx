@@ -56,7 +56,7 @@ export default function Bane(){
             <Contatos>
                 <Link className='link'  to='https://www.instagram.com/niall_swift_/'> <BsInstagram/> </Link>
                 <Link className='link'  to='https://www.facebook.com/niall.swift.10'> <BsFacebook/> </Link>
-                <Link className='link'  to='https://wa.me/5521990414180?text=Olá, preciso de ajudar'> <BsWhatsapp/> </Link>
+                <Link className='link'  to='https://wa.me/5521980280673?text=Olá, preciso de ajudar'> <BsWhatsapp/> </Link>
             </Contatos>
 
         </Content>
