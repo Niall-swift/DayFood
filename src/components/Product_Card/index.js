@@ -27,7 +27,7 @@ export default function CardDoProduto({ data }) {
 	const { id, name, price, description, banner, order, active, category_id, Disponibilidade } = data;
 
 
-	
+	console.log(banner)
 
 	const addItemInCart = (item) => {
 		setCart([...cart, item])
@@ -48,9 +48,6 @@ export default function CardDoProduto({ data }) {
 			setCart(newCart)
 		}
 	};
-
-
-
 
 
 	function mais() {
@@ -90,7 +87,6 @@ export default function CardDoProduto({ data }) {
 
 return (
 	<>
-
 	<Card>
 			{Disponibilidade === 'esgotado' ? <Ribbon /> : <></>}
 			{!user === false ?
@@ -104,7 +100,7 @@ return (
 				}
 
 
-				<img src={(`http://localhost:3333/files/${banner}`)} alt='img' />
+				<img src={(`http://localhost:3000/files/${banner}`)} alt='img' />
 
 				<h3>{name}</h3>
 

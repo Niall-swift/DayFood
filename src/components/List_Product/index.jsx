@@ -19,7 +19,6 @@ export default function Refeicoes() {
 	const [idproduct, setIdproduct] = useState('')
 	const [load, setLoad] = useState(true)
 
-
 	// -- listando produtos 
 	useEffect(() => {
 		async function ListProduct(id, name, price, description, banner, order, active, category_id) {

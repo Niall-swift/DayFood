@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const Content = styled.div`
     position: fixed;
-    left: 93%;
-    bottom: 50px;
-    height: 50px;
-    width: 50px;
+    right: 50px;
+    bottom: 40px;
+    height: 70px;
+    width: 70px;
     background-color: var(--color-primary);
     display: flex;
     justify-content: center;

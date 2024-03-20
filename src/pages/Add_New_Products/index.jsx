@@ -1,11 +1,9 @@
-import { useContext, useEffect, useReducer, useState } from 'react'
+import {useEffect,useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-/// compornetes
-import { ContextGlobal } from '../../contexts/auth'
-//// impor toutes
-import { useNavigate } from 'react-router-dom'
+/// import componetes
+import {BackButton} from '../../components/Back_Button'
 /// css styles
-import { Container, Group_input, File_Upload } from './Styled_Add_New_Product'
+import { Container, GroupInput, FileUpload } from './Styled_Add_New_Product'
 import { PageTransition } from '../../components/PageAnimation'
 /// icone
 import { IoIosArrowBack } from 'react-icons/io'
@@ -23,11 +21,9 @@ import Swal from 'sweetalert2'
 
 
 
-export default function Addprodutos(props) {
+export default function Addprodutos() {
+
 	const api = UseAPIClient();
-
-	const navigate = useNavigate();
-
 
 	const [imagem, setImagem] = useState(null)
 	const [name, setName] = useState('')
@@ -39,7 +35,9 @@ export default function Addprodutos(props) {
 	const [productData, setProductData] = useState([]);
 	const { id } = useParams()
 
-	/// cadastrando um produto
+
+
+/// cadastrando um produto
 	async function RegisterProduct(e) {
 		e.preventDefault()
 		try {
@@ -78,7 +76,7 @@ export default function Addprodutos(props) {
 		}
 	}
 
-	/// busnaco dados do produto
+/// busnaco dados do produto
 	useEffect(() => {
 		const fetchProductData = async () => {
 			try {
@@ -102,11 +100,11 @@ export default function Addprodutos(props) {
 				console.error('Erro ao obter produtos:', error);
 			}
 		};
-
 		fetchProductData();
 	}, [category, id]);
 
-	///--- buscanto lista de cadegory
+
+/// buscanto lista de cadegory
 	useEffect((id, name) => {
 
 		async function listCategory() {
@@ -123,7 +121,7 @@ export default function Addprodutos(props) {
 		listCategory()
 	}, [])
 
-	/// quando você seleciona uma nova categoaria na lista 
+/// quando você seleciona uma nova categoaria na lista 
 	function categoria_select(e) {
 		setCategorySelected([e.target.value])
 	}
@@ -153,25 +151,18 @@ export default function Addprodutos(props) {
 	return (
 		<>
 			<PageTransition />
-
+		<BackButton/>
 			<Container>
+				
 				<main className='meio'>
-
-					{/* esser e o botão de voltar */}
-					<Link to='/Home'>
-						<div className='btn-voltar'><button>
-							<IoIosArrowBack size={35} />Voltar
-						</button></div>
-					</Link>
-
 
 					<h2 className='Tituo-page'>{id ? `Edita produto -> ${name}` : 'Adicionar  prato'}</h2>
 
-					<Group_input>
+					<GroupInput>
 
 						<form className='form-evia-prato'>
 
-							<File_Upload>
+							<FileUpload>
 								<span> <FiUpload size={35} /> </span>
 								<input onChange={pegar_img}
 									type='file'
@@ -180,23 +171,23 @@ export default function Addprodutos(props) {
 								/>
 
 								{id ? 
-								<img src={imagem !== image ? `http://localhost:3333/files/${imagem}` : img} alt='Selecione uma imagem'/>
+								<img src={imagem !== image ? `http://localhost:3000/files/${imagem}` : img} alt='Selecione uma imagem'/>
 								:
 								<img src={imagem !== image ? imagem : img} alt='Selecione uma imagem'/>
 								}
 
-							</File_Upload>
+							</FileUpload>
 
 
 
-							<label htmlFor="patro" >Nome do prato</label>
+							<label htmlFor="patro" > * Nome do prato</label>
 							<input onChange={(e) => setName(e.target.value)}
 								type='text'
 								value={name}
 								placeholder='Ex.: Salada Ceasar'
 							/>
 
-							<label>Preço</label>
+							<label> * Preço</label>
 							<input onChange={(e) => setPrice(e.target.value)}
 								title='Preço'
 								type='number'
@@ -204,7 +195,7 @@ export default function Addprodutos(props) {
 								value={price}
 							/>
 
-							<label>Categoria</label>
+							<label> * Categoria</label>
 							<select value={categorySelected} onChange={categoria_select}>
 								{category.map((item, index) => {
 									return (
@@ -216,7 +207,7 @@ export default function Addprodutos(props) {
 							</select>
 
 
-							<label>descrição</label>
+							<label>Descrição (opcional) </label>
 							<textarea onChange={(e) => setDescription(e.target.value)}
 								type='text'
 								placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
@@ -224,7 +215,7 @@ export default function Addprodutos(props) {
 							/>
 							{id ? <button className='btn' onClick={categoria_select}>Salvar alterações</button> : <button className='btn' onClick={RegisterProduct}>Cardastra prato</button>}
 						</form>
-					</Group_input>
+					</GroupInput>
 
 				</main>
 

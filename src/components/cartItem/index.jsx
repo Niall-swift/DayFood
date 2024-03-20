@@ -5,7 +5,7 @@ import { useContext, useState } from 'react';
 
 
 export default function CartItem({data}){
-    const {id, name, imagem, price, quantity} = data;
+    const {id, name, banner, price, quantity} = data;
 
     const {cart, setCart} = useContext(ContextGlobal)
 
@@ -21,7 +21,7 @@ export default function CartItem({data}){
         <section className='cart-item'>
             
             <img 
-            src={imagem}
+            src={banner}
             alt=''
             className='cart-img'
             />

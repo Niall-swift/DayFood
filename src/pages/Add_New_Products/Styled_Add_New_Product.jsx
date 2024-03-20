@@ -6,33 +6,15 @@ export const Container = styled.section`
     width: 100%;
     max-width: 1280px;
     height: 100vh;
-    margin: 0 auto;
+    margin: 5rem auto;
 
     h2{
         text-align: center;
         color: var(--color-text);
     }
-
-    button{
-        width: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: ${props => (props.load === true ? '#a97f00' : 'var(--color-primary)')};
-        color: var(--color-white)!important;
-        border-radius: 20px;
-        border: none;
-        padding: 10px 15px;
-        margin: 2rem;
-        font-size: 20px;
-        box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-        text-transform: uppercase;
-
-    }
-    
 `
 
-export const Group_input = styled.div`
+export const GroupInput = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,7 +119,7 @@ export const Group_input = styled.div`
     }
 
 `
-export const File_Upload = styled.label`
+export const FileUpload = styled.label`
     width: 100%;
     max-width: 25rem;
     height: auto;
