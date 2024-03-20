@@ -69,7 +69,7 @@ export default function Refeicoes() {
 	// }
 
 	return (
-		(load || product === '' ? <Load titulo={'Não há Item aqui'} /> :
+		(load || product === '' ? <Load titulo={'Buscando por Items'} /> :
 			<motion.div {...fadeInUp}>
 				<Content>
 					{
