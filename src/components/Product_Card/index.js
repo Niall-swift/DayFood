@@ -102,7 +102,6 @@ export default function CardDoProduto({ data }) {
 		}
 	};
 
-
 	function mais() {
 		const limitDeItem = quantity >= 15
 
@@ -154,7 +153,7 @@ export default function CardDoProduto({ data }) {
 				}
 
 
-				<img src={(`http://localhost:3000/files/${banner}`)} alt='img' />
+				<img src={(`https://dayfood-back-end.onrender.com/files/${banner}`)} alt='img' />
 
 				<h3>{name}</h3>
 
@@ -175,7 +174,7 @@ export default function CardDoProduto({ data }) {
 								<span> {quantity < 10 ? `0${quantity}` : quantity}</span>
 								<span onClick={mais}><IoMdAddCircle /></span>
 
-								<button type='button' onClick={() => addItemInCart({ quantity: quantity, name: name, imagem: banner, price: price, id: id })}> <IoBag size={25} /> </button>
+								<button type='button' onClick={() => handleAddInCart({ quantity: quantity, name: name, banner: banner, price: price, id: id })}> <IoBag size={25} /> </button>
 							</>
 						}
 					</div>

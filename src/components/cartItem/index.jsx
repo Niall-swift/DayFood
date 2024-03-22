@@ -5,10 +5,10 @@ import { useContext, useState } from 'react';
 
 
 export default function CartItem({data}){
+
     const {id, name, banner, price, quantity} = data;
 
     const {cart, setCart} = useContext(ContextGlobal)
-
 
 
     const removeitem = () =>{
@@ -21,7 +21,7 @@ export default function CartItem({data}){
         <section className='cart-item'>
             
             <img 
-            src={banner}
+            src={(`https://dayfood-back-end.onrender.com/files/${banner}`)}
             alt=''
             className='cart-img'
             />
