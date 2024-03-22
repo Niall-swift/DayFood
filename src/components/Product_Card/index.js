@@ -154,7 +154,7 @@ export default function CardDoProduto({ data }) {
 				}
 
 
-				<img src={(`http://localhost:3000/files/${banner}`)} alt='img' />
+				<img src={(`https://dayfood-back-end.onrender.com/files/${banner}`)} alt='img' />
 
 				<h3>{name}</h3>
 
