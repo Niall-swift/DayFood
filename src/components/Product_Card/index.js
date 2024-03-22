@@ -14,6 +14,13 @@ import Swal from 'sweetalert2'
 import formatCurrency from '../../utils/formatCurrency';
 
 import Ribbon from '../Ribbon';
+// urls gifs 
+/// https://i.pinimg.com/originals/8b/de/d5/8bded5b8020dc9cf56c949cc8d05c7a8.gif
+/// https://i.pinimg.com/originals/5f/93/49/5f934966a1d20bae1909c9ef2278bd4c.gif
+/// https://i.pinimg.com/originals/1c/a5/ba/1ca5ba6ee4774c4a595b2a859bc7c8e3.gif
+/// https://media.tenor.com/rI_0O_9AJ5sAAAAj/nyan-cat-poptart-cat.gif
+/// https://i.pinimg.com/originals/f2/8d/2b/f28d2b5382516ada1de40f80cdabd79d.gif
+/// https://media.tenor.com/BEBopBnhjVEAAAAj/peach-and-goma-peach-goma.gif
 ////////////////////////////////////
 import { Card } from '../List_Product/CardStyled'
 import UseAPIClient from '../../api/api';
@@ -27,21 +34,67 @@ export default function CardDoProduto({ data }) {
 	const { id, name, price, description, banner, order, active, category_id, Disponibilidade } = data;
 
 
-	console.log(banner)
+	/// deletando produto
+	async function handleDelete(id, name) {
+		const { value: accept } = await Swal.fire({
+			icon:'question',
+			focusConfirm: false,
+			title: `Você tem certeza que deseja deletar o produto (${name})`,
+			showDenyButton:true,
+			denyButtonText:`Não`,
+			confirmButtonText: `Sim`,
+			confirmButtonColor: 'var(--color-primary)',
+			background: 'var(--color-background)',
+			iconColor: '#7fcfff',
+			color: 'var(--color-text)',
+			backdrop: true,
+		});
+		if (accept) {
+			await api.delete('delete/product',{
+				params:{
+					product_id: id
+				}
+			})
+			Swal.fire({
+				icon: 'success',
+				title: `O produto ${name} foi Deletado cardápio`,
+				html: '😁',
+				position: 'center',
+				showConfirmButton: false,
+				timer: 3000,
+				background: `var(--color-background)`,
+				color: `var(--color-primary)`,
+			});
+			console.log(accept)
+		}else{
+			Swal.fire({
+				icon: 'success',
+				title: `O produto ${name} foi Salvor`,
+				html: '😁',
+				position: 'center',
+				showConfirmButton: false,
+				timer: 3000,
+				background: `var(--color-background)`,
+				color: `var(--color-primary)`,
+			});
+		}
 
-	const addItemInCart = (item) => {
+	}
+
+	// adicionando produto no carinho
+	const handleAddInCart = (item) => {
 		setCart([...cart, item])
 
-		const checkExistentIncart = cart.find((item)=> item.id === id);
+		const checkExistentIncart = cart.find((item) => item.id === id);
 
-		if(checkExistentIncart){
+		if (checkExistentIncart) {
 
-			const newCart = cart.map((item)=>{
-				if(item.id === id){
+			const newCart = cart.map((item) => {
+				if (item.id === id) {
 
 					const quantity = item.quantity + 1
-				
-					return {...item, quantity}
+
+					return { ...item, quantity }
 				}
 				return item
 			})
@@ -61,7 +114,7 @@ export default function CardDoProduto({ data }) {
 				timer: 2000,
 				timerProgressBar: true,
 				width: '100%',
-				background: `var(--color-secondary)`,
+				background: `var(--color-background)`,
 				color: `var(--color-primary)`,
 				didOpen: (toast) => {
 					toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -85,11 +138,12 @@ export default function CardDoProduto({ data }) {
 	}
 
 
-return (
-	<>
-	<Card>
-			{Disponibilidade === 'esgotado' ? <Ribbon /> : <></>}
-			{!user === false ?
+
+	return (
+		<>
+			<Card>
+				{Disponibilidade === 'esgotado' ? <Ribbon /> : <></>}
+				{!user === false ?
 					<button className='favorites'>
 						<Link to={`/addproducts/${id}`}><FiEdit color='#000' /></Link>
 					</button>
@@ -107,9 +161,10 @@ return (
 				<p>{ }</p>
 				<strong>R$ {formatCurrency(price, "BRL").replace(".", ",")}</strong>
 
+
 				{!user === false ?
 					<div>
-						<button type='button'> <MdDeleteForever /></button>
+						<button onClick={() => handleDelete(id,name)}> <MdDeleteForever /></button>
 						{Disponibilidade === 'esgotado' ? <button type='button'> <MdOutlineLayers /></button> : <button type='button'> < MdOutlineLayersClear /></button>}
 					</div>
 					:

@@ -52,16 +52,15 @@ export default function CreateNewCategory() {
 				})
 				Swal.fire({
 					icon: 'success',
-					title: `A categoria foi criadar com sucesso`,
+					title: `A categoria ${name} foi criadar com sucesso`,
 					html: '😁',
 					position: 'center',
 					showConfirmButton: false,
-					timer: 5000,
+					timer: 3000,
 					background: `var(--color-background)`,
 					color: `var(--color-primary)`,
 				})
 				setName('')
-				navigate('/Home')
 			} catch (Error) {
 				console.log(Error)
 				Swal.fire({

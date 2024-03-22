@@ -26,9 +26,9 @@ export default function CartItem({data}){
             className='cart-img'
             />
             <div className='cart-item-content'>
-                <h3 className='cart-item-titulo'>{name}</h3>
-                <h3 className='cart-item-titulo'>Quantidade:  {quantity}</h3>
-                <h3 className='cart-item-preco'>R${price}</h3>
+                <h3 className='cart-item-titulo'> {name}</h3>
+                <h3 className='cart-item-titulo'>Quantidade: {quantity}</h3>
+                <h3 className='cart-item-preco'>R$ {price.replace(".", ",")}</h3>
 
                 
                 <button

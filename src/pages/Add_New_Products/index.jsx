@@ -44,7 +44,7 @@ export default function Addprodutos() {
 			const data = new FormData();
 
 			data.append('name', name)
-			data.append('price', price)
+			data.append('price', price.replace(",", "."))
 			data.append('description', description)
 			data.append('file', image)
 			data.append('order', 1)

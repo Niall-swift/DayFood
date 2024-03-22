@@ -43,7 +43,7 @@ export default function Cart(){
                 </div>
 
 
-                <div className='cart-resume'>total: {formatCurrency(total, 'BRL')}
+                <div className='cart-resume'>total: {formatCurrency(total, 'BRL').replace(".", ",")}
                 <button 
                     type='button'
                     className='button-perdi-item'
