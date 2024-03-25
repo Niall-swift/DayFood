@@ -1,5 +1,5 @@
 //// icons
-import { MdFavoriteBorder, MdDeleteForever, MdOutlineLayersClear, MdOutlineLayers } from 'react-icons/md';
+import { MdFavoriteBorder, MdDeleteForever,MdOutlineVisibilityOff,MdOutlineVisibility } from 'react-icons/md';
 import { IoMdAddCircle, IoMdRemoveCircle, } from 'react-icons/io'
 import { IoBag } from 'react-icons/io5'
 import { FiEdit } from 'react-icons/fi';
@@ -22,6 +22,7 @@ import Ribbon from '../Ribbon';
 /// https://i.pinimg.com/originals/f2/8d/2b/f28d2b5382516ada1de40f80cdabd79d.gif
 /// https://media.tenor.com/BEBopBnhjVEAAAAj/peach-and-goma-peach-goma.gif
 ////////////////////////////////////
+
 import { Card } from '../List_Product/CardStyled'
 import UseAPIClient from '../../api/api';
 export default function CardDoProduto({ data }) {
@@ -31,17 +32,17 @@ export default function CardDoProduto({ data }) {
 	const { cart, setCart, user } = useContext(ContextGlobal)
 	const [quantity, setQuantity] = useState(1)
 
-	const { id, name, price, description, banner, order, active, category_id, Disponibilidade } = data;
+	const { id, name, price, description, banner, order, active, category_id} = data;
 
 
-	/// deletando produto
-	async function handleDelete(id, name) {
+/// deletando produto
+	async function handleDelete(id, name,) {
 		const { value: accept } = await Swal.fire({
-			icon:'question',
+			icon: 'question',
 			focusConfirm: false,
 			title: `Você tem certeza que deseja deletar o produto (${name})`,
-			showDenyButton:true,
-			denyButtonText:`Não`,
+			showDenyButton: true,
+			denyButtonText: `Não`,
 			confirmButtonText: `Sim`,
 			confirmButtonColor: 'var(--color-primary)',
 			background: 'var(--color-background)',
@@ -50,8 +51,8 @@ export default function CardDoProduto({ data }) {
 			backdrop: true,
 		});
 		if (accept) {
-			await api.delete('delete/product',{
-				params:{
+			await api.delete('delete/product', {
+				params: {
 					product_id: id
 				}
 			})
@@ -61,19 +62,19 @@ export default function CardDoProduto({ data }) {
 				html: '😁',
 				position: 'center',
 				showConfirmButton: false,
-				timer: 3000,
+				timer: 1500,
 				background: `var(--color-background)`,
 				color: `var(--color-primary)`,
 			});
 			console.log(accept)
-		}else{
+		} else {
 			Swal.fire({
 				icon: 'success',
 				title: `O produto ${name} foi Salvor`,
 				html: '😁',
 				position: 'center',
 				showConfirmButton: false,
-				timer: 3000,
+				timer: 1500,
 				background: `var(--color-background)`,
 				color: `var(--color-primary)`,
 			});
@@ -81,7 +82,64 @@ export default function CardDoProduto({ data }) {
 
 	}
 
-	// adicionando produto no carinho
+/// alterando a disponibilidade do produto
+	async function handleActive (e) {
+	if(e === 'true'){
+		const { value: accept } = await Swal.fire({
+			icon: 'question',
+			focusConfirm: false,
+			title: `Você deixará o produto (${name}) disponível para os seus clientes`,
+			showDenyButton: true,
+			denyButtonText: `Não`,
+			confirmButtonText: `Sim`,
+			confirmButtonColor: 'var(--color-primary)',
+			background: 'var(--color-background)',
+			iconColor: '#7fcfff',
+			color: 'var(--color-text)',
+			backdrop: true,
+		});
+		if(accept){
+			api.put('/active/product',{
+				product_id: id,
+				active: e
+			})
+			Swal.fire({
+				showConfirmButton: false,
+				timer: 1500,
+				icon: 'success',
+				background: 'var(--color-background)',
+			})
+		}
+	}else{
+		const { value: accept } = await Swal.fire({
+			icon: 'question',
+			focusConfirm: false,
+			title: `Essa opção deixará o produto (${name}) indisoinível para os clientes`,
+			showDenyButton: true,
+			denyButtonText: `Não`,
+			confirmButtonText: `Sim`,
+			confirmButtonColor: 'var(--color-primary)',
+			background: 'var(--color-background)',
+			iconColor: '#7fcfff',
+			color: 'var(--color-text)',
+			backdrop: true,
+		});
+		if(accept){
+			api.put('/active/product',{
+				product_id: id,
+				active: e
+			})
+			Swal.fire({
+				showConfirmButton: false,
+				timer: 1500,
+				icon: 'success',
+				background: 'var(--color-background)',
+			})
+		}
+	}
+}
+
+/// adicionando produto no carinho
 	const handleAddInCart = (item) => {
 		setCart([...cart, item])
 
@@ -141,7 +199,8 @@ export default function CardDoProduto({ data }) {
 	return (
 		<>
 			<Card>
-				{Disponibilidade === 'esgotado' ? <Ribbon /> : <></>}
+
+				{active === 'false' ? <Ribbon /> : <></>}
 				{!user === false ?
 					<button className='favorites'>
 						<Link to={`/addproducts/${id}`}><FiEdit color='#000' /></Link>
@@ -153,28 +212,25 @@ export default function CardDoProduto({ data }) {
 				}
 
 
-				<img src={(`https://dayfood-back-end.onrender.com/files/${banner}`)} alt='img' />
-
+				<img src={(`https://dayfood-back-end.onrender.com/files/${banner}`)} alt='img'/>
 				<h3>{name}</h3>
-
-				<p>{ }</p>
 				<strong>R$ {formatCurrency(price, "BRL").replace(".", ",")}</strong>
 
 
 				{!user === false ?
 					<div>
-						<button onClick={() => handleDelete(id,name)}> <MdDeleteForever /></button>
-						{Disponibilidade === 'esgotado' ? <button type='button'> <MdOutlineLayers /></button> : <button type='button'> < MdOutlineLayersClear /></button>}
+						<button onClick={() => handleDelete(id, name)}> <MdDeleteForever /></button>
+						{active === 'false' ? <button onClick={(e)=> handleActive('true')}><MdOutlineVisibilityOff/></button> : <button onClick={(e)=> handleActive('false')}><MdOutlineVisibility/></button>}
 					</div>
 					:
 					<div>
-						{Disponibilidade === 'esgotado' ? <b>Não temos isso agora</b> :
+						{active === 'false' ? <b>Não temos isso agora</b> :
 							<>
 								<span onClick={menos}><IoMdRemoveCircle /></span>
 								<span> {quantity < 10 ? `0${quantity}` : quantity}</span>
 								<span onClick={mais}><IoMdAddCircle /></span>
 
-								<button type='button' onClick={() => handleAddInCart({ quantity: quantity, name: name, banner: banner, price: price, id: id })}> <IoBag size={25} /> </button>
+								<button onClick={() => handleAddInCart({ quantity: quantity, name: name, banner: banner, price: price, id: id })}> <IoBag size={25} /> </button>
 							</>
 						}
 					</div>

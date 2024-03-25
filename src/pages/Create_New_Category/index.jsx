@@ -39,7 +39,7 @@ export default function CreateNewCategory() {
 		setIcon(e.target.value)
 	}
 
-	// cadastrando categoria
+	/// cadastrando categoria
 	async function RegisteCategory(e) {
 		e.preventDefault()
 
