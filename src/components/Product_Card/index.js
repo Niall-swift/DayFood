@@ -1,5 +1,5 @@
 //// icons
-import { MdFavoriteBorder, MdDeleteForever,MdOutlineVisibilityOff,MdOutlineVisibility } from 'react-icons/md';
+import { MdFavoriteBorder, MdDeleteForever, MdOutlineVisibilityOff, MdOutlineVisibility } from 'react-icons/md';
 import { IoMdAddCircle, IoMdRemoveCircle, } from 'react-icons/io'
 import { IoBag } from 'react-icons/io5'
 import { FiEdit } from 'react-icons/fi';
@@ -32,10 +32,10 @@ export default function CardDoProduto({ data }) {
 	const { cart, setCart, user } = useContext(ContextGlobal)
 	const [quantity, setQuantity] = useState(1)
 
-	const { id, name, price, description, banner, order, active, category_id} = data;
+	const { id, name, price, description, banner, order, active, category_id } = data;
 
 
-/// deletando produto
+	/// deletando produto
 	async function handleDelete(id, name,) {
 		const { value: accept } = await Swal.fire({
 			icon: 'question',
@@ -82,64 +82,64 @@ export default function CardDoProduto({ data }) {
 
 	}
 
-/// alterando a disponibilidade do produto
-	async function handleActive (e) {
-	if(e === 'true'){
-		const { value: accept } = await Swal.fire({
-			icon: 'question',
-			focusConfirm: false,
-			title: `Você deixará o produto (${name}) disponível para os seus clientes`,
-			showDenyButton: true,
-			denyButtonText: `Não`,
-			confirmButtonText: `Sim`,
-			confirmButtonColor: 'var(--color-primary)',
-			background: 'var(--color-background)',
-			iconColor: '#7fcfff',
-			color: 'var(--color-text)',
-			backdrop: true,
-		});
-		if(accept){
-			api.put('/active/product',{
-				product_id: id,
-				active: e
-			})
-			Swal.fire({
-				showConfirmButton: false,
-				timer: 1500,
-				icon: 'success',
+	/// alterando a disponibilidade do produto
+	async function handleActive(e) {
+		if (e === 'true') {
+			const { value: accept } = await Swal.fire({
+				icon: 'question',
+				focusConfirm: false,
+				title: `Você deixará o produto (${name}) disponível para os seus clientes`,
+				showDenyButton: true,
+				denyButtonText: `Não`,
+				confirmButtonText: `Sim`,
+				confirmButtonColor: 'var(--color-primary)',
 				background: 'var(--color-background)',
-			})
-		}
-	}else{
-		const { value: accept } = await Swal.fire({
-			icon: 'question',
-			focusConfirm: false,
-			title: `Essa opção deixará o produto (${name}) indisoinível para os clientes`,
-			showDenyButton: true,
-			denyButtonText: `Não`,
-			confirmButtonText: `Sim`,
-			confirmButtonColor: 'var(--color-primary)',
-			background: 'var(--color-background)',
-			iconColor: '#7fcfff',
-			color: 'var(--color-text)',
-			backdrop: true,
-		});
-		if(accept){
-			api.put('/active/product',{
-				product_id: id,
-				active: e
-			})
-			Swal.fire({
-				showConfirmButton: false,
-				timer: 1500,
-				icon: 'success',
+				iconColor: 'var(--color-primary)',
+				color: 'var(--color-text)',
+				backdrop: true,
+			});
+			if (accept) {
+				api.put('/active/product', {
+					product_id: id,
+					active: e
+				})
+				Swal.fire({
+					showConfirmButton: false,
+					timer: 1500,
+					icon: 'success',
+					background: 'var(--color-background)',
+				})
+			}
+		} else {
+			const { value: accept } = await Swal.fire({
+				icon: 'warning',
+				focusConfirm: false,
+				title: `Essa opção deixará o produto (${name}) indisoinível para os clientes`,
+				showDenyButton: true,
+				denyButtonText: `Não`,
+				confirmButtonText: `Sim`,
+				confirmButtonColor: 'var(--color-primary)',
 				background: 'var(--color-background)',
-			})
+				iconColor: 'var(--color-primary)',
+				color: 'var(--color-text)',
+				backdrop: true,
+			});
+			if (accept) {
+				api.put('/active/product', {
+					product_id: id,
+					active: e
+				})
+				Swal.fire({
+					showConfirmButton: false,
+					timer: 1500,
+					icon: 'success',
+					background: 'var(--color-background)',
+				})
+			}
 		}
 	}
-}
 
-/// adicionando produto no carinho
+	/// adicionando produto no carinho
 	const handleAddInCart = (item) => {
 		setCart([...cart, item])
 
@@ -159,6 +159,7 @@ export default function CardDoProduto({ data }) {
 			setCart(newCart)
 		}
 	};
+
 
 	function mais() {
 		const limitDeItem = quantity >= 15
@@ -212,7 +213,7 @@ export default function CardDoProduto({ data }) {
 				}
 
 
-				<img src={(`https://dayfood-back-end.onrender.com/files/${banner}`)} alt='img'/>
+				<img src={(`https://dayfood-back-end.onrender.com/files/${banner}`)} alt='img' />
 				<h3>{name}</h3>
 				<strong>R$ {formatCurrency(price, "BRL").replace(".", ",")}</strong>
 
@@ -220,7 +221,7 @@ export default function CardDoProduto({ data }) {
 				{!user === false ?
 					<div>
 						<button onClick={() => handleDelete(id, name)}> <MdDeleteForever /></button>
-						{active === 'false' ? <button onClick={(e)=> handleActive('true')}><MdOutlineVisibilityOff/></button> : <button onClick={(e)=> handleActive('false')}><MdOutlineVisibility/></button>}
+						{active === 'false' ? <button onClick={(e) => handleActive('true')}><MdOutlineVisibilityOff /></button> : <button onClick={(e) => handleActive('false')}><MdOutlineVisibility /></button>}
 					</div>
 					:
 					<div>

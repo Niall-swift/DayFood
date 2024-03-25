@@ -11,15 +11,12 @@ import { Content, Conteiner, Text, Form, SelecIcon, Button } from './newcategory
 import UseAPIClient from '../../api/api'
 // icons svg
 import bacon from '../../utils/icons/bacon-solid.svg'; import bowl from '../../utils/icons/bowl-food-solid.svg'; import burger from '../../utils/icons/burger-solid.svg'; import pizza from '../../utils/icons/pizza-slice-solid.svg'
-import utensils from '../../utils/icons/utensils-solid.svg'; import hotdog from '../../utils/icons/hotdog-solid.svg'; import martini from '../../utils/icons/martini-glass-citrus-solid.svg';
-import ice from '../../utils/icons/ice-cream-solid.svg'; import drumstick from '../../utils/icons/drumstick-bite-solid.svg';
+import utensils from '../../utils/icons/utensils-solid.svg'; import hotdog from '../../utils/icons/hotdog-solid.svg'; import martini from '../../utils/icons/martini-glass-citrus-solid.svg';import ice from '../../utils/icons/ice-cream-solid.svg'; import drumstick from '../../utils/icons/drumstick-bite-solid.svg';
 import cookie from '../../utils/icons/cookie-solid.svg'; import candy from '../../utils/icons/candy-cane-solid.svg';
-import water from '../../utils/icons/bottle-water-solid.svg'; import pizzarepo from '../../utils/icons/pizza-svgrepo-com.svg';
-import pinacola from '../../utils/icons/pina-colada-svgrepo-com.svg'; import breakfast from '../../utils/icons/breakfast-svgrepo-com.svg'; import muffin from '../../utils/icons/muffin-svgrepo-com.svg'; import beer from '../../utils/icons/beer-mug-svgrepo-com.svg';
+import water from '../../utils/icons/bottle-water-solid.svg'; import pizzarepo from '../../utils/icons/pizza-svgrepo-com.svg';import pinacola from '../../utils/icons/pina-colada-svgrepo-com.svg'; import breakfast from '../../utils/icons/breakfast-svgrepo-com.svg'; import muffin from '../../utils/icons/muffin-svgrepo-com.svg'; import beer from '../../utils/icons/beer-mug-svgrepo-com.svg';
 import served from '../../utils/icons/served-plate-svgrepo-com.svg'; import beer4 from '../../utils/icons/canned-beer-4-svgrepo-com.svg';
-import beer2 from '../../utils/icons/canned-beer-2-svgrepo-com.svg'; import vegetables from '../../utils/icons/vegetables-svgrepo-com.svg';
-import soup from '../../utils/icons/soup-in-bowl-bowl-soup-hot-food-svgrepo-com.svg'; import can from '../../utils/icons/can-juice-2-svgrepo-com.svg'; import coffee from '../../utils/icons/coffee-love-svgrepo-com.svg';
-
+import beer2 from '../../utils/icons/canned-beer-2-svgrepo-com.svg'; import vegetables from '../../utils/icons/vegetables-svgrepo-com.svg';import soup from '../../utils/icons/soup-in-bowl-bowl-soup-hot-food-svgrepo-com.svg'; import can from '../../utils/icons/can-juice-2-svgrepo-com.svg'; import coffee from '../../utils/icons/coffee-love-svgrepo-com.svg';
+import coca from '../../utils/icons/coca-cola-4-logo-svgrepo-com.svg';import coca1 from '../../utils/icons/coca-cola-logo-svgrepo-com.svg';import energy from '../../utils/icons/energy-can-svgrepo-com.svg';import milk from '../../utils/icons/milk-svgrepo-com.svg';import smoothie from '../../utils/icons/smoothie-organic-svgrepo-com.svg';
 
 
 export default function CreateNewCategory() {
@@ -31,7 +28,8 @@ export default function CreateNewCategory() {
 
 	const icons = [bacon, bowl, burger, pizza, utensils, hotdog, martini,
 		ice, drumstick, cookie, candy, water, pizzarepo, pinacola, breakfast,
-		muffin, beer, served, beer2, beer4, vegetables, soup, can, coffee
+		muffin, beer, served, beer2, beer4, vegetables, soup, can, coffee,
+		coca,coca1,energy,milk,smoothie
 	]
 
 	// quando um icon e selecionado 

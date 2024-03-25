@@ -16,11 +16,6 @@ import img from '../../assets/undraw_images_re_0kll.svg'
 import Swal from 'sweetalert2'
 
 
-
-
-
-
-
 export default function Addprodutos() {
 
 	const api = UseAPIClient();
@@ -75,7 +70,27 @@ export default function Addprodutos() {
 			console.log(err)
 		}
 	}
+/// atualizando produto
+	async function UpdateProduct(e){
+		e.preventDefault()
 
+		try{
+		const data = new FormData();
+
+		data.append('product_id', id)
+		data.append('file', image)
+		data.append('name', name)
+		data.append('price', price)
+		data.append('category_id', category[categorySelected].id)
+		data.append('description', description)
+
+		await api.put('/update/product', data)
+		
+		}catch(Error){
+			console.log(Error)
+		}
+	}
+	
 /// busnaco dados do produto
 	useEffect(() => {
 		const fetchProductData = async () => {
@@ -130,7 +145,7 @@ export default function Addprodutos() {
 	function pegar_img(e) {
 		if (e.target.files[0]) {
 			const image = e.target.files[0];
-			if (image.type === 'image/jpeg' || image.type === 'image/png') {
+			if (image.type === 'image/jpeg' || image.type === 'image/png' || image.type === 'image/webp') {
 				setImage(image)
 				setImagem(URL.createObjectURL(image))
 			} else {
@@ -213,7 +228,7 @@ export default function Addprodutos() {
 								placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
 								value={description}
 							/>
-							{id ? <button className='btn' onClick={categoria_select}>Salvar alterações</button> : <button className='btn' onClick={RegisterProduct}>Cardastra prato</button>}
+							{id ? <button className='btn' onClick={UpdateProduct}>Salvar alterações</button> : <button className='btn' onClick={RegisterProduct}>Cardastra prato</button>}
 						</form>
 					</GroupInput>
 

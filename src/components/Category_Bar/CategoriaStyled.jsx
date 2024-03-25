@@ -14,10 +14,12 @@ export const Content = styled.section`
     justify-content: flex-start;
     overflow: hidden;
     overflow-x: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 `
 export const Button = styled.button`
     background: ${props => (props.selicd ? 'var(--color-primary)' :'var(--color-white)')};
-    width: auto;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
