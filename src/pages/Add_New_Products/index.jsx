@@ -30,6 +30,9 @@ export default function Addprodutos() {
 	const [productData, setProductData] = useState([]);
 	const { id } = useParams()
 
+	console.log(imagem)
+	
+
 
 
 /// cadastrando um produto
@@ -81,11 +84,17 @@ export default function Addprodutos() {
 		data.append('file', image)
 		data.append('name', name)
 		data.append('price', price)
-		data.append('category_id', category[categorySelected].id)
 		data.append('description', description)
 
 		await api.put('/update/product', data)
-		
+
+		Swal.fire({
+			icon: 'success',
+			title: 'Produto Atualizador',
+			showConfirmButton: false,
+			timer: 1300,
+		})
+
 		}catch(Error){
 			console.log(Error)
 		}
