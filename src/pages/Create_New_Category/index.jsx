@@ -17,6 +17,10 @@ import water from '../../utils/icons/bottle-water-solid.svg'; import pizzarepo f
 import served from '../../utils/icons/served-plate-svgrepo-com.svg'; import beer4 from '../../utils/icons/canned-beer-4-svgrepo-com.svg';
 import beer2 from '../../utils/icons/canned-beer-2-svgrepo-com.svg'; import vegetables from '../../utils/icons/vegetables-svgrepo-com.svg';import soup from '../../utils/icons/soup-in-bowl-bowl-soup-hot-food-svgrepo-com.svg'; import can from '../../utils/icons/can-juice-2-svgrepo-com.svg'; import coffee from '../../utils/icons/coffee-love-svgrepo-com.svg';
 import coca from '../../utils/icons/coca-cola-4-logo-svgrepo-com.svg';import coca1 from '../../utils/icons/coca-cola-logo-svgrepo-com.svg';import energy from '../../utils/icons/energy-can-svgrepo-com.svg';import milk from '../../utils/icons/milk-svgrepo-com.svg';import smoothie from '../../utils/icons/smoothie-organic-svgrepo-com.svg';
+import monster from '../../utils/icons/monster-energy-drink-seeklogo.svg';import brahma from '../../utils/icons/brahma-seeklogo.svg';
+import redbull from '../../utils/icons/redbull-logo-svgrepo-com.svg';import amstel from '../../utils/icons/amstel-2.svg';
+import antartica from '../../utils/icons/antartica-choop.svg';import haineken3 from '../../utils/icons/heineken-3.svg';import jack from '../../utils/icons/jack-daniels-logo-1.svg';
+
 
 
 export default function CreateNewCategory() {
@@ -29,7 +33,8 @@ export default function CreateNewCategory() {
 	const icons = [bacon, bowl, burger, pizza, utensils, hotdog, martini,
 		ice, drumstick, cookie, candy, water, pizzarepo, pinacola, breakfast,
 		muffin, beer, served, beer2, beer4, vegetables, soup, can, coffee,
-		coca,coca1,energy,milk,smoothie
+		coca,coca1,energy,milk,smoothie,monster,brahma,redbull,amstel,antartica,
+		haineken3,jack
 	]
 
 	// quando um icon e selecionado 
@@ -97,7 +102,7 @@ export default function CreateNewCategory() {
 
 				<Form>
 					<form>
-
+						<h5>{icons.length} Icons Exclusivo</h5>
 						<SelecIcon>
 							{icons.map((item, index) => {
 								return (

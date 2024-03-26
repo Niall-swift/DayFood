@@ -132,7 +132,7 @@ export const SelecIcon = styled.div`
             justify-content: center;
             align-items: center;
             margin: 0;
-            width: 35px;
+            width: 30px;
             cursor: pointer;
         }
 

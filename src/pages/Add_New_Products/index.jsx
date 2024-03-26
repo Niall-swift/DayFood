@@ -1,7 +1,7 @@
-import {useEffect,useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 /// import componetes
-import {BackButton} from '../../components/Back_Button'
+import { BackButton } from '../../components/Back_Button'
 /// css styles
 import { Container, GroupInput, FileUpload } from './Styled_Add_New_Product'
 import { PageTransition } from '../../components/PageAnimation'
@@ -30,12 +30,8 @@ export default function Addprodutos() {
 	const [productData, setProductData] = useState([]);
 	const { id } = useParams()
 
-	console.log(imagem)
-	
 
-
-
-/// cadastrando um produto
+	/// cadastrando um produto
 	async function RegisterProduct(e) {
 		e.preventDefault()
 		try {
@@ -73,34 +69,34 @@ export default function Addprodutos() {
 			console.log(err)
 		}
 	}
-/// atualizando produto
-	async function UpdateProduct(e){
+	/// atualizando produto
+	async function UpdateProduct(e) {
 		e.preventDefault()
 
-		try{
-		const data = new FormData();
+		try {
+			const data = new FormData();
 
-		data.append('product_id', id)
-		data.append('file', image)
-		data.append('name', name)
-		data.append('price', price)
-		data.append('description', description)
+			data.append('product_id', id)
+			data.append('file', image)
+			data.append('name', name)
+			data.append('price', price)
+			data.append('description', description)
 
-		await api.put('/update/product', data)
+			await api.put('/update/product', data)
 
-		Swal.fire({
-			icon: 'success',
-			title: 'Produto Atualizador',
-			showConfirmButton: false,
-			timer: 1300,
-		})
+			Swal.fire({
+				icon: 'success',
+				title: 'Produto Atualizador',
+				showConfirmButton: false,
+				timer: 1300,
+			})
 
-		}catch(Error){
+		} catch (Error) {
 			console.log(Error)
 		}
 	}
-	
-/// busnaco dados do produto
+
+	/// busnaco dados do produto
 	useEffect(() => {
 		const fetchProductData = async () => {
 			try {
@@ -128,7 +124,7 @@ export default function Addprodutos() {
 	}, [category, id]);
 
 
-/// buscanto lista de cadegory
+	/// buscanto lista de cadegory
 	useEffect((id, name) => {
 
 		async function listCategory() {
@@ -145,7 +141,7 @@ export default function Addprodutos() {
 		listCategory()
 	}, [])
 
-/// quando você seleciona uma nova categoaria na lista 
+	/// quando você seleciona uma nova categoaria na lista 
 	function categoria_select(e) {
 		setCategorySelected([e.target.value])
 	}
@@ -175,9 +171,9 @@ export default function Addprodutos() {
 	return (
 		<>
 			<PageTransition />
-		<BackButton/>
+			<BackButton />
 			<Container>
-				
+
 				<main className='meio'>
 
 					<h2 className='Tituo-page'>{id ? `Edita produto -> ${name}` : 'Adicionar  prato'}</h2>
@@ -194,10 +190,10 @@ export default function Addprodutos() {
 									placeholder='Selecione uma imagem'
 								/>
 
-								{id ? 
-								<img src={imagem !== image ? `http://localhost:3000/files/${imagem}` : img} alt='Selecione uma imagem'/>
-								:
-								<img src={imagem !== image ? imagem : img} alt='Selecione uma imagem'/>
+								{id ?
+									<img src={imagem !== image ? `http://localhost:3000/files/${imagem}` : img} alt='Selecione uma imagem' />
+									:
+									<img src={imagem !== image ? imagem : img} alt='Selecione uma imagem' />
 								}
 
 							</FileUpload>
