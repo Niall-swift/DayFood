@@ -24,12 +24,11 @@ export const Button = styled.button`
     justify-content: center;
     align-items: center;
     margin-left: 1rem;
-    margin-bottom: 0.5rem;
     border-radius: 11px;
     border: none;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    padding: 5px 15px;
-    color: var(--color-black)!important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 0.2em 1em;
+    color: var(--color-svg)!important;
     font-size: clamp(0.2rem, 1.5rem, 1.625rem);
 
     :hover{
@@ -38,7 +37,7 @@ export const Button = styled.button`
         color: var(--color-white)!important;
     }
     img{
-        width: 1.2em;
-        margin-right: 0.4em;
+        max-width: 1em;
+        margin-right: 0.5em;
     }
 `
