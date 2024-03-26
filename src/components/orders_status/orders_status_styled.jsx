@@ -37,6 +37,8 @@ export const Button = styled.button`
         font-family: 'PoppinsRegular', 'Rubik', sans-serif;
         color: var(--color-black)!important;
         font-size: 20px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 
         >svg{
             margin-right: 0.5rem;
