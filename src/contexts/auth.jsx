@@ -22,6 +22,7 @@ function AutorizarClientes({ children }) {
 	const [idcategory, setIdcategory] = useState('')
 	const [modal, setModal] = useState(false)
 	const [busNome, setBusNome] = useState('')
+	const [product, setProduct] = useState([])
 
 
 
@@ -135,7 +136,9 @@ function AutorizarClientes({ children }) {
 			setModal,
 			busNome,
 			setBusNome,
-			logOut
+			logOut,
+			product,
+			setProduct
 
 		}}>
 			{children}

@@ -8,14 +8,15 @@ import CardDoProduto from '../Product_Card';
 import UseAPIClient from '../../api/api';
 
 import Load from '../load';
+import NoResults from '../No_Results';
 
 export default function Refeicoes() {
 
 	const api = UseAPIClient()
 
-	const { idcategory, setIdcategory } = useContext(ContextGlobal)
+	const { idcategory, setIdcategory, product, setProduct} = useContext(ContextGlobal)
+	
 
-	const [product, setProduct] = useState([])
 	const [idproduct, setIdproduct] = useState('')
 	const [load, setLoad] = useState(true)
 
@@ -70,12 +71,20 @@ export default function Refeicoes() {
 	// }
 
 	return (
-			<motion.div {...fadeInUp}>
-				<Content>
-					{
-						product.map((item, index) => <CardDoProduto key={index} data={item} />)
-					}
-				</Content>
-			</motion.div>
+		<>
+			{load ? <Load titulo='Buascando Items'/> :
+				<>
+				{product.length === 0 ? <NoResults/> : 
+				<motion.div {...fadeInUp}>
+					<Content>
+						{
+							product.map((item, index) => <CardDoProduto key={index} data={item} />)
+						}
+					</Content>
+				</motion.div>
+			}
+				</>
+			}
+		</>
 	)
 }

@@ -7,29 +7,21 @@ import { FiEdit } from 'react-icons/fi';
 /// import reacts
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom'
-
 import { ContextGlobal } from '../../contexts/auth'
-
 import Swal from 'sweetalert2'
 import formatCurrency from '../../utils/formatCurrency';
-
 import Ribbon from '../Ribbon';
-// urls gifs 
-/// https://i.pinimg.com/originals/8b/de/d5/8bded5b8020dc9cf56c949cc8d05c7a8.gif
-/// https://i.pinimg.com/originals/5f/93/49/5f934966a1d20bae1909c9ef2278bd4c.gif
-/// https://i.pinimg.com/originals/1c/a5/ba/1ca5ba6ee4774c4a595b2a859bc7c8e3.gif
-/// https://media.tenor.com/rI_0O_9AJ5sAAAAj/nyan-cat-poptart-cat.gif
-/// https://i.pinimg.com/originals/f2/8d/2b/f28d2b5382516ada1de40f80cdabd79d.gif
-/// https://media.tenor.com/BEBopBnhjVEAAAAj/peach-and-goma-peach-goma.gif
-////////////////////////////////////
+
 
 import { Card } from '../List_Product/CardStyled'
 import UseAPIClient from '../../api/api';
+
+
 export default function CardDoProduto({ data }) {
 
 	const api = UseAPIClient();
 
-	const { cart, setCart, user } = useContext(ContextGlobal)
+	const { cart, setCart, user,setProduct } = useContext(ContextGlobal)
 	const [quantity, setQuantity] = useState(1)
 
 	const { id, name, price, description, banner, order, active, category_id } = data;
@@ -66,7 +58,8 @@ export default function CardDoProduto({ data }) {
 				background: `var(--color-background)`,
 				color: `var(--color-primary)`,
 			});
-			console.log(accept)
+			const response = await api.get('/product')
+			setProduct(response.data)
 		} else {
 			Swal.fire({
 				icon: 'success',
