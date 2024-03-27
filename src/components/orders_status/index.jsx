@@ -1,5 +1,6 @@
 ////// styleds /////////////
 import { Content, StatusNumber, Button } from './orders_status_styled'
+import {BackButton} from '../Back_Button'
 ///// icons ///////////
 import { MdAccessTime } from "react-icons/md";
 import { CiCircleRemove } from "react-icons/ci";
@@ -25,10 +26,7 @@ export default function OrdersStatus() {
     return (
         <Content>
 
-            <Button onClick={Lest}>
-                <MdAccessTime/>
-                Volta ao Incior
-            </Button>
+            <BackButton/>
 
             <div>
                 <Button>

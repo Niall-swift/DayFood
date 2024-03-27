@@ -1,6 +1,6 @@
 .ribbon {
         position: absolute;
-        left: -1px; top: -1px;
+        left: 0; top: 0;
         z-index: 99px;
         overflow: hidden;
         width: 85px; height: 85px;
@@ -42,3 +42,8 @@
         border-top: 3px solid #8F0808;
     }
     
+    @media screen and (max-width: 512px){
+        .ribbon{
+        opacity: 0;
+        }
+    }

@@ -65,18 +65,18 @@ export const Button = styled.button`
 `
 
 export const Menu = styled.div`
-    overflow-x: hidden;
+    overflow: hidden;
     overflow-y: auto;
     position: absolute;
-    top: 64px;
-    right: 20px;
+    top: 70px;
+    right: 0;
     display: grid;
-    gap: 1em;
+    gap: 14px;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: max-content;
     translate: 0 16px;
-    width: 240px;
-    max-height: 286px;
+    max-width: 260px;
+    max-height: 400px;
     padding: 10px;
     background: var(--color-background);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
@@ -85,10 +85,6 @@ export const Menu = styled.div`
     visibility: hidden;
     transition: 0.3s;
     appearance: none;
-
-    ::-webkit-scrollbar-thumb{
-        width: 15px;
-    }
 `
 
 export const Buttons = styled.button`
@@ -100,10 +96,11 @@ export const Buttons = styled.button`
     padding: 0.5em;
     background-color: var(--color-secondary);
     border: none;
-    max-width: 55px;
+    width: 55px;
     max-height: 55px;
     border-radius: 10px;
     font-size: 0.75rem;
+    overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 
     :hover{

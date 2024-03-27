@@ -201,7 +201,8 @@ export default function CardDoProduto({ data }) {
 		<>
 			<Card>
 
-				{active === 'false' ? <Ribbon /> : <></>}
+			{active === 'false' ? <Ribbon /> : <></>}
+
 				{!user === false ?
 					<button className='favorites'>
 						<Link to={`/addproducts/${id}`}><FiEdit color='#000' /></Link>
@@ -225,7 +226,7 @@ export default function CardDoProduto({ data }) {
 					</div>
 					:
 					<div>
-						{active === 'false' ? <b>Não temos isso agora</b> :
+						{active === 'false' ? <b>Produto indisponível</b> :
 							<>
 								<span onClick={menos}><IoMdRemoveCircle /></span>
 								<span> {quantity < 10 ? `0${quantity}` : quantity}</span>

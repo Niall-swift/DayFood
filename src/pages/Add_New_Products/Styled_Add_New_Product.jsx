@@ -55,6 +55,7 @@ export const GroupInput = styled.div`
 
         input,
         select,
+        option,
         textarea{
             background: var(--color-secondary);
             color: var(--color-black)!important;
@@ -91,7 +92,6 @@ export const GroupInput = styled.div`
             grid-column: 1/3;
             grid-row: 3/3;
         }
-
         button{
             grid-column:1/3;
             grid-row:4/4;

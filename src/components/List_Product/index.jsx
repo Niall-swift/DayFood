@@ -21,6 +21,7 @@ export default function Refeicoes() {
 
 	// -- listando produtos 
 	useEffect(() => {
+		setLoad(true)
 		async function ListProduct(id, name, price, description, banner, order, active, category_id) {
 			try {
 				const response = await api.get('/product', {
@@ -69,7 +70,6 @@ export default function Refeicoes() {
 	// }
 
 	return (
-		(load || product === '' ? <Load titulo={'Buscando por Items'} /> :
 			<motion.div {...fadeInUp}>
 				<Content>
 					{
@@ -77,6 +77,5 @@ export default function Refeicoes() {
 					}
 				</Content>
 			</motion.div>
-		)
 	)
 }

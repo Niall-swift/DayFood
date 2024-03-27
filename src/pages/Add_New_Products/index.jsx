@@ -215,7 +215,7 @@ export default function Addprodutos() {
 								value={price}
 							/>
 
-							<label> * Categoria</label>
+							<label> * Categoria </label>
 							<select value={categorySelected} onChange={categoria_select}>
 								{category.map((item, index) => {
 									return (
