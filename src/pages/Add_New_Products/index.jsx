@@ -191,7 +191,7 @@ export default function Addprodutos() {
 								/>
 
 								{id ?
-									<img src={imagem !== image ? `http://localhost:3000/files/${imagem}` : img} alt='Selecione uma imagem' />
+									<img src={image === null ? `http://localhost:3000/files/${imagem}` : imagem} alt='' />
 									:
 									<img src={imagem !== image ? imagem : img} alt='Selecione uma imagem' />
 								}

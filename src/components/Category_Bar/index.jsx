@@ -12,6 +12,7 @@ export default function Categoria() {
 
 	const [name, setName] = useState([])
 
+/// listando lista de categoria
 	useEffect(() => {
 		async function listCategory() {
 			try {
@@ -25,6 +26,9 @@ export default function Categoria() {
 		}
 		listCategory()
 	}, [])
+
+
+
 
 	return (
 		<Content>
