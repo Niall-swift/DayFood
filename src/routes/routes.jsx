@@ -19,7 +19,7 @@ function RoutersApp() {
 	return (
 		<Routes>
 			<Route path='login' element={<Login/>} />
-			<Route path='/register/:id' element={<Register/>} />
+			<Route path='/register' element={<Register/>} />
 
 			<Route path='/home' element={<Home/>} />
 			<Route path='/orders' element={<Pedidos/>}/>

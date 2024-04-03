@@ -56,7 +56,10 @@ export default function Register() {
 			email,
 			phone
 		}
-		await signUp(data)
+
+		if(ValidaEmail && ValidaTelefone && ValidaSenha){
+			await signUp(data)
+		}
 	}
 
 

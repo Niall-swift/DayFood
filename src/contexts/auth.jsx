@@ -43,7 +43,7 @@ function AutorizarClientes({ children }) {
 	async function signUp({ name, email, password, phone }) {
 
 		try {
-			const response = await api.post('/register', {
+			const response = await api.post('/register/business', {
 				name,
 				email,
 				password,

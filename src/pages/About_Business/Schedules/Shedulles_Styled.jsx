@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 export const Content = styled.section`
   height: 100vh;
-  max-width: 1280px;
+  max-width: 1380px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 1em;
   margin: 0 auto;
 
   form{
@@ -18,7 +18,7 @@ export const Content = styled.section`
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: auto;
 
     @media screen and (max-width: 512px){
       display: block;
@@ -35,7 +35,8 @@ export const Content = styled.section`
 
   }
 
-  input{
+  input,
+  select{
     outline: none;
     width: 100%;
     background-color: var(--color-secondary);
@@ -65,56 +66,56 @@ export const Content = styled.section`
   border-radius: 20px;
   border: none;
   margin: 0;
-  padding: 15px 10px;
+  padding: 15px 25px;
   font-size: 20px;
-  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.38)!important;
   }
 `
 
-export const DataDe = styled.div`
+export const Startday = styled.div`
 `
 
 
-export const DataAte = styled.div`
+export const Endday = styled.div`
 `
 
 
-export const TimeDas = styled.div`
+export const StartTime1 = styled.div`
   svg{
       position: absolute;
       font-size: 20px;
       right: 15px;
-      bottom: 35%;
+      bottom: 36%;
     }
 `
 
 
-export const TimeAte = styled.div`
+export const EndTime1 = styled.div`
   svg{
       position: absolute;
       font-size: 20px;
       right: 15px;
-      bottom: 35%;
+      bottom: 36%;
     }
 `
 
 
-export const TimeEdas = styled.div`
+export const StartTime2 = styled.div`
   svg{
       position: absolute;
       font-size: 20px;
       right: 15px;
-      bottom: 35%;
+      bottom: 36%;
     }
 `
 
 
-export const TimeAteas = styled.div`
+export const EndTime2 = styled.div`
   svg{
       position: absolute;
       font-size: 20px;
       right: 15px;
-      bottom: 35%;
+      bottom: 36%;
     }
 `
 
@@ -127,7 +128,9 @@ export const ButtonDelete = styled.div`
   button{
     background: var(--color-red);
     color: var(--color-white);
-    font-size: 25px;
+    svg{
+      font-size: 25px;
+    }
   }
 `
 export const ButtonAddnewTime = styled.div`

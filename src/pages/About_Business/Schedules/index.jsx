@@ -1,51 +1,87 @@
-import { Content,DataDe,DataAte,TimeDas,TimeAte,TimeEdas,TimeAteas,ButtonDelete,ButtonAddnewTime,ButtonSalvar } from "./Shedulles_Styled"
+import { Content,Startday,Endday,StartTime1,EndTime1,StartTime2,EndTime2,ButtonDelete,ButtonAddnewTime,ButtonSalvar } from "./Shedulles_Styled"
 import { IoMdTime,IoMdTrash,IoMdAddCircle,IoMdCheckmark } from "react-icons/io";
+import $ from 'jquery';
+import { useState } from "react";
+
 
 
 
 export default function Schedules () {
+  const [inicioTime, setInicioTime] = useState('')
+
+  ///--- REGEX ---///
+  const regexTime = ("([01]\\d|2[0-3])(:):?([0-5]\\d")
+  ///--- mask ---///
+  $('#time').mask('00:00');
+
   return(
     <Content>
       <form>
         <h2>Configure o horário em que sua loja estará recebendo pedidos para delivery ou retirada.</h2>
 
-        <DataDe>
+        <Startday>
           <label>De:</label>
-          <input type="text"/>
-        </DataDe>
+          <select>
+          <option>Seg</option>
+            <option>Terç</option>
+            <option>Qua</option>
+            <option>Qui</option>
+            <option>Sex</option>
+            <option>Sáb</option>
+            <option>Dom</option>
+          </select>
+        </Startday>
 
-        <DataAte>
+        <Endday>
           <label>até:</label>
-          <input type="text"/>
-        </DataAte>
+          <select>
+            <option>Seg</option>
+            <option>Terç</option>
+            <option>Qua</option>
+            <option>Qui</option>
+            <option>Sex</option>
+            <option>Sáb</option>
+            <option>Dom</option>
+          </select>
+        </Endday>
 
 
-        <TimeDas>
+        <StartTime1>
           <label>das:</label>
-          <input type="number"/>
+          <input
+          type="number"
+          required
+          placeholder="00:00"
+          id="time"
+          value={inicioTime}
+          />
           <IoMdTime />
-        </TimeDas>
+        </StartTime1>
 
-        <TimeAte>
+        <EndTime1>
           <label>até as:</label>
-          <input type="number"></input>
+          <input
+          required
+          type="number"
+          placeholder="00:00"
+          id="time"/>
           <IoMdTime />
-        </TimeAte>
+        </EndTime1>
 
-        <TimeEdas>
+        <StartTime2>
           <label>e das:</label>
-          <input type="number"/>
+          <input type="number" placeholder="00:00" id="time"/>
           <IoMdTime />
-        </TimeEdas>
+        </StartTime2>
 
-        <TimeAteas>
+        <EndTime2>
           <label>até as:</label>
-          <input type="number"/>
+          <input type="number" placeholder="00:00" id="time"/>
           <IoMdTime />
-        </TimeAteas>
+        </EndTime2>
 
         <ButtonDelete>
-          <button><IoMdTrash/></button>
+          <button><IoMdTrash/>Delete</button>
         </ButtonDelete>
 
         <ButtonAddnewTime>
