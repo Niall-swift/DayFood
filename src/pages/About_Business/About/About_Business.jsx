@@ -13,12 +13,12 @@ export const Content = styled.section`
 
 
   form{
-    width: 90%;
-    height: 90%;
-    justify-items: center;
-    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-items: stretch;
+    align-items: stretch;
     display: grid;
-    grid-template-columns: repeat(3, 3fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 1fr);
     grid-gap: 2rem;
     padding:2rem;
@@ -42,9 +42,48 @@ export const InputImagem = styled.div`
   grid-row: 1/1;
   box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
 
+  label{
+    width: 200px;
+    height: 200px;
+    height: auto;
+    display: flex;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+
+  input{
+      display: none;
+  }
+
+  img{
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      border: none;
+      object-fit: cover;
+    }
+  }
+
+  div{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    font-size: 12px;
+    backdrop-filter: blur(12px);
+}
+  svg{
+    font-size: 30px;
+    filter: drop-shadow(0px 0px 2px #ffffff);
+  }
+
   span{
-    width: 25%;
-    height: 25%;
+    width: 20%;
+    height: 20%;
+    padding: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,16 +92,19 @@ export const InputImagem = styled.div`
     right: -10px;
     bottom: -10px;
     background: var(--color-background);
-  }
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
+    svg{
+      font-size: 25px;
+    }
+  }
 `
 
 export const InputName = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
-  grid-column: 2/4;
+  grid-column: 1/4;
   grid-row: 2/2;
   
   label{
@@ -79,11 +121,12 @@ export const InputName = styled.div`
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.38);
     border: none!important;
     padding: 1rem;
+    align-items: flex-end;
   }
 `
 
 export const InputSobre = styled.div`
-  grid-column: 2/4;
+  grid-column: 1/4;
   grid-row: 3/3;
   display: flex;
   justify-content: center;

@@ -13,7 +13,7 @@ export const Headers = styled.header`
     background: transparent;
 
     ${({ scl }) => scl && css`
-    backdrop-filter: blur(2em);
+    backdrop-filter: blur(12px);
     background: #ffffff984;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;

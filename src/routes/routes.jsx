@@ -9,6 +9,8 @@ import Error404 from '../pages/erros/404'
 import Pedidos from '../pages/orders'
 import CreateNewCategory from '../pages/Create_New_Category'
 import AboutBusiness from '../pages/About_Business/About'
+import Address from '../pages/About_Business/Address'
+import Schedules from '../pages/About_Business/Schedules'
 
 
 
@@ -28,6 +30,8 @@ function RoutersApp() {
 			<Route path='/addproducts/:id' element={<Provider> <Addprodutos/> </Provider>} />
 			<Route path='/newcategory' element={<Provider> <CreateNewCategory/> </Provider>}/>
 			<Route path='/business' element={<Provider><AboutBusiness/></Provider>}/>
+			<Route path='/address' element={<Address/>}/>
+			<Route path='/times' element={<Schedules/>}/>
 
 
 			<Route path='*' element={<Error404 />} />
