@@ -14,22 +14,24 @@ export const Content = styled.section`
     width: 90%;
     height: 90%;
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: 0.5em;
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: auto;
+    overflow: hidden;
+    overflow-y: auto;
 
     @media screen and (max-width: 512px){
       display: block;
     }
   
   div{
-    margin: 1rem;
+    margin: 0.5em;
     position: relative;
 
     label{
-      margin: 1rem 0.5rem 0.5rem;
+      margin: 0rem 0.7rem 0.6rem;
     }
   }
 
@@ -79,44 +81,19 @@ export const Startday = styled.div`
 export const Endday = styled.div`
 `
 
-
 export const StartTime1 = styled.div`
-  svg{
-      position: absolute;
-      font-size: 20px;
-      right: 15px;
-      bottom: 36%;
-    }
-`
 
+`
 
 export const EndTime1 = styled.div`
-  svg{
-      position: absolute;
-      font-size: 20px;
-      right: 15px;
-      bottom: 36%;
-    }
 `
-
 
 export const StartTime2 = styled.div`
-  svg{
-      position: absolute;
-      font-size: 20px;
-      right: 15px;
-      bottom: 36%;
-    }
+  
 `
 
-
 export const EndTime2 = styled.div`
-  svg{
-      position: absolute;
-      font-size: 20px;
-      right: 15px;
-      bottom: 36%;
-    }
+
 `
 
 

@@ -14,9 +14,6 @@ import { Content, Iniciar, Button } from './RegisterStyled'
 ///--- import jquery ---///
 import $ from 'jquery';
 import 'jquery-mask-plugin/dist/jquery.mask.min.js';
-///---toast ---///
-import Swal from 'sweetalert2'
-import { getHours } from 'date-fns'
 
 
 
