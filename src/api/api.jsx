@@ -4,8 +4,9 @@ import { parseCookies } from 'nookies';
 const UseAPIClient = (ctx) => {
     let cookies = parseCookies(ctx);
 
+
     const api = axios.create({
-        baseURL: 'https://dayfood-back-end.onrender.com/',
+        baseURL: 'http://localhost:3000/',
         headers: {
             Authorization: `Bearer ${cookies['@dayfood.token']}`
         }
