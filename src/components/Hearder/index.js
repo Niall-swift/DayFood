@@ -4,7 +4,7 @@ import { ContextGlobal } from '../../contexts/auth'
 /// icones
 import { IoApps, IoStatsChartOutline} from 'react-icons/io5'
 import { FaPowerOff, FaBuilding} from "react-icons/fa";
-import { MdCategory,MdDeliveryDining,MdLocalFlorist,MdOutlineSupportAgent,MdOutlineMiscellaneousServices,MdOutlineAddToPhotos} from "react-icons/md";
+import { MdCategory,MdDeliveryDining,MdLocalFlorist,MdOutlineSupportAgent,MdOutlineMiscellaneousServices,MdOutlineAddToPhotos,MdTableRestaurant} from "react-icons/md";
 import { TbReceipt} from 'react-icons/tb'
 /// styled
 import {Headers, Dropdown, Button, Menu, Buttons} from './styledHeader'
@@ -30,6 +30,7 @@ export default function Header() {
 
   return (
     <Headers scl={scl}>
+      <Link to='/ordertable'><Buttons><MdTableRestaurant/>Mesas</Buttons></Link>
       <Link to='/orders'><Buttons><TbReceipt/>Pedidos</Buttons></Link>
       <Dropdown>
         <Button> <IoApps/> Apps </Button>

@@ -100,6 +100,7 @@ export const Buttons = styled.button`
     max-height: 55px;
     border-radius: 10px;
     font-size: 0.75rem;
+    margin-right: 1rem;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 

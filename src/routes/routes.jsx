@@ -6,11 +6,12 @@ import Provider from './private'
 import Addprodutos from '../pages/Add_New_Products'
 import Favoritos from '../components/Favoritos'
 import Error404 from '../pages/erros/404'
-import Pedidos from '../pages/orders'
+import Pedidos from '../pages/Order_Dlelivery_Web'
 import CreateNewCategory from '../pages/Create_New_Category'
 import AboutBusiness from '../pages/About_Business/About'
 import Address from '../pages/About_Business/Address'
 import Schedules from '../pages/About_Business/Schedules'
+import OrderTable from '../pages/Order_Tbale_App'
 
 
 
@@ -23,6 +24,7 @@ function RoutersApp() {
 
 			<Route path='/home' element={<Home/>} />
 			<Route path='/orders' element={<Pedidos/>}/>
+			<Route path='/ordertable' element={<OrderTable/>}/>
 			<Route path='/favoritos' element={<Provider> <Favoritos /> </Provider>}/>
 
 

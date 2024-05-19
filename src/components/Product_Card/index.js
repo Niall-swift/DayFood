@@ -206,8 +206,8 @@ export default function CardDoProduto({ data }) {
 					</button>
 				}
 
-				<img src={(`https://dayfood-back-end.onrender.com/files/${banner}`)} alt='img' />
-				
+				<img src={(`http://localhost:3000/files/${banner}`)} alt='img'/>
+
 				<h3>{name}</h3>
 				<strong>R$ {formatCurrency(price, "BRL").replace(".", ",")}</strong>
 
