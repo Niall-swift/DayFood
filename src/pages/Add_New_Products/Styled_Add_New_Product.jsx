@@ -120,7 +120,7 @@ export const GroupInput = styled.div`
 
 `
 export const FileUpload = styled.label`
-    width: 100%;
+    width: 350px;
     max-width: 25rem;
     height: auto;
     display: flex;

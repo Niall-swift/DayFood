@@ -35,6 +35,12 @@
     margin-left: 5px;
 }
 
+.Numero-mesa{
+    font-weight: bold;
+    font-size: 1.3em;
+    color: var(--color-primary);
+}
+
 .numero-pedido {
     font-size: 16px;
 }

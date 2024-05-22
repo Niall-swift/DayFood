@@ -133,15 +133,14 @@ export const Card = styled.div`
         }
     }
 
-    @media screen and (max-width: 512px){
+    @media screen and (max-width: 412px){
         display: flex;
         position: relative;
-        aspect-ratio: 0/9;
         justify-content: center;
         align-items: center;
         flex-direction: row;
         max-width: 100%;
-        max-height: 10em;
+        max-height: 120px;
         justify-content: center;
         align-items: center;
         box-sizing: border-box;
@@ -164,28 +163,31 @@ export const Card = styled.div`
         div{
             display: flex;
             height: auto;
-            width: 50%;
-            left: 35%;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
             bottom: 0.5em;
         }
     }
 
         img{
-        width: 10.5em;
-        height: 6em;
-        margin-inline: auto;
+        position: absolute;
+        left: 10px;
+        width: 100px;
+        height: 100px;
         object-fit: cover;
         border-radius: 15px;
     }
 
     h3{
         position: relative;
-        width: 100%;
-        margin-right: 5rem;
+        width: 40%;
         margin: 0;
         font-size: 1em;
-        padding-left: 1.7em;
-        text-align: start;
+        text-align: center;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
     }
 
     strong{
@@ -200,7 +202,7 @@ export const Card = styled.div`
     div{
         position: absolute;
         max-width: 100%;
-        right: -3em;
+        right: -1em;
         bottom: 0.5em;
     }
 }
