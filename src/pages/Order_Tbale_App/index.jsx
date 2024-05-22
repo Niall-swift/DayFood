@@ -1,6 +1,5 @@
 import OrdersStatus from "../../components/orders_status"
 import UseAPIClient from "../../api/api"
-import { formatTime } from "../../utils/formats/hour/formatHour";
 import { calcularTempoEmMinutos } from "../../utils/formats/formatMinutes";
 import ModalOrder from "../../components/ModalOrder";
 import { useEffect } from "react"
@@ -19,7 +18,7 @@ export default function OrderTable() {
   const refreshIntervalRef = useRef(null); // Ref para armazenar o ID do intervalo
   const [sound, setSound] = useState(new Audio(Sond))
   const [modalVisible, setModalVisible] = useState(false);
-  
+
 
   // hooks usePrevious
   function usePrevious(value) {
@@ -33,11 +32,11 @@ export default function OrderTable() {
 
   /// produzi son se a orderList tive uma alteração
   useEffect(() => {
-    if (prevOrderList!== undefined && JSON.stringify(prevOrderList)!== JSON.stringify(orderList)) {
+    if (prevOrderList !== undefined && JSON.stringify(prevOrderList) !== JSON.stringify(orderList)) {
       sound.play();
     }
   }, [orderList, prevOrderList, sound]); // Removido 'sound' do array de dependências
-  
+
   /// Listando Orders 
   useEffect(() => {
     async function hnadleRefreshOrder() {
@@ -53,15 +52,15 @@ export default function OrderTable() {
   }, []);
 
   /// buscando detalhes do pedido 
-  async function hnadleDetail(id){
-    const response = await api.get('/order/detail',{
-      params:{
+  async function hnadleDetail(id) {
+    const response = await api.get('/order/detail', {
+      params: {
         ordertable_id: id
       }
     })
     setModalItem(response.data)
     setModalVisible(true)
-  } 
+  }
 
   /// fecha modal
   function handleCloseModal() {
@@ -69,57 +68,57 @@ export default function OrderTable() {
   }
 
   return (
-  <>
-  <ModalOrder
-  isOpen={modalVisible}
-  order={modalItem}
-  onRequestClose={handleCloseModal}
-  />
-  
-    <section className='content'>
+    <>
+      <ModalOrder
+        isOpen={modalVisible}
+        order={modalItem}
+        onRequestClose={handleCloseModal}
+      />
 
-      <OrdersStatus />
+      <section className='content'>
 
-      {orderList.map((Order, index) => {
-        const tempoDiferenca = calcularTempoEmMinutos(Order.created_at);
+        <OrdersStatus />
 
-        return (
-          <div className='card-pedido-content' key={index} onClick={()=> hnadleDetail(Order.id)}>
+        {orderList.map((Order, index) => {
+          const tempoDiferenca = calcularTempoEmMinutos(Order.created_at);
 
-            <div className='card-pedido'>
+          return (
+            <div className='card-pedido-content' key={index} onClick={() => hnadleDetail(Order.id)}>
 
-              <div>
-                <p className="Numero-mesa">MESA - {Order.table}</p>
-              </div>
+              <div className='card-pedido'>
 
-              <div className='card-content'>
                 <div>
-
-                  <p className='info-pedido'>
-                    {Order.name}
-                  </p>
-
-                  <p className='info-pedido'>
-                    Consumir no Local
-                  </p>
-
+                  <p className="Numero-mesa">MESA - {Order.table}</p>
                 </div>
 
-                <div className="separate"></div>
+                <div className='card-content'>
+                  <div>
 
-                <div className='card-pedido-footer'>
+                    <p className='info-pedido'>
+                      {Order.name}
+                    </p>
 
-                  <p className='horario-pedido'>
-                  Recebido há {tempoDiferenca}
-                  </p>
+                    <p className='info-pedido'>
+                      Consumir no Local
+                    </p>
 
+                  </div>
+
+                  <div className="separate"></div>
+
+                  <div className='card-pedido-footer'>
+
+                    <p className='horario-pedido'>
+                      Recebido há {tempoDiferenca}
+                    </p>
+
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        )
-      })}
-    </section>
-  </>
+          )
+        })}
+      </section>
+    </>
   )
 }

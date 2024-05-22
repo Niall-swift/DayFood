@@ -12,16 +12,15 @@ function calcularTempoEmMinutos(created_at) {
 
   // Verifica se a diferença é maior que 100 minutos (ou seja, 1 hora e 40 minutos)
   if (diffInHours >= 1 && diffInHours <= 23) {
-
     // Retorna a diferença em horas
-    return `${diffInHours} Horas`;
+    return `${diffInHours}h`;
 
   } else {
     // Calculate the difference in minutes
     let diffInMinutes = Math.abs(parseInt(agoraHora) - parseInt(pedidoHora)) * 60;
-
+    
     // Retorna a diferença em minutos
-    return `${diffInMinutes} Minutos`;
+    return `${diffInMinutes}m`;
   }
 }
 

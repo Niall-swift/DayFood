@@ -13,8 +13,6 @@ export default function Cart(){
     
 
     const {cart, setCart, offcart, setOffcart, modal, setModal} = useContext(ContextGlobal)
-
-    console.log(cart)
     
     const total = cart.reduce((accumulator, currentItem) => {
         const subtotal = currentItem.quantity * currentItem.price;
