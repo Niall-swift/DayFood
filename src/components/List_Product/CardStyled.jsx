@@ -2,23 +2,20 @@ import styled from "styled-components";
 
 
 export const Content = styled.section`
-    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    max-width: 1300px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     align-items: flex-start;
     flex-wrap: wrap;
-    max-width: 1320px;
     margin: 2em auto;
-    padding: 15px;
-    width: 100%;
-    height: 100vh;
     overflow: hidden;
     overflow-y: auto;
 
-    @media screen and (max-width: 512px){
+    @media screen and (max-width: 600px){
         padding: 5px;
-        height: 100vh;
     }
 `
 
@@ -26,12 +23,12 @@ export const Content = styled.section`
 export const Card = styled.div`
     background-color: var(--color-white);
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16/9;
     max-width: 290px;
     max-height: 290px;
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    padding: 1em;
     justify-content: center;
     align-items: center;
     margin: 1em 1em;
@@ -76,7 +73,9 @@ export const Card = styled.div`
 
     img{
         height: 250px;
-        width: 250px;
+        width: 255px;
+        max-height: 250px;
+        max-width: 255px;
         object-fit: cover;
         border-radius: 20px;
         overflow-clip-margin: content-box;
@@ -88,6 +87,9 @@ export const Card = styled.div`
         width: 100%;
         text-align: center;
         margin: 16px auto;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     strong{
@@ -133,7 +135,7 @@ export const Card = styled.div`
         }
     }
 
-    @media screen and (max-width: 412px){
+    @media screen and (max-width: 600px){
         display: flex;
         position: relative;
         justify-content: center;
@@ -163,9 +165,10 @@ export const Card = styled.div`
         div{
             display: flex;
             height: auto;
-            width: 100%;
+            width: 70%;
             justify-content: center;
             align-items: center;
+            justify-content: flex-start;
             bottom: 0.5em;
         }
     }

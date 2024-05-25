@@ -1,7 +1,7 @@
-import OrdersStatus from "../../components/orders_status"
 import UseAPIClient from "../../api/api"
 import { calcularTempoEmMinutos } from "../../utils/formats/formatMinutes";
 import ModalOrder from "../../components/ModalOrder";
+import OrderStatusBar from "../../components/Order_Status_Bar";
 import { useEffect } from "react"
 import { useState, useRef } from "react";
 import Sond from '../../utils/sounds/xbox-series-sign-on (1).mp3'
@@ -9,12 +9,12 @@ import Sond from '../../utils/sounds/xbox-series-sign-on (1).mp3'
 
 
 
-export default function OrderTable() {
+export default function OrderTable(){
   const api = UseAPIClient();
-  const data = new Date()
 
   const [orderList, setOrderList] = useState([])
   const [modalItem, setModalItem] = useState([])
+  const [routeService, setRouteService] = useState('orders')
   const refreshIntervalRef = useRef(null); // Ref para armazenar o ID do intervalo
   const [sound, setSound] = useState(new Audio(Sond))
   const [modalVisible, setModalVisible] = useState(false);
@@ -40,16 +40,16 @@ export default function OrderTable() {
   /// Listando Orders 
   useEffect(() => {
     async function hnadleRefreshOrder() {
-      const response = await api.get('/orders');
+      const response = await api.get(`/${routeService}`);
       setOrderList([...response.data]);
     }
     hnadleRefreshOrder();
     // Inicia o intervalo após o primeiro render
-    refreshIntervalRef.current = setInterval(hnadleRefreshOrder, 30000); // Chama a função a cada 60 segundos (1 minuto) ou user no maximo 30 segundos 
+    refreshIntervalRef.current = setInterval(hnadleRefreshOrder, 10000); // Chama a função a cada 60 segundos (1 minuto) ou user no maximo 30 segundos 
 
     // Limpa o intervalo ao desmontar o componente
     return () => clearInterval(refreshIntervalRef.current);
-  }, []);
+  }, [routeService]);
 
   /// buscando detalhes do pedido 
   async function hnadleDetail(id) {
@@ -77,7 +77,14 @@ export default function OrderTable() {
 
       <section className='content'>
 
-        <OrdersStatus />
+        <OrderStatusBar
+        isPendente={orderList.length}
+        isPagamento={orderList.length}
+        isConcluido={orderList.length}
+        isRecusado={orderList.length}
+        isOrder={orderList}
+        isRoute={setRouteService}
+        />
 
         {orderList.map((Order, index) => {
           const tempoDiferenca = calcularTempoEmMinutos(Order.created_at);

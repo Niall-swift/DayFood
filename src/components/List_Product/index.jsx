@@ -10,7 +10,7 @@ import UseAPIClient from '../../api/api';
 import Load from '../load';
 import NoResults from '../No_Results';
 
-export default function Refeicoes() {
+export default function ListProducts() {
 
 	const api = UseAPIClient()
 

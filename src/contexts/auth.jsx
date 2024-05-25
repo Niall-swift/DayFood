@@ -50,6 +50,7 @@ function AutorizarClientes({ children }) {
 				phone,
 			})
 			setLoading(true)
+			navigate('/business', { replace: true });
 		} catch (err) {
 			Swal.fire({
 				icon: 'error',

@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 import { useContext } from 'react';
 
 ///// import componts //////////
-import OrdersStatus from '../../components/orders_status';
+import OrdersStatus from '../../components/Order_Delivery_Status_Bar';
 
 /////// css ////
 import './pedidos.css'
