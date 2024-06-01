@@ -1,4 +1,4 @@
-import { Conteiner, CardDetail, InfoPedido, InforMesa, TotalPedido, TotalPrice, FinishButton } from "./Modal-Styled";
+import { Conteiner, CardDetail, InfoPedido, InforMesa, TotalPedido, TotalPrice, FinishButton, ListProducts} from "./Modal-Styled";
 import UseAPIClient from "../../api/api";
 import formatCurrency from "../../utils/formatCurrency";
 import Swal from "sweetalert2";
@@ -33,6 +33,7 @@ export default function ModalOrder({ isOpen, order, onRequestClose}) {
           <p>MESA - {order.length === 0 ? 'Desconhecida' : order[0].ordertable.table}</p>
           <button onClick={onRequestClose}>Fechar</button>
         </InforMesa>
+        <ListProducts>
         {order.map((item, index) => {
           return (
             <>
@@ -49,6 +50,7 @@ export default function ModalOrder({ isOpen, order, onRequestClose}) {
             </>
           )
         })}
+        </ListProducts>
         <TotalPedido>
           <TotalPrice><h3>Total</h3> <h3>R$ {formatCurrency(total, 'BRL').replace(".", ",")}</h3></TotalPrice>
           <FinishButton onClick={()=> handleFinish(order[0].ordertable.id)}>Finalizar pedido</FinishButton>

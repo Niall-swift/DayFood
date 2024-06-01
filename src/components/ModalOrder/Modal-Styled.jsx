@@ -73,9 +73,13 @@ export const InforMesa = styled.div`
     }
   }
 `
+export const ListProducts = styled.div`
+  height: 65%;
+  overflow: hidden;
+  overflow-y: auto;
+`
 export const InfoPedido = styled.div`
   display: flex;
-  height: auto;
   align-items: center;
   justify-content: space-between;
   border-bottom: 3px dotted var(--color-text);

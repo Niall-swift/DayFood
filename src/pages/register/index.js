@@ -54,7 +54,7 @@ export default function Register() {
 			phone
 		}
 
-		if(ValidaEmail && ValidaTelefone && ValidaSenha){
+		if (ValidaEmail && ValidaTelefone && ValidaSenha) {
 			await signUp(data)
 		}
 	}
