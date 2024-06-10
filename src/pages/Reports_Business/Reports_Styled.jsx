@@ -15,7 +15,7 @@ export const Chartsmonthly = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  width: 40%;
+  width: 100%;
   background: var(--color-white);
   border-radius: 20px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
