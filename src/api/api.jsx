@@ -6,7 +6,7 @@ const UseAPIClient = (ctx) => {
 
 
     const api = axios.create({
-        baseURL:'http://localhost:3000/',
+        baseURL:'https://dayfood-back-end.onrender.com/',
         headers: {
             Authorization: `Bearer ${cookies['@dayfood.token']}`
         }
