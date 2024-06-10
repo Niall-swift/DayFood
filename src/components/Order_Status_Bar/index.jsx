@@ -11,14 +11,9 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-export default function OrderStatusBar({ isPendente, isPagamento, isConcluido, isRecusado, isRoute, isOrder}) {
+export default function OrderStatusBar({ isPendente, isPagamento, isConcluido, isRoute, isOrder}) {
 
   const Navigate = useNavigate();
-
-  const total = isOrder.reduce((accumulator, Item) => {
-    const subtotal = Item.status === true;
-    return accumulator + subtotal;
-  }, 0);
 
   function Lest() {
     Navigate('/Home')
@@ -33,7 +28,7 @@ export default function OrderStatusBar({ isPendente, isPagamento, isConcluido, i
             <CiCircleInfo />
             Pendentes
             <StatusNumber>
-              {isOrder.length}
+              {isPendente}
             </StatusNumber>
           </Button>
 
@@ -41,7 +36,7 @@ export default function OrderStatusBar({ isPendente, isPagamento, isConcluido, i
             <CiMoneyCheck1 />
             Aguardando pagamento
             <StatusNumber>
-              {total}
+              {isPagamento}
             </StatusNumber>
           </Button>
 
@@ -49,17 +44,10 @@ export default function OrderStatusBar({ isPendente, isPagamento, isConcluido, i
             <CiCircleCheck />
             Concluído
             <StatusNumber>
-              4
+            {isConcluido}
             </StatusNumber>
           </Button>
 
-          <Button>
-            <CiCircleRemove />
-            Recusado
-            <StatusNumber>
-              4
-            </StatusNumber>
-          </Button>
         </div>
       </Content>
     </>

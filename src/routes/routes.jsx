@@ -12,6 +12,7 @@ import AboutBusiness from '../pages/About_Business/About'
 import Address from '../pages/About_Business/Address'
 import Schedules from '../pages/About_Business/Schedules'
 import OrderTable from '../pages/Order_Tbale_App'
+import ReportsBusiness from '../pages/Reports_Business'
 
 
 
@@ -32,6 +33,7 @@ function RoutersApp() {
 			<Route path='/addproducts/:id' element={<Provider> <Addprodutos/> </Provider>} />
 			<Route path='/newcategory' element={<Provider> <CreateNewCategory/> </Provider>}/>
 			<Route path='/business' element={<Provider><AboutBusiness/></Provider>}/>
+			<Route path='/Reports' element={<Provider><ReportsBusiness/></Provider>}/>
 			<Route path='/address' element={<Address/>}/>
 			<Route path='/times' element={<Schedules/>}/>
 

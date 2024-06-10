@@ -39,7 +39,7 @@ export default function Header() {
           <Link to='/newcategory'><Buttons><MdCategory />Category</Buttons></Link>
           <Link to='/newcategory'><Buttons><MdDeliveryDining/>Delivery</Buttons></Link>
           <Link to='/business'><Buttons><FaBuilding />Empresa</Buttons></Link>
-          <Link to='/address'><Buttons><IoStatsChartOutline />Relaório</Buttons></Link>
+          <Link to='/Reports'><Buttons><IoStatsChartOutline />Relaório</Buttons></Link>
           <Link to='/times'><Buttons><MdOutlineMiscellaneousServices/>Geral</Buttons></Link>
           <Link to='/newcategory'><Buttons><MdLocalFlorist />Temas</Buttons></Link>
           <Link to='/newcategory'><Buttons><MdOutlineSupportAgent />Suporte</Buttons></Link>

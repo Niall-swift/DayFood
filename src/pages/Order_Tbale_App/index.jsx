@@ -5,19 +5,21 @@ import OrderStatusBar from "../../components/Order_Status_Bar";
 import { useEffect } from "react"
 import { useState, useRef } from "react";
 import Sond from '../../utils/sounds/xbox-series-sign-on (1).mp3'
+import { useFetcher } from "react-router-dom";
 
 
 
 
-export default function OrderTable(){
+export default function OrderTable() {
   const api = UseAPIClient();
 
-  const [orderList, setOrderList] = useState([])
+  const [orderList, setOrderList] = useState({ pending: [], awaitingPayment: [], completed: [] })
   const [modalItem, setModalItem] = useState([])
   const [routeService, setRouteService] = useState('orders')
   const refreshIntervalRef = useRef(null); // Ref para armazenar o ID do intervalo
   const [sound, setSound] = useState(new Audio(Sond))
   const [modalVisible, setModalVisible] = useState(false);
+
 
 
   // hooks usePrevious
@@ -41,7 +43,14 @@ export default function OrderTable(){
   useEffect(() => {
     async function hnadleRefreshOrder() {
       const response = await api.get(`/${routeService}`);
-      setOrderList([...response.data]);
+
+      const allOrders = response.data;
+
+      const pendingOrders = allOrders.filter(order => order.draft === false);
+      const awaitingPaymentOrders = allOrders.filter(order => order.payment === 'awaiting_payment');
+      const completedOrders = allOrders.filter(order => order.payment === 'payment_confirmed');
+
+      setOrderList({ pending: pendingOrders, awaitingPayment: awaitingPaymentOrders, completed: completedOrders });
     }
     hnadleRefreshOrder();
     // Inicia o intervalo após o primeiro render
@@ -74,19 +83,17 @@ export default function OrderTable(){
         order={modalItem}
         onRequestClose={handleCloseModal}
       />
-
       <section className='content'>
 
+
         <OrderStatusBar
-        isPendente={orderList.length}
-        isPagamento={orderList.length}
-        isConcluido={orderList.length}
-        isRecusado={orderList.length}
-        isOrder={orderList}
-        isRoute={setRouteService}
+          isPendente={orderList.pending ? orderList.pending.length : 0}
+          isPagamento={orderList.awaitingPayment ? orderList.awaitingPayment.length : 0}
+          isConcluido={orderList.completed ? orderList.completed.length : 0}
+          isRoute={setRouteService}
         />
 
-        {orderList.map((Order, index) => {
+        {orderList.pending.map((Order, index) => {
           const tempoDiferenca = calcularTempoEmMinutos(Order.created_at);
 
           return (
