@@ -24,7 +24,7 @@ export default function Pedidos() {
 
 	const [status, setStatus] = useState('pendente')
 
-
+	console.log(forPedidos)
 
 	useEffect(() => {
 		document.body.style.overflowY = 'auto';
@@ -202,7 +202,7 @@ export default function Pedidos() {
 				<div className='card-pedido'>
 
 					<div>
-						<button type="button">
+						<button type="button" onClick={aceitandoPedido}>
 							Pendente
 						</button>
 						<p>#1</p>

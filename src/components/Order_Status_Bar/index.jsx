@@ -40,8 +40,8 @@ export default function OrderStatusBar({ isPendente, isPagamento, isConcluido, i
             </StatusNumber>
           </Button>
 
-          <Button>
-            <CiCircleCheck />
+          <Button onClick={()=> isRoute('list/confirmedpay')}>
+            <CiCircleCheck/>
             Concluído
             <StatusNumber>
             {isConcluido}

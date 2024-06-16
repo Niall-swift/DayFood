@@ -21,7 +21,7 @@ export const CardDetail = styled.div`
     align-items: center;
     position: relative;
     margin: 1em;
-    background-color: #ffffff;
+    background-color: #fffdf2;
 
   ::before{
     content: '';
@@ -30,7 +30,7 @@ export const CardDetail = styled.div`
     height: 10px;
     width: 100%;
     top: -7px;
-    background: radial-gradient(circle, transparent, transparent 50%, #ffffff 50%, #ffffff 100%) -7px -8px / 16px 16px repeat-x;
+    background: radial-gradient(circle, transparent, transparent 50%, #fffdf2 50%, #fffdf2 100%) -7px -8px / 16px 16px repeat-x;
   }
 
   ::after{
@@ -40,7 +40,7 @@ export const CardDetail = styled.div`
     height: 10px;
     width: 100%;
     bottom: -7px;
-    background: radial-gradient(circle, transparent, transparent 50%, #ffffff 50%, #ffffff 100%) -15px 2px / 16px 16px repeat-x;
+    background: radial-gradient(circle, transparent, transparent 50%, #fffdf2 50%, #fffdf2 100%) -15px 2px / 16px 16px repeat-x;
   }
 
   @media screen and (max-width: 512px){
@@ -153,6 +153,7 @@ export const FinishButton = styled.button`
   color: var(--color-black);
   box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.38);
   transition: 0.5s;
+  letter-spacing: 3px;
     :hover{
         transition: 0.5s;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;

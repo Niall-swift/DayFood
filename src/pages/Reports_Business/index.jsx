@@ -10,42 +10,44 @@ export default function ReportsBusiness() {
   const api = UseAPIClient();
 
   const [barChartData, setBarChartData] = useState([]);
-  const [vendadia, setVendadia] = useState([]);
-  const [vendasemanal, setVendasemanal] = useState([]);
+  const [vendapayment, setVendapayment] = useState([]);
+  const [vendaDiarios, setVendaDiarios] = useState([]);
 
   useEffect(() => {
     async function RefrashVandasProduct() {
       const response = await api.get('/list/confirmedpay')
-
+      
       const dados = response.data.map(venda => {
-        const dataFormatada = formatarDataParaDiaSemana(venda.data_pedido);
+        const dataFormatada = formatarDataParaDiaSemana(venda.created_at);
         return { ...venda, diaSemana: dataFormatada };
       })
-      setVendadia(loadDateday(dados))
-      setVendasemanal(loadDatesemanal(dados))
-      setBarChartData(loadDateproduct(dados))
       console.log(dados)
+      setVendapayment(loadDatepayment(dados))
+      setVendaDiarios(loadDateDiarios(dados))
+      setBarChartData(loadDateproduct(dados))
     }
     RefrashVandasProduct()
   }, [])
 
-  const loadDateday = (data) => {
+  // grafico do modelo de pagmentos
+  const loadDatepayment = (data) => {
 
     const values = _.groupBy(data, (value) => {
-      return value.payment;
+      return value.ordertable.form_payment;
     });
 
     const result = _.map(values, (value, key) => {
       return [
         key,
-        _.sumBy(values[key], (v) => parseFloat(v.total_amount))
+        _.sumBy(values[key], (v) => v.amount * parseFloat(v.product.price))
       ]
     })
 
     return ([["card", "pix"], ...result])
   }
 
-  const loadDatesemanal = (data) => {
+  //grafico de faturamento diario
+  const loadDateDiarios = (data) => {
 
     const values = _.groupBy(data, (value) => {
       return value.diaSemana;
@@ -54,17 +56,19 @@ export default function ReportsBusiness() {
     const result = _.map(values, (value, key) => {
       return [
         key,
-        _.sumBy(values[key], (v) => parseFloat(v.total_amount))
+        _.sumBy(values[key], (v) =>  v.amount * parseFloat(v.product.price))
       ]
     })
-
-    return ([["product", "total"], ...result])
+    
+    return ([["", "total"], ...result])
   }
 
+
+  // grafico de quantidade de produtos vendidos 
   const loadDateproduct = (data) => {
 
     const values = _.groupBy(data, (value) => {
-      return value.name_product;
+      return value.product.name;
     });
 
     const result = _.map(values, (value, key) => {
@@ -87,7 +91,6 @@ export default function ReportsBusiness() {
     ["Sleep", 7],
   ];
 
-
   const options = {
     pieHole: 0.3,
     is3D: false,
@@ -103,12 +106,12 @@ return (
   <Conteiner>
     <Chartsmonthly>
       <>
-        <h1>faturamento semanal</h1>
+        <h1>faturamento do Dia </h1>
         <Chart
           chartType="Line"
           width="100%"
           height="400px"
-          data={vendasemanal}
+          data={vendaDiarios}
           options={options}
         />
       </>
@@ -119,7 +122,7 @@ return (
         <h1>modelos de pagamentos</h1>
         <Chart
           chartType="PieChart"
-          data={vendadia}
+          data={vendapayment}
           options={options}
           width={"100%"}
           height={"400px"}

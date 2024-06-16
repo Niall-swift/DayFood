@@ -21,7 +21,7 @@ export default function OrderTable() {
   const [modalVisible, setModalVisible] = useState(false);
 
 
-
+ console.log(orderList)
   // hooks usePrevious
   function usePrevious(value) {
     const ref = useRef();
@@ -45,10 +45,9 @@ export default function OrderTable() {
       const response = await api.get(`/${routeService}`);
 
       const allOrders = response.data;
-
       const pendingOrders = allOrders.filter(order => order.draft === false);
       const awaitingPaymentOrders = allOrders.filter(order => order.payment === 'awaiting_payment');
-      const completedOrders = allOrders.filter(order => order.payment === 'payment_confirmed');
+      const completedOrders = allOrders.filter(order => order.form_payment !== '');
 
       setOrderList({ pending: pendingOrders, awaitingPayment: awaitingPaymentOrders, completed: completedOrders });
     }

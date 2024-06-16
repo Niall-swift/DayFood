@@ -1,9 +1,7 @@
-import { Conteiner, CardDetail, InfoPedido, InforMesa, TotalPedido, TotalPrice, FinishButton, ListProducts } from "./Modal-Styled";
+import { Conteiner, CardDetail, InfoPedido, InforMesa, TotalPedido, TotalPrice, FinishButton, ListProducts} from "./Modal-Styled";
 import UseAPIClient from "../../api/api";
 import formatCurrency from "../../utils/formatCurrency";
 import Swal from "sweetalert2";
-import { param } from "jquery";
-
 
 
 export default function ModalOrder({ isOpen, order, onRequestClose }) {
@@ -24,28 +22,38 @@ export default function ModalOrder({ isOpen, order, onRequestClose }) {
       onRequestClose()
     }
   }
-  const result = order.map((item)=>({
-    name: item.product.name,
-    price: item.product.price,
-    amount: item.amount
-  }))
 
-  
+  /// comfimando pagamento
+  async function fromPay (id) {
 
-  async function handleFinishPedido() {
-    const response = api.post('/confirmedpay',{
-      amounts: order.map((i)=>({
-        amount: i.amount,
-        name_product: i.product.name,
-        total_amount: total,
-        payment: 'pix'
-      }))
-    })
+    const inputOptions = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          "pix": "pix",
+          "cartão": "cartão",
+          "dinheiro": "dinheiro"
+        });
+      }, 1000);
+    });
     
-    console.log(total)
+  const { value: payment } = await Swal.fire({
+    title: "Seleciona forma de recebimento",
+    input: "radio",
+    inputOptions,
+    confirmButtonColor: '#37be5f',
+    inputValidator: (value) => {
+      if (!value) {
+        return "Você identificar como o pagamento foi feito";
+      }
+    }
+  });
+  if(payment){
+    const res = await api.put('/confirmedpay',{
+      ordertable_id: id,
+      form_payment: payment
+    })
   }
-
-  console.log(order)
+}
 
   return (
     <Conteiner
@@ -75,8 +83,17 @@ export default function ModalOrder({ isOpen, order, onRequestClose }) {
           })}
         </ListProducts>
         <TotalPedido>
-          <TotalPrice><h3>Total</h3> <h3>R$ {formatCurrency(total, 'BRL').replace(".", ",")}</h3></TotalPrice>
-          <FinishButton onClick={() => handleFinishPedido()}>Finalizar pedido</FinishButton>
+          {order && order[0]?.ordertable.payment === '' ?
+            <>
+              <TotalPrice><h3>Total</h3> <h3>R$ {formatCurrency(total, 'BRL').replace(".", ",")}</h3></TotalPrice>
+              <FinishButton onClick={() => handleFinish(order[0].ordertable_id)}>Finalizar pedido</FinishButton>
+            </>
+            :
+            <>
+              <TotalPrice><h3>Total</h3> <h3>R$ {formatCurrency(total, 'BRL').replace(".", ",")}</h3></TotalPrice>
+              <FinishButton style={{backgroundColor: '#37be5f', color: '#fff',}} onClick={() => fromPay(order[0].ordertable_id)}>Reaceber</FinishButton>
+            </>
+          }
         </TotalPedido>
       </CardDetail>
     </Conteiner>

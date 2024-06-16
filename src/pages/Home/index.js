@@ -10,11 +10,12 @@ import Titulo from "../../components/pages_titulos"
 import Barra from "../../components/Search_Bar/index.jsx"
 import Header from "../../components/Hearder/index.js"
 import ListProducts from "../../components/List_Product"
+import { io } from 'socket.io-client'
 
 
 
 export default function Home(){
-
+    
     return(
         <Homen>
             <Header/>
