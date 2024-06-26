@@ -2,7 +2,7 @@ import { Conteiner, Chartsmonthly } from "./Reports_Styled";
 import Chart from "react-google-charts";
 import UseAPIClient from "../../api/api";
 import { useState } from "react";
-import { formatarDataParaDiaSemana } from "../../utils/formats/formatsDateISO";
+import { formatarDataParaDiaSemana } from "../../utils/formats/formatsDateIso";
 import { formatarDataParaMes } from "../../utils/formats/formatMonthISO";
 import { useEffect } from "react";
 import _ from "lodash";
