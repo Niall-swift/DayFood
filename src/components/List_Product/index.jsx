@@ -17,13 +17,14 @@ export default function ListProducts() {
 	const { idcategory, setIdcategory, product, setProduct} = useContext(ContextGlobal)
 	
 
-	const [idproduct, setIdproduct] = useState('')
+	const [idproduct, setIdproduct] = useState([])
 	const [load, setLoad] = useState(true)
 
+	console.log(idproduct)
 	// -- listando produtos 
 	useEffect(() => {
 		setLoad(true)
-		async function ListProduct(id, name, price, description, banner, order, active, category_id) {
+		async function ListProduct(id, name, price, description, banner, order, active, category_id, business_id) {
 			try {
 				const response = await api.get('/product', {
 					id,
@@ -33,7 +34,8 @@ export default function ListProducts() {
 					banner,
 					order,
 					active,
-					category_id
+					category_id,
+					business_id
 				})
 				setIdproduct(response.data)
 				setLoad(false)

@@ -33,7 +33,8 @@ export default function ModalOrder({ isOpen, order, onRequestClose }) {
           "cartão": "cartão",
           "dinheiro": "dinheiro"
         });
-      }, 1000);
+      }, 500);
+      onRequestClose()
     });
     
   const { value: payment } = await Swal.fire({

@@ -1,4 +1,4 @@
-import { formatTime } from "../hour/formatHour";
+import { formatTime } from "../formatsHoursISO/formatHour";
 
 function calcularTempoEmMinutos(created_at) {
   // Converte o timestamp do pedido para um objeto Date

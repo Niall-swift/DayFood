@@ -27,6 +27,7 @@
     "react-icons": "^4.9.0",
     "react-router-dom": "^6.11.2",
     "react-scripts": "5.0.1",
+    "recharts": "^2.12.7",
     "socket.io": "^4.7.5",
     "socket.io-client": "^4.7.5",
     "socketio": "^1.0.0",

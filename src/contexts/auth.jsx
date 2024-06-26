@@ -66,7 +66,7 @@ function AutorizarClientes({ children }) {
 
 	// Fazendo login com o usuario
 	async function lognin({ email, password }) {
-
+		setLoading(true)
 		try {
 			const response = await api.post('/session', {
 				email,
@@ -82,7 +82,7 @@ function AutorizarClientes({ children }) {
 
 			setUser({ id, name, email })
 			setLoading(true)
-			navigate('/Home')
+			navigate(`/home`)
 
 		} catch (err) {
 			Swal.fire({
@@ -110,7 +110,7 @@ function AutorizarClientes({ children }) {
 					// Definir o usuário no estado
 					setUser({ id, name, email });
 					setLoading(true);
-					navigate('/Home')
+					navigate(`/home/${id}`)
 				})
 				.catch(() => {
 					// Se houver algum erro ao obter os detalhes do usuário, fazer logout

@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 /// import componetes
 import { BackButton } from '../../components/Back_Button'
 /// css styles
 import { Container, GroupInput, FileUpload } from './Styled_Add_New_Product'
 import { PageTransition } from '../../components/PageAnimation'
 /// icone
-import { IoIosArrowBack } from 'react-icons/io'
 import { FiUpload } from 'react-icons/fi';
 ///-- API
 import UseAPIClient from '../../api/api'
@@ -14,10 +13,11 @@ import UseAPIClient from '../../api/api'
 import img from '../../assets/undraw_images_re_0kll.svg'
 /// toast
 import Swal from 'sweetalert2'
+import { ContextGlobal } from '../../contexts/auth'
 
 
 export default function Addprodutos() {
-
+	const {user} = useContext(ContextGlobal);
 	const api = UseAPIClient();
 
 	const [imagem, setImagem] = useState(null)
@@ -44,6 +44,7 @@ export default function Addprodutos() {
 			data.append('order', 1)
 			data.append('active', true)
 			data.append('category_id', category[categorySelected].id)
+			data.append('business_id', user.id)
 
 			await api.post('/add/product', data)
 

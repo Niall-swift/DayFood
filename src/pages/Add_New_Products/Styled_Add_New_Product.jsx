@@ -136,10 +136,10 @@ export const FileUpload = styled.label`
     grid-row: 1/1;
 
     span{
-            z-index: 99;
-            position: absolute;
-            opacity: 0.75;
-            transition: all 0.5s;
+        z-index: 99;
+        position: absolute;
+        opacity: 0.75;
+        transition: all 0.5s;
     }
 
     input{

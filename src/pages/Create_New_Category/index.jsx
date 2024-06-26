@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useContext} from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ContextGlobal } from '../../contexts/auth'
 // impor componetes
 import { BackButton } from '../../components/Back_Button'
 //--Swal
@@ -24,6 +24,10 @@ import antartica from '../../utils/icons/antartica-choop.svg';import haineken3 f
 
 
 export default function CreateNewCategory() {
+	const {user} = useContext(ContextGlobal);
+
+	console.log(user)
+
 	const api = UseAPIClient();
 	const navigate = useNavigate();
 	
@@ -51,7 +55,8 @@ export default function CreateNewCategory() {
 				const response = await api.post('/category', {
 					name,
 					order: "",
-					icon
+					icon,
+					business_id: user.id
 				})
 				Swal.fire({
 					icon: 'success',

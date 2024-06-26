@@ -16,9 +16,7 @@ export default function Categoria() {
 	useEffect(() => {
 		async function listCategory() {
 			try {
-				const response = await api('/listcategory', {
-
-				})
+				const response = await api('/listcategory')
 				setName(response.data)
 			} catch (err) {
 				console.log(err)

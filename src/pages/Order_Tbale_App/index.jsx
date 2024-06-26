@@ -46,8 +46,8 @@ export default function OrderTable() {
 
       const allOrders = response.data;
       const pendingOrders = allOrders.filter(order => order.draft === false);
-      const awaitingPaymentOrders = allOrders.filter(order => order.payment === 'awaiting_payment');
-      const completedOrders = allOrders.filter(order => order.form_payment !== '');
+      const awaitingPaymentOrders = allOrders.filter(order => order.payment === "awaiting_payment");
+      const completedOrders = allOrders.filter(order => order.form_payment !== "");
 
       setOrderList({ pending: pendingOrders, awaitingPayment: awaitingPaymentOrders, completed: completedOrders });
     }
